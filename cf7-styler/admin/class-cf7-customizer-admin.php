@@ -60,7 +60,7 @@ class Cf7_Customizer_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-        if(isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'cf7cstmzr_page') {
+        if(isset($_GET['page']) && filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) == 'cf7cstmzr_page') {
             wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_style( 'codemirror', plugin_dir_url( __FILE__ ) . 'vendors/codemirror.css', array(), $this->version . time(), 'all' );
             wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cf7-customizer-admin.css', array(), $this->version . time(), 'all' );
@@ -74,7 +74,7 @@ class Cf7_Customizer_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-        if(isset($_GET['page']) && (sanitize_text_field($_GET['page']) == 'cf7cstmzr_page' || sanitize_text_field($_GET['page']) == 'cf7cstmzr_tutorial_page')) {
+        if(isset($_GET['page']) && (filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) == 'cf7cstmzr_page' || filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) == 'cf7cstmzr_tutorial_page')) {
             wp_enqueue_code_editor(array('type' => 'text/css'));
 
             if ( ! did_action( 'wp_enqueue_media' ) ) {
@@ -155,7 +155,7 @@ class Cf7_Customizer_Admin {
     public function render_settings_page() {
         $is_welcome_done = get_option('cf7cstmzr_welcome_done');
 
-	    if (!empty($_GET['page']) && ('cf7cstmzr_tutorial_page' === sanitize_text_field($_GET['page']) || empty($is_welcome_done))) {
+	    if (!empty($_GET['page']) && ('cf7cstmzr_tutorial_page' === filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) || empty($is_welcome_done))) {
             include_once CF7CSTMZR_PLUGIN_PATH . 'admin/partials/cf7-customizer-admin-tutorial.php';
         } else {
             include_once CF7CSTMZR_PLUGIN_PATH . 'admin/partials/cf7-customizer-admin-display.php';
@@ -197,7 +197,7 @@ class Cf7_Customizer_Admin {
             $form_id = get_query_var( 'cf7cstmzr-form' );
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
-                $form_id = $_GET['form_id'];
+                $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             }
         }
 
@@ -421,7 +421,7 @@ class Cf7_Customizer_Admin {
             $form_id = get_query_var( 'cf7cstmzr-form' );
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
-                $form_id = $_GET['form_id'];
+                $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             }
         }
 
@@ -433,7 +433,7 @@ class Cf7_Customizer_Admin {
     }
 
     public function admin_body_class($classes) {
-        if(isset($_GET['page']) && sanitize_text_field($_GET['page']) == 'cf7cstmzr_page') {
+        if(isset($_GET['page']) && filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) == 'cf7cstmzr_page') {
             $classes = $classes . ' cf7cstmzr-body';
 
             if (!empty($_GET["fw"])) {

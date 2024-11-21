@@ -56,12 +56,12 @@ $split_mode = get_option('cf7cstmzr-split-mode', false);
 $is_body_tag = get_option('cf7cstmzr-load-body-tag', false);
 $default_style_scheme_settings = Cf7_Style_Scheme::get_default_style_scheme();
 $cache_form = get_option('cf7cstmzr_cache_form', '');
-$is_fw = !empty($_GET['fw']) ? sanitize_text_field($_GET['fw']) : '';
+$is_fw = !empty($_GET['fw']) ? filter_input( INPUT_GET, 'fw', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) : '';
 
 $style_scheme_slug = 'default';
 
 if ('free' !== $plugin_version) {
-    $style_scheme_slug = !empty($_GET['style_scheme']) ? sanitize_text_field($_GET['style_scheme']) : 'default';
+    $style_scheme_slug = !empty($_GET['style_scheme']) ? filter_input( INPUT_GET, 'style_scheme', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) : 'default';
 }
 
 $style_schemes = get_option('cf7cstmzr_style_schemes', array());
@@ -124,11 +124,11 @@ $forms_group_by_style_scheme = Cf7_Style_Scheme::get_forms_group_by_style_scheme
 $current_url_state = get_site_url() . '/wp-admin/admin.php?page=cf7cstmzr_page';
 
 if (!empty($_GET['tab'])) {
-    $current_url_state .= '&tab=' . sanitize_text_field($_GET['tab']);
+    $current_url_state .= '&tab=' . filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 }
 
 if (!empty($_GET['style_scheme'])) {
-    $current_url_state .= '&style_scheme=' . sanitize_text_field($_GET['style_scheme']);
+    $current_url_state .= '&style_scheme=' . filter_input( INPUT_GET, 'style_scheme', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 }
 
 $permalink_structure = get_option('permalink_structure');

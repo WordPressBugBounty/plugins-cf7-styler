@@ -81,13 +81,13 @@ class Cf7_Customizer_Public {
             $form_id = get_query_var( 'cf7cstmzr-form' );
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
-                $form_id = $_GET['form_id'];
+                $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             }
         }
         $plugin_version = Cf7_License::get_license_version();
 
         if ($form_id) { // Backend testing
-            $style_scheme_slug = !empty($_GET['style_scheme']) ? sanitize_text_field($_GET['style_scheme']) : 'default';
+            $style_scheme_slug = !empty($_GET['style_scheme']) ? filter_input( INPUT_GET, 'style_scheme', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) : 'default';
             $style_schemes = get_option('cf7cstmzr_style_schemes', array());
             $is_styled = get_option('cf7cstmzr-preview-styled', true);
             $preview_mode = get_option('cf7cstmzr-preview-mode', false);
@@ -281,7 +281,7 @@ class Cf7_Customizer_Public {
             $form_id = get_query_var( 'cf7cstmzr-form' );
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
-                $form_id = $_GET['form_id'];
+                $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             }
         }
         if ($form_id) {
@@ -302,7 +302,7 @@ class Cf7_Customizer_Public {
                 $form_id = get_query_var( 'cf7cstmzr-form' );
             } else {
                 if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
-                    $form_id = $_GET['form_id'];
+                    $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
                 }
             }
             $plugin_version = Cf7_License::get_license_version();

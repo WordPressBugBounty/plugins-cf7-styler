@@ -18,7 +18,7 @@ $tabs = array(
     'license' => __('License', 'cf7-styler'),
 );
 
-$active_tab = !empty($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'form-customize';
+$active_tab = !empty($_GET['tab']) ? filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) : 'form-customize';
 
 return;
 ?>
