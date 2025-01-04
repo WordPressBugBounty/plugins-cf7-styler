@@ -78,7 +78,7 @@ class Cf7_Customizer_Public {
         $permalink_structure = get_option('permalink_structure');
 
         if (!empty($permalink_structure)) {
-            $form_id = get_query_var( 'cf7cstmzr-form' );
+            $form_id = sanitize_text_field(get_query_var( 'cf7cstmzr-form' ));
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
                 $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
@@ -278,7 +278,7 @@ class Cf7_Customizer_Public {
         $permalink_structure = get_option('permalink_structure');
 
         if (!empty($permalink_structure)) {
-            $form_id = get_query_var( 'cf7cstmzr-form' );
+            $form_id = sanitize_text_field(get_query_var( 'cf7cstmzr-form' ));
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
                 $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
@@ -295,13 +295,14 @@ class Cf7_Customizer_Public {
 	}
 
 	public function add_wrapper($output, $tag, $attr, $m) {
-	    if ('contact-form-7' === $tag) {
+
+	    if ('contact-form-7' === sanitize_text_field($tag)) {
             $permalink_structure = get_option('permalink_structure');
 
             if (!empty($permalink_structure)) {
-                $form_id = get_query_var( 'cf7cstmzr-form' );
+                $form_id = sanitize_text_field(get_query_var( 'cf7cstmzr-form' ));
             } else {
-                if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
+                if (!empty(sanitize_text_field($_GET['cf7cstmzr_page'])) && !empty(sanitize_text_field($_GET['form_id']))) {
                     $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
                 }
             }
@@ -463,7 +464,7 @@ class Cf7_Customizer_Public {
             $output_after = '';
 
             if ($is_form_exists) {
-                $output_before .= '<div id="cf7cstmzr-form" class="cf7cstmzr-form-'.$attr["id"].' cf7cstmzr-form">';
+                $output_before .= '<div id="cf7cstmzr-form" class="cf7cstmzr-form-'.esc_attr($attr["id"]).' cf7cstmzr-form">';
                 $output_after .= '</div>';
             }
 

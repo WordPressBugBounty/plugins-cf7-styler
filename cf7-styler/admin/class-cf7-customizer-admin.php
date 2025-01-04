@@ -194,13 +194,13 @@ class Cf7_Customizer_Admin {
         $permalink_structure = get_option('permalink_structure');
 
         if (!empty($permalink_structure)) {
-            $form_id = get_query_var( 'cf7cstmzr-form' );
+            $form_id =sanitize_text_field( get_query_var( 'cf7cstmzr-form' ));
         } else {
-            if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
+            if (!empty(sanitize_text_field($_GET['cf7cstmzr_page'])) && !empty(sanitize_text_field($_GET['form_id']))) {
                 $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             }
         }
-
+		
 	    if ($form_id) {
 	        $form_post = get_post($form_id);
 
@@ -292,12 +292,12 @@ class Cf7_Customizer_Admin {
                         <div id="split-container" class="float-split" style="display:flex">
                             <div class="split current-style" id="split-left">
                                 <div class="split-inner">
-                                    <?php echo do_shortcode('[contact-form-7 id="'.$form_id.'" title="' . $form->post_title . '"]'); ?>
+                                    <?php echo do_shortcode('[contact-form-7 id="'.esc_attr($form_id).'" title="' . $form->post_title . '"]'); ?>
                                 </div>
                             </div>
                             <div class="split <?php echo $split_mode; ?>" id="split-right">
                                 <div class="split-inner">
-                                    <?php echo do_shortcode('[contact-form-7 id="'.$form_id.'" title="' . $form->post_title . '"]'); ?>
+                                    <?php echo do_shortcode('[contact-form-7 id="'.esc_attr($form_id).'" title="' . $form->post_title . '"]'); ?>
                                 </div>
                             </div>
                         </div>
@@ -402,7 +402,7 @@ class Cf7_Customizer_Admin {
                             }
                         </style>
                         <?php
-                        echo do_shortcode('[contact-form-7 id="'.$form_id.'" title="' . $form->post_title . '"]');
+                        echo do_shortcode('[contact-form-7 id="'.esc_attr($form_id).'" title="' . $form->post_title . '"]');
                     }
                     ?>
                 </div>
@@ -418,7 +418,7 @@ class Cf7_Customizer_Admin {
         $permalink_structure = get_option('permalink_structure');
 
         if (!empty($permalink_structure)) {
-            $form_id = get_query_var( 'cf7cstmzr-form' );
+            $form_id = esc_attr(get_query_var( 'cf7cstmzr-form' ));
         } else {
             if (!empty($_GET['cf7cstmzr_page']) && !empty($_GET['form_id'])) {
                 $form_id = filter_input( INPUT_GET, 'form_id', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
