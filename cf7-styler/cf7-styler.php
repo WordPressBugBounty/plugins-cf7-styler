@@ -13,7 +13,7 @@
  * Plugin Name:       WOW Style Contact Form 7
  * Plugin URI:        https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-tipp-einfach-verbinden/
  * Description:       How to turn your contact form7 form into a converting and easy to use and pro styled contact form, "survey" lead generator or an eye catching form
- * Version:           1.7.0
+ * Version:           1.7.1
  * Author:            Tobias Conrad
  * Author URI:        https://saleswonder.biz
  * License:           GPL-3.0+
@@ -31,7 +31,7 @@ if ( !defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 if ( !defined( 'CF7CSTMZR_VERSION' ) ) {
-    define( 'CF7CSTMZR_VERSION', '1.7.0' );
+    define( 'CF7CSTMZR_VERSION', '1.7.1' );
 }
 if ( !defined( 'CF7CSTMZR_BRANCH' ) ) {
     define( 'CF7CSTMZR_BRANCH', 'master' );
