@@ -2,8 +2,8 @@
 Contributors: Tobias_Conrad, freemius, subscribetech
 Donate link: https://saleswonder.biz/?=utm_source=wp_org-plugin&utm_medium=plugin&utm_campaign=Cf7-Styler
 Tags: contact form 7, cf7, contactform7, Contact Form 7 style, Design
-Tested up to: 6.7
-Stable tag: 1.7.1
+Tested up to: 6.8
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Save your time, get more users using your forms and make the forms match your brand with style and uniqueness by using the WOW Styler.
@@ -331,6 +331,23 @@ If you are using WP2LEADS with an active Pro Version the Contact Form 7 Styler P
 The latest version is checked during testing update on our site and will work.
 
 == Changelog ==
+
+= 1.7.2 2025.06.09 =
+
+* Working with the latest WP
+* Freemius SDK update, which includes multiple bug fixes and improvements.
+update for better opt-in for information via email, license handling (free, trial, paid)
+https://github.com/Freemius/wordpress-sdk/releases
+
+= My favorite: Highest level of marketing by giving webinars: =
+
+* WebinarIgnition is the only platform that enables unlimited interactions directly in the webinar!
+* Whether sales, surveys or countdown timers – 
+* WebinarIgnition ensures maximum conversion.
+* Sure add unlimited forms inside the webinars
+
+[Sign up now](https://webinarignition.com/#signup) up for a 30-day free trial and enjoy our [free setup service](https://webinarignition.com/meet-us/#unlimited-plus-license).
+Want to see it in action? Join the [live webinar next Thursday](https://webinarignition.com/the-webinar-driving-school/), [(Wednesday in german)](https://webinar.campfiremarketing.de/webinar-fahrschule/) or [watch demo examples on-demand](https://demo.webinarignition.com/).
 
 = 1.7.1 2025.02.09 =
 
