@@ -3,7 +3,7 @@ Contributors: Tobias_Conrad, freemius, subscribetech
 Donate link: https://saleswonder.biz/?=utm_source=wp_org-plugin&utm_medium=plugin&utm_campaign=Cf7-Styler
 Tags: contact form 7, cf7, contactform7, Contact Form 7 style, Design
 Tested up to: 6.8
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Save your time, get more users using your forms and make the forms match your brand with style and uniqueness by using the WOW Styler.
@@ -331,6 +331,21 @@ If you are using WP2LEADS with an active Pro Version the Contact Form 7 Styler P
 The latest version is checked during testing update on our site and will work.
 
 == Changelog ==
+
+= 1.7.3 2025.07.14 =
+
+Thanks for using CF7 Styler
+
+Changes in todays version 
+
+* Fix security issue for better security - thanks Patchstack and Vlad for fixing
+* Updated Freemius SDK for better usability
+
+Happy styling, Tobias CEO
+
+PS: Please see a form plugin with a lot of marketing and sales automation behind
+
+[Visit on WP.org now](https://wordpress.org/plugins/webinar-ignition/#description)
 
 = 1.7.2 2025.06.09 =
 

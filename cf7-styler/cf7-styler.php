@@ -13,7 +13,7 @@
  * Plugin Name:       WOW Style Contact Form 7
  * Plugin URI:        https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-tipp-einfach-verbinden/
  * Description:       How to turn your contact form7 form into a converting and easy to use and pro styled contact form, "survey" lead generator or an eye catching form
- * Version:           1.7.2
+ * Version:           1.7.3
  * Author:            Tobias Conrad
  * Author URI:        https://saleswonder.biz
  * License:           GPL-3.0+
@@ -25,13 +25,23 @@
 if ( !defined( 'WPINC' ) ) {
     die;
 }
+
+$is_customizer_page = isset($_GET['page']) && sanitize_text_field($_GET['page']) === 'cf7cstmzr_page';
+if ($is_customizer_page) {
+    $allowed_tabs = ['form-customize', 'license', 'settings'];
+    $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'form-customize';
+    if (!in_array($current_tab, $allowed_tabs)) {
+        wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
+    }
+}
+// wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
 if ( !defined( 'CF7CSTMZR_VERSION' ) ) {
-    define( 'CF7CSTMZR_VERSION', '1.7.2' );
+    define( 'CF7CSTMZR_VERSION', '1.7.3' );
 }
 if ( !defined( 'CF7CSTMZR_BRANCH' ) ) {
     define( 'CF7CSTMZR_BRANCH', 'master' );
