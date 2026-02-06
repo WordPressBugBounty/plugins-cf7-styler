@@ -9,11 +9,11 @@
  * @wordpress-plugin
  * Requires PHP: 7.0
  * Requires at least: 5.0
- * Tested up to: 6.8
+ * Tested up to: 6.9
  * Plugin Name:       WOW Style Contact Form 7
  * Plugin URI:        https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-tipp-einfach-verbinden/
  * Description:       How to turn your contact form7 form into a converting and easy to use and pro styled contact form, "survey" lead generator or an eye catching form
- * Version:           1.7.3
+ * Version:           1.7.5
  * Author:            Tobias Conrad
  * Author URI:        https://saleswonder.biz
  * License:           GPL-3.0+
@@ -25,12 +25,11 @@
 if ( !defined( 'WPINC' ) ) {
     die;
 }
-
-$is_customizer_page = isset($_GET['page']) && sanitize_text_field($_GET['page']) === 'cf7cstmzr_page';
-if ($is_customizer_page) {
+$is_customizer_page = isset( $_GET['page'] ) && sanitize_text_field( $_GET['page'] ) === 'cf7cstmzr_page';
+if ( $is_customizer_page ) {
     $allowed_tabs = ['form-customize', 'license', 'settings'];
-    $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'form-customize';
-    if (!in_array($current_tab, $allowed_tabs)) {
+    $current_tab = ( isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : 'form-customize' );
+    if ( !in_array( $current_tab, $allowed_tabs ) ) {
         wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
     }
 }
@@ -41,7 +40,7 @@ if ($is_customizer_page) {
  * Rename this for your plugin and update it as you release new versions.
  */
 if ( !defined( 'CF7CSTMZR_VERSION' ) ) {
-    define( 'CF7CSTMZR_VERSION', '1.7.3' );
+    define( 'CF7CSTMZR_VERSION', '1.7.5' );
 }
 if ( !defined( 'CF7CSTMZR_BRANCH' ) ) {
     define( 'CF7CSTMZR_BRANCH', 'master' );
@@ -65,14 +64,11 @@ if ( !class_exists( 'Cf7_License' ) ) {
     require_once 'includes/lib/Cf7_License.php';
 }
 if ( 'free' === Cf7_License::get_license_version() ) {
-    
     if ( !function_exists( 'cf7_styler' ) ) {
         // Create a helper function for easy SDK access.
-        function cf7_styler()
-        {
-            global  $cf7_styler ;
+        function cf7_styler() {
+            global $cf7_styler;
             $secret_key = ( defined( 'WP_FS__SECRET_KEY' ) && WP_FS__SECRET_KEY ? WP_FS__SECRET_KEY : '' );
-            
             if ( !isset( $cf7_styler ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
@@ -89,18 +85,18 @@ if ( 'free' === Cf7_License::get_license_version() ) {
                     'has_paid_plans'      => true,
                     'is_org_compliant'    => true,
                     'trial'               => array(
-                    'days'               => 14,
-                    'is_require_payment' => true,
-                ),
+                        'days'               => 14,
+                        'is_require_payment' => true,
+                    ),
                     'has_affiliation'     => 'all',
                     'menu'                => array(
-                    'slug'    => 'cf7cstmzr_page',
-                    'support' => true,
-                    'contact' => false,
-                    'parent'  => array(
-                    'slug' => 'wpcf7',
-                ),
-                ),
+                        'slug'    => 'cf7cstmzr_page',
+                        'support' => true,
+                        'contact' => false,
+                        'parent'  => array(
+                            'slug' => 'wpcf7',
+                        ),
+                    ),
                     'secret_key'          => $secret_key,
                 );
                 if ( !cf7cstmzr_is_plugin_activated( 'contact-form-7', 'wp-contact-form-7.php' ) ) {
@@ -112,46 +108,40 @@ if ( 'free' === Cf7_License::get_license_version() ) {
                 }
                 $cf7_styler = fs_dynamic_init( $params );
             }
-            
             return $cf7_styler;
         }
-        
+
         // Init Freemius.
         cf7_styler();
         // Signal that SDK was initiated.
         do_action( 'cf7_styler_loaded' );
     }
-
 }
 if ( !function_exists( 'cf7cstmzr_show_cf7_missing_notice' ) ) {
-    function cf7cstmzr_show_cf7_missing_notice()
-    {
-        echo  '<div class="error"><p><strong>' . sprintf( esc_html__( 'CF7 Customizer requires Contact Form 7 plugin to be installed and active. You can download %s.', 'cf7-styler' ), '<a href="/wp-admin/plugin-install.php?s=contact+form+7&tab=search&type=term" target="_blank">Contact Form 7 here</a>' ) . '</strong></p></div>' ;
+    function cf7cstmzr_show_cf7_missing_notice() {
+        echo '<div class="error"><p><strong>' . sprintf( esc_html__( 'CF7 Customizer requires Contact Form 7 plugin to be installed and active. You can download %s.', 'cf7-styler' ), '<a href="/wp-admin/plugin-install.php?s=contact+form+7&tab=search&type=term" target="_blank">Contact Form 7 here</a>' ) . '</strong></p></div>';
     }
 
 }
 if ( !function_exists( 'cf7cstmzr_show_dev_env_notice' ) ) {
-    function cf7cstmzr_show_dev_env_notice()
-    {
+    function cf7cstmzr_show_dev_env_notice() {
         ?>
         <div class="notice notice-warning">
             <p>
                 <strong><?php 
         _e( 'WOW Style Contact Form 7', 'cf7-styler' );
         ?> DEV env:</strong>  version <strong><?php 
-        echo  CF7CSTMZR_VERSION ;
+        echo CF7CSTMZR_VERSION;
         ?></strong>
 
                 <?php 
-        
         if ( defined( 'CF7CSTMZR_BRANCH' ) && CF7CSTMZR_BRANCH ) {
             ?>
                     current branch <strong><?php 
-            echo  CF7CSTMZR_BRANCH ;
+            echo CF7CSTMZR_BRANCH;
             ?></strong>
                     <?php 
         }
-        
         ?>
             </p>
         </div>
@@ -160,7 +150,7 @@ if ( !function_exists( 'cf7cstmzr_show_dev_env_notice' ) ) {
 
 }
 if ( !cf7cstmzr_is_plugin_activated( 'contact-form-7', 'wp-contact-form-7.php' ) ) {
-    if ( !isset( $_GET['page'] ) ||  filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS )  !== 'cf7cstmzr_page' ) {
+    if ( !isset( $_GET['page'] ) || filter_input( INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) !== 'cf7cstmzr_page' ) {
         add_action( 'admin_notices', 'cf7cstmzr_show_cf7_missing_notice' );
     }
 }
@@ -172,8 +162,7 @@ if ( defined( 'CF7CSTMZR_DEV_ENV' ) && CF7CSTMZR_DEV_ENV ) {
  * This action is documented in includes/class-cf7-customizer-activator.php
  */
 if ( !function_exists( 'activate_cf7_customizer' ) ) {
-    function activate_cf7_customizer()
-    {
+    function activate_cf7_customizer() {
         require_once plugin_dir_path( __FILE__ ) . 'includes/class-cf7-customizer-activator.php';
         cf7_customizer_deactivate_previous();
         //Deactivate any previously active instance of the plugin, before activating new one
@@ -186,8 +175,7 @@ if ( !function_exists( 'activate_cf7_customizer' ) ) {
  * This action is documented in includes/class-cf7-customizer-deactivator.php
  */
 if ( !function_exists( 'deactivate_cf7_customizer' ) ) {
-    function deactivate_cf7_customizer()
-    {
+    function deactivate_cf7_customizer() {
         require_once plugin_dir_path( __FILE__ ) . 'includes/class-cf7-customizer-deactivator.php';
         Cf7_Customizer_Deactivator::deactivate();
     }
@@ -197,16 +185,13 @@ if ( !function_exists( 'cf7_customizer_deactivate_previous' ) ) {
     /**
      * Deactivate any previously active instance of the plugin
      */
-    function cf7_customizer_deactivate_previous()
-    {
-        
+    function cf7_customizer_deactivate_previous() {
         if ( current_user_can( 'activate_plugins' ) && class_exists( 'Cf7_Customizer' ) && defined( 'CF7CSTMZR_PLUGIN_FILE' ) ) {
             if ( !function_exists( 'is_plugin_active_for_network' ) ) {
                 include_once ABSPATH . '/wp-admin/includes/plugin.php';
             }
             deactivate_plugins( plugin_basename( CF7CSTMZR_PLUGIN_FILE ), true );
         }
-    
     }
 
 }
@@ -229,8 +214,7 @@ if ( !class_exists( 'Cf7_Customizer' ) ) {
  * @since    1.0.0
  */
 if ( !function_exists( 'run_cf7_customizer' ) ) {
-    function run_cf7_customizer()
-    {
+    function run_cf7_customizer() {
         $plugin = new Cf7_Customizer();
         $plugin->run();
     }
