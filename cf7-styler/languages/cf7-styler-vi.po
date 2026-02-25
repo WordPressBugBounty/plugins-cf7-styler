@@ -3,7 +3,7 @@ msgstr ""
 "Language: vi\n"
 "POT-Creation-Date: 2020-02-06 11:35+0000\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-04-15 16:10+0000\n"
+"PO-Revision-Date: 2026-02-24 23:07+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: WOW Style Contact Form 7\n"
 "Report-Msgid-Bugs-To: \n"
@@ -14,14 +14,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Loco-Version: 2.6.4; wp-6.1.2-alpha-55489"
 
-#: admin/class-cf7-customizer-admin.php:463
+#: admin/class-cf7-customizer-admin-ajax.php:553
+msgid " installed and activated"
+msgstr " đã cài đặt và kích hoạt"
+
+#: admin/class-cf7-customizer-admin.php:484
 msgid "- disable style scheme -"
 msgstr "- Chế độ phong cách -"
 
-#: includes/lib/Cf7_Template.php:68 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:463 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:517 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:672 
+#: includes/lib/Cf7_Template.php:68
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:463
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:517
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:672
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:789
 msgid "- select -"
 msgstr "Chọn -"
@@ -44,8 +48,8 @@ msgstr ""
 msgid "Activate style for all forms*"
 msgstr "Tích hoạt phong cách cho tất cả các hình thức *"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1292 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1329 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1292
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1329
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1396
 msgid "Activate style for current form"
 msgstr "Tích hoạt phong cách cho hình thức hiện tại"
@@ -74,7 +78,7 @@ msgstr ""
 "Trước khi sử dụng biểu mẫu liên hệ kiểu Wow 7, bạn cần cài đặt và kích hoạt "
 "biểu mẫu liên hệ 7 Plugin."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:853 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:853
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1076
 msgid "BG Color"
 msgstr "Bg Màu"
@@ -123,26 +127,26 @@ msgstr "Tác giả: Takayuki Miyoshi"
 msgid "Cancel"
 msgstr "hủy"
 
-#: cf7-styler.php:129
+#: cf7-styler.php:124
 #, php-format
 msgid ""
 "CF7 Customizer requires Contact Form 7 plugin to be installed and active. "
 "You can download %s."
 msgstr ""
-"Cf7 Customizer yêu cầu biểu mẫu liên hệ 7 Plugin để cài đặt và hoạt động. "
-"Bạn có thể tải xuống % S."
+"CF7 Customizer yêu cầu plugin Contact Form 7 phải được cài đặt và kích hoạt. "
+"Bạn có thể tải xuống %s."
 
-#: admin/class-cf7-customizer-admin-ajax.php:487
+#: admin/class-cf7-customizer-admin-ajax.php:495
 msgid "CF7 Form is not selected"
 msgstr "Cf7 không được chọn"
 
-#: public/class-cf7-customizer-public.php:342 
-#: public/class-cf7-customizer-public.php:371 
-#: admin/class-cf7-customizer-admin.php:94 
-#: admin/class-cf7-customizer-admin.php:95 
-#: admin/class-cf7-customizer-admin.php:115 
-#: admin/class-cf7-customizer-admin.php:116 
-#: admin/class-cf7-customizer-admin.php:430
+#: public/class-cf7-customizer-public.php:353
+#: public/class-cf7-customizer-public.php:382
+#: admin/class-cf7-customizer-admin.php:115
+#: admin/class-cf7-customizer-admin.php:116
+#: admin/class-cf7-customizer-admin.php:136
+#: admin/class-cf7-customizer-admin.php:137
+#: admin/class-cf7-customizer-admin.php:451
 msgid "CF7 Styler"
 msgstr "Cf7 phong cách"
 
@@ -158,11 +162,11 @@ msgstr "phong cách sạch"
 msgid "Clear"
 msgstr "rõ ràng"
 
-#: public/class-cf7-customizer-public.php:360
+#: public/class-cf7-customizer-public.php:371
 msgid "Close"
 msgstr "gần"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:973 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:973
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1116
 msgid "Color"
 msgstr "Màu"
@@ -213,17 +217,18 @@ msgstr ""
 "mẫu cùng một lúc và nếu bạn kích hoạt phong cách cho biểu mẫu hiện tại, "
 "phong cách sẽ được loại bỏ từ biểu mẫu khác."
 
-#: admin/class-cf7-customizer-admin.php:481
+#. %s: styled form title.
+#: admin/class-cf7-customizer-admin.php:504
 #, php-format
 msgid ""
-"Currently <strong>%s</strong> form is styled with <strong>%s</strong>. As in "
-"free version you can style only one form at a time and if you activate style "
-"for current form, style will be removed from other form."
+"Currently <strong>\"%1$s</strong> form is styled with <strong>\"%2$s</strong>"
+". As in free version you can style only one form at a time and if you "
+"activate style for current form, style will be removed from other form."
 msgstr ""
-"Hiện tại <strong>% s </strong>Hình thức được thiết kế với <strong>% s "
-"</strong>. Như trong phiên bản miễn phí bạn có thể phong cách chỉ một biểu "
-"mẫu cùng một lúc và nếu bạn kích hoạt phong cách cho biểu mẫu hiện tại, "
-"phong cách sẽ được loại bỏ từ biểu mẫu khác."
+"Hiện tại, biểu mẫu <strong>\"%1$s</strong> được định dạng bằng <strong>"
+"\"%2$s</strong>. Trong phiên bản miễn phí, bạn chỉ có thể định dạng một biểu "
+"mẫu tại một thời điểm. Nếu bạn kích hoạt định dạng cho biểu mẫu hiện tại, "
+"định dạng sẽ bị xóa khỏi các biểu mẫu khác."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1134
 msgid "Custom CSS"
@@ -237,8 +242,8 @@ msgstr "Mã CSS tùy chỉnh"
 msgid "Dashed"
 msgstr "Dashuất"
 
-#: admin/class-cf7-customizer-admin-ajax.php:66 
-#: admin/class-cf7-customizer-admin-ajax.php:237 
+#: admin/class-cf7-customizer-admin-ajax.php:67
+#: admin/class-cf7-customizer-admin-ajax.php:240
 #: includes/lib/Cf7_Style_Scheme.php:7
 msgid "Default Scheme"
 msgstr "Hệ thống mặc định"
@@ -247,7 +252,7 @@ msgstr "Hệ thống mặc định"
 msgid "Delete Image"
 msgstr "xóa hình ảnh"
 
-#: admin/class-cf7-customizer-admin-ajax.php:286
+#: admin/class-cf7-customizer-admin-ajax.php:289
 msgid "deleted"
 msgstr "xóa"
 
@@ -259,8 +264,8 @@ msgstr "Màn hình Desktop"
 msgid "Disable style for all forms"
 msgstr "Loại phong cách vô hiệu cho tất cả các hình thức"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1296 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1333 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1296
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1333
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1400
 msgid "Disable style for current form"
 msgstr "Chặn phong cách cho hình thức hiện tại"
@@ -278,10 +283,10 @@ msgstr ""
 "tipp.com/web/go-pro-plus-get-all-done4u/\" target=\"_blank\">Ở đây </a><unk> "
 "!"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:184 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:303 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:184
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:303
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
 msgid "Do you want to save changes before leaving page?"
 msgstr "Bạn muốn lưu các thay đổi trước khi rời khỏi trang?"
@@ -298,21 +303,23 @@ msgstr "Double Đôi"
 msgid "Duplicate form in second column"
 msgstr "Duplicate form trong cột thứ hai"
 
-#: admin/class-cf7-customizer-admin-ajax.php:396
+#: admin/class-cf7-customizer-admin-ajax.php:401
 msgid "enabled for all forms"
 msgstr "Có sẵn cho tất cả các hình thức"
 
-#: public/class-cf7-customizer-public.php:471 
-#: admin/class-cf7-customizer-admin-ajax.php:133 
-#: admin/class-cf7-customizer-admin-ajax.php:230 
-#: admin/class-cf7-customizer-admin-ajax.php:237 
-#: admin/class-cf7-customizer-admin-ajax.php:377 
-#: admin/class-cf7-customizer-admin-ajax.php:415 
-#: admin/class-cf7-customizer-admin-ajax.php:434 
-#: admin/class-cf7-customizer-admin-ajax.php:443 
-#: admin/class-cf7-customizer-admin-ajax.php:469 
-#: admin/class-cf7-customizer-admin-ajax.php:487 
-#: admin/class-cf7-customizer-admin-ajax.php:517
+#: public/class-cf7-customizer-public.php:482
+#: admin/class-cf7-customizer-admin-ajax.php:135
+#: admin/class-cf7-customizer-admin-ajax.php:233
+#: admin/class-cf7-customizer-admin-ajax.php:240
+#: admin/class-cf7-customizer-admin-ajax.php:382
+#: admin/class-cf7-customizer-admin-ajax.php:421
+#: admin/class-cf7-customizer-admin-ajax.php:441
+#: admin/class-cf7-customizer-admin-ajax.php:450
+#: admin/class-cf7-customizer-admin-ajax.php:477
+#: admin/class-cf7-customizer-admin-ajax.php:495
+#: admin/class-cf7-customizer-admin-ajax.php:525
+#: admin/class-cf7-customizer-admin-ajax.php:534
+#: admin/class-cf7-customizer-admin-ajax.php:543
 msgid "Error"
 msgstr "Lỗi"
 
@@ -324,8 +331,8 @@ msgstr "Màn hình Full Screen"
 msgid "Font Family"
 msgstr "Font gia đình"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:455 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:834 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:455
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:834
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1090
 msgid "Font Size"
 msgstr "font kích thước"
@@ -346,9 +353,9 @@ msgstr "Hình ảnh BG & Màu sắc"
 msgid "Form Customizing"
 msgstr "Hình thức Customize"
 
-#: admin/class-cf7-customizer-admin-ajax.php:415 
-#: admin/class-cf7-customizer-admin-ajax.php:443 
-#: admin/class-cf7-customizer-admin-ajax.php:469
+#: admin/class-cf7-customizer-admin-ajax.php:421
+#: admin/class-cf7-customizer-admin-ajax.php:450
+#: admin/class-cf7-customizer-admin-ajax.php:477
 msgid "Form is not selected"
 msgstr "Hình thức không được chọn"
 
@@ -384,28 +391,15 @@ msgstr "Hover Màu"
 msgid "Hover Text Color"
 msgstr "Hover Text Màu sắc"
 
-#. Description of the plugin
-msgid ""
-"How to turn your contact form7 form into a converting and easy to use and "
-"pro styled contact form, \"survey\" lead generator or an eye catching form"
-msgstr ""
-"Làm thế nào để biến hình thức liên hệ của bạn Form7 thành một hình thức "
-"chuyển đổi và dễ sử dụng và hình thức liên hệ theo phong cách chuyên nghiệp, "
-"máy phát sáng \"học\" hoặc hình thức chụp mắt"
-
 #. Author URI of the plugin
-msgid "https://saleswonder.biz"
-msgstr "Https: //Saleswonder.biz"
+msgid "https://saleswonder.biz/"
+msgstr "https://saleswonder.biz/"
 
 #. URI of the plugin
-msgid ""
-"https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-"
-"tipp-einfach-verbinden/"
-msgstr ""
-"Https: //Saleswonder.Biz/Blog/4Free-Contact-Form-7-Cf7-Formular-Und-Klick-"
-"Tipp-Einfach-Verbinden/"
+msgid "https://wordpress.org/plugins/cf7-styler/"
+msgstr "https://wordpress.org/plugins/cf7-styler/"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:352 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:352
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:360
 msgid "I'm happy with this! Save"
 msgstr "Tôi hài lòng với điều này! tiết kiệm"
@@ -473,7 +467,7 @@ msgstr "Hình ảnh Position"
 msgid "Image Size"
 msgstr "hình ảnh kích thước"
 
-#: includes/lib/Cf7_Template.php:77 
+#: includes/lib/Cf7_Template.php:77
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:521
 msgid "Inherit"
 msgstr "Di sản"
@@ -490,6 +484,10 @@ msgstr "Tiêu đề Input Style Scheme"
 msgid "Inset"
 msgstr "Ấn Độ"
 
+#: admin/partials/cf7-customizer-admin-tab-required-plugin.php:36
+msgid "Install and Activate"
+msgstr "Cài đặt và Kích hoạt"
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:519
 msgid "Italic"
 msgstr "Ý"
@@ -498,7 +496,7 @@ msgstr "Ý"
 msgid "Labels Color"
 msgstr "Tags màu sắc"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:502 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:502
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1032
 msgid "Labels Font Size"
 msgstr "Tag: font kích thước"
@@ -511,7 +509,7 @@ msgstr "Label thiết lập"
 msgid "License"
 msgstr "Giấy phép"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:839 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:839
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1095
 msgid "Line Height"
 msgstr "đường cao"
@@ -528,17 +526,17 @@ msgstr "Màu trái hover"
 msgid "Links Settings"
 msgstr "Cài đặt Links"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:7 
+#: admin/partials/cf7-customizer-admin-preview-mode.php:7
 #: admin/partials/cf7-customizer-admin-preview-mode.php:19
 msgid "Live"
 msgstr "Sống"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:265 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:265
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:299
 msgid "Load styles in <code>&lt;body&gt;</code> tag"
 msgstr "Load Styles trong <code><body></code>Tag"
 
-#: public/class-cf7-customizer-public.php:348
+#: public/class-cf7-customizer-public.php:359
 msgid "Load styles inside <code>&lt;body&gt;</code> tag on this page"
 msgstr "Load Styles bên trong <code><body></code>Tag trên trang này"
 
@@ -558,7 +556,7 @@ msgstr "Làm cho các lĩnh vực nhập rộng đầy đủ?"
 msgid "Make radiobutton item one per line"
 msgstr "Tạo các mục Radiobutton một cho mỗi dòng"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:733 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:733
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:912
 msgid "Margin"
 msgstr "Margin"
@@ -567,9 +565,9 @@ msgstr "Margin"
 msgid "Mobile View"
 msgstr "Mobile xem"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:828 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1015 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1025 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:828
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1015
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1025
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1051
 msgid "NO"
 msgstr "Không"
@@ -587,11 +585,11 @@ msgstr ""
 "\"Aktivate style for current form\" để áp dụng biểu mẫu hiện tại cho biểu "
 "mẫu này."
 
-#: admin/class-cf7-customizer-admin-ajax.php:517
+#: admin/class-cf7-customizer-admin-ajax.php:525
 msgid "No plugin selected to install"
 msgstr "Không có plugin được chọn để cài đặt"
 
-#: admin/class-cf7-customizer-admin-ajax.php:230
+#: admin/class-cf7-customizer-admin-ajax.php:233
 msgid "No style scheme selected"
 msgstr "Không có phong cách được lựa chọn"
 
@@ -617,13 +615,13 @@ msgstr ""
 msgid "Opacity"
 msgstr "Opacity"
 
-#: public/class-cf7-customizer-public.php:375 
-#: public/class-cf7-customizer-public.php:389 
-#: admin/class-cf7-customizer-admin.php:488
+#: public/class-cf7-customizer-public.php:386
+#: public/class-cf7-customizer-public.php:400
+#: admin/class-cf7-customizer-admin.php:511
 msgid "Open styler"
 msgstr "Mở Styler"
 
-#: admin/class-cf7-customizer-admin.php:527
+#: admin/class-cf7-customizer-admin.php:586
 msgid "Opt-in to see account"
 msgstr "Opt-in để xem tài khoản"
 
@@ -639,15 +637,23 @@ msgstr "Outline Khác"
 msgid "Outset"
 msgstr "ngoài ra"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:702 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:881 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:702
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:881
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1055
 msgid "Padding"
 msgstr "Padding"
 
-#: admin/class-cf7-customizer-admin-ajax.php:133
+#: admin/class-cf7-customizer-admin-ajax.php:135
 msgid "Please input style scheme title"
 msgstr "Vui lòng nhập kiểu scheme title"
+
+#: admin/class-cf7-customizer-admin-ajax.php:543
+msgid "Plugin could not be installed manually"
+msgstr "Plugin không thể được cài đặt thủ công"
+
+#: admin/class-cf7-customizer-admin-ajax.php:534
+msgid "Plugin you are trying to install is not in the required list"
+msgstr "Plugin mà bạn đang cố gắng cài đặt không có trong danh sách yêu cầu"
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1140
 msgid "Preview"
@@ -661,7 +667,7 @@ msgstr "chế độ Preview"
 msgid "Preview Unstyled"
 msgstr "Preview không thể"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:968 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:968
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1110
 msgid "Radius"
 msgstr "Radius"
@@ -686,13 +692,13 @@ msgstr "Khởi động trở lại default"
 msgid "Ridge"
 msgstr "Ridge"
 
-#: public/class-cf7-customizer-public.php:354 
+#: public/class-cf7-customizer-public.php:365
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:361
 msgid "Save"
 msgstr "tiết kiệm"
 
-#: public/class-cf7-customizer-public.php:483 
-#: admin/class-cf7-customizer-admin-ajax.php:119
+#: public/class-cf7-customizer-public.php:494
+#: admin/class-cf7-customizer-admin-ajax.php:120
 msgid "Saved"
 msgstr "cứu rỗi"
 
@@ -700,7 +706,7 @@ msgstr "cứu rỗi"
 msgid "Second column view"
 msgstr "Nhìn Column 2"
 
-#: admin/class-cf7-customizer-admin.php:459
+#: admin/class-cf7-customizer-admin.php:480
 msgid "Select style scheme for this form"
 msgstr "Chọn biểu mẫu kiểu cho biểu mẫu này"
 
@@ -708,7 +714,7 @@ msgstr "Chọn biểu mẫu kiểu cho biểu mẫu này"
 msgid "Settings"
 msgstr "Cài đặt"
 
-#: admin/class-cf7-customizer-admin-ajax.php:210
+#: admin/class-cf7-customizer-admin-ajax.php:212
 msgid "Settings saved as "
 msgstr "Cài đặt được tiết kiệm như"
 
@@ -728,7 +734,7 @@ msgstr "Vị trí bóng"
 msgid "Solid"
 msgstr "Sức mạnh"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:271 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:271
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:310
 msgid ""
 "Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) "
@@ -761,7 +767,7 @@ msgstr "Bắt đầu styling"
 msgid "Start with creating Default Style Scheme"
 msgstr "Bắt đầu với việc tạo một kế hoạch phong cách mặc định"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1413 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1413
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1454
 msgid ""
 "Start with creating your <a href=\"admin.php?page=wpcf7-new\">first Contact "
@@ -814,21 +820,21 @@ msgstr "Phong cách tất cả các hình thức trong một cú nhấp chuột 
 msgid "Style each form with any style scheme individually"
 msgstr "Phong cách mỗi hình thức với bất kỳ phong cách kế hoạch riêng lẻ"
 
-#: admin/class-cf7-customizer-admin-ajax.php:405
+#: admin/class-cf7-customizer-admin-ajax.php:411
 msgid "Style scheme disabled for all forms"
 msgstr "Thiết kế phong cách bị chặn cho tất cả các hình thức"
 
-#: admin/class-cf7-customizer-admin-ajax.php:477
+#: admin/class-cf7-customizer-admin-ajax.php:485
 msgid "Style scheme disabled for this form"
 msgstr "Chế độ phong cách bị chặn cho hình thức này"
 
-#: admin/class-cf7-customizer-admin-ajax.php:423 
-#: admin/class-cf7-customizer-admin-ajax.php:459
+#: admin/class-cf7-customizer-admin-ajax.php:429
+#: admin/class-cf7-customizer-admin-ajax.php:466
 msgid "Style scheme enabled for this form"
 msgstr "Chế độ phong cách được kích hoạt cho hình thức này"
 
-#: admin/class-cf7-customizer-admin-ajax.php:377 
-#: admin/class-cf7-customizer-admin-ajax.php:434
+#: admin/class-cf7-customizer-admin-ajax.php:382
+#: admin/class-cf7-customizer-admin-ajax.php:441
 msgid "Style scheme is not selected"
 msgstr "Chế độ phong cách không được chọn"
 
@@ -844,32 +850,33 @@ msgstr "Phong cách Preview"
 msgid "Style schemes settings"
 msgstr "Thiết lập Style Schemes"
 
-#: admin/class-cf7-customizer-admin-ajax.php:298
+#: admin/class-cf7-customizer-admin-ajax.php:302
 msgid "Style will be loaded in <body> tag"
 msgstr "Phong cách sẽ được tải lên trong <body>Tag"
 
-#: admin/class-cf7-customizer-admin-ajax.php:301
+#: admin/class-cf7-customizer-admin-ajax.php:305
 msgid "Style will be loaded in <head> tag"
 msgstr "Phong cách sẽ được tải lên trong <head>Tag"
 
-#: public/class-cf7-customizer-public.php:483 
-#: admin/class-cf7-customizer-admin-ajax.php:119 
-#: admin/class-cf7-customizer-admin-ajax.php:210 
-#: admin/class-cf7-customizer-admin-ajax.php:286 
-#: admin/class-cf7-customizer-admin-ajax.php:304 
-#: admin/class-cf7-customizer-admin-ajax.php:386 
-#: admin/class-cf7-customizer-admin-ajax.php:396 
-#: admin/class-cf7-customizer-admin-ajax.php:405 
-#: admin/class-cf7-customizer-admin-ajax.php:423 
-#: admin/class-cf7-customizer-admin-ajax.php:459 
-#: admin/class-cf7-customizer-admin-ajax.php:477
+#: public/class-cf7-customizer-public.php:494
+#: admin/class-cf7-customizer-admin-ajax.php:120
+#: admin/class-cf7-customizer-admin-ajax.php:212
+#: admin/class-cf7-customizer-admin-ajax.php:289
+#: admin/class-cf7-customizer-admin-ajax.php:308
+#: admin/class-cf7-customizer-admin-ajax.php:391
+#: admin/class-cf7-customizer-admin-ajax.php:401
+#: admin/class-cf7-customizer-admin-ajax.php:411
+#: admin/class-cf7-customizer-admin-ajax.php:429
+#: admin/class-cf7-customizer-admin-ajax.php:466
+#: admin/class-cf7-customizer-admin-ajax.php:485
+#: admin/class-cf7-customizer-admin-ajax.php:553
 msgid "Success"
 msgstr "Thành công"
 
-#: admin/class-cf7-customizer-admin.php:105 
-#: admin/class-cf7-customizer-admin.php:106 
-#: admin/class-cf7-customizer-admin.php:124 
-#: admin/class-cf7-customizer-admin.php:125
+#: admin/class-cf7-customizer-admin.php:126
+#: admin/class-cf7-customizer-admin.php:127
+#: admin/class-cf7-customizer-admin.php:145
+#: admin/class-cf7-customizer-admin.php:146
 msgid "Support & KB"
 msgstr "Hỗ trợ & KB"
 
@@ -877,8 +884,8 @@ msgstr "Hỗ trợ & KB"
 msgid "Tablet View"
 msgstr "Hình ảnh Tablet"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:450 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:848 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:450
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:848
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1064
 msgid "Text Color"
 msgstr "Text màu sắc"
@@ -920,7 +927,7 @@ msgstr ""
 "cách toàn cầu bằng cách nhấp chuột \"làm cho tất cả các biểu mẫu\" bên dưới "
 "tiêu đề biểu mẫu."
 
-#: admin/class-cf7-customizer-admin-ajax.php:386
+#: admin/class-cf7-customizer-admin-ajax.php:391
 msgid "This scheme is not existed"
 msgstr "Hệ thống này không tồn tại"
 
@@ -937,17 +944,28 @@ msgstr ""
 msgid "Tobias Conrad"
 msgstr "Đạo diễn Tobias Conrad"
 
+#. Description of the plugin
+msgid ""
+"Turn “just another CF7 form” into a branded experience across all your forms."
+" WOW Styler for CF7 lets you style multiple Contact Form 7 forms visually "
+"with live preview and reusable designs, without writing CSS."
+msgstr ""
+"Biến \"mẫu CF7 thông thường\" thành trải nghiệm thương hiệu thống nhất trên "
+"tất cả các biểu mẫu của bạn. WOW Styler for CF7 cho phép bạn tùy chỉnh giao "
+"diện cho nhiều biểu mẫu Contact Form 7 một cách trực quan với tính năng xem "
+"trước trực tiếp và thiết kế có thể tái sử dụng, mà không cần viết CSS."
+
 #: admin/partials/cf7-customizer-admin-tutorial.php:36
 msgid "Tutorial"
 msgstr "hướng dẫn"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:8 
+#: admin/partials/cf7-customizer-admin-preview-mode.php:8
 #: admin/partials/cf7-customizer-admin-preview-mode.php:26
 msgid "Unstyled"
 msgstr "không phong cách"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551 
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
 msgid "Upgrade to Pro"
 msgstr "nâng cấp lên pro"
@@ -968,14 +986,18 @@ msgstr "Chào mừng"
 msgid "Width"
 msgstr "rộng"
 
-#. Name of the plugin
-#: cf7-styler.php:138 admin/partials/cf7-customizer-admin-display.php:22
+#: cf7-styler.php:135 admin/partials/cf7-customizer-admin-display.php:22
 msgid "WOW Style Contact Form 7"
 msgstr "Hình thức liên hệ WOW 7"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:825 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1012 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1022 
+#. Name of the plugin
+msgid "WOW Styler for CF7 – Visual Styler for Contact Form 7 Forms"
+msgstr ""
+"WOW Styler cho CF7 – Trình chỉnh sửa giao diện cho biểu mẫu Contact Form 7"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:825
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1012
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1022
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1048
 msgid "YES"
 msgstr "Có"
@@ -988,11 +1010,11 @@ msgstr ""
 "Bạn có thể tạo một biểu mẫu phong cách mới với các cài đặt biểu mẫu hiện tại."
 " Nếu bạn muốn tạo phong cách trắng Schem Unchek Checkbox bên dưới."
 
-#: admin/class-cf7-customizer-admin-ajax.php:237
+#: admin/class-cf7-customizer-admin-ajax.php:240
 msgid "You can not delete"
 msgstr "Bạn không thể xóa"
 
-#: public/class-cf7-customizer-public.php:471
+#: public/class-cf7-customizer-public.php:482
 msgid "You can not use this settings on this page type"
 msgstr "Bạn không thể sử dụng cài đặt này trên kiểu trang này"
 

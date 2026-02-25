@@ -1,20 +1,20 @@
-=== CF7 WOW Styler – Visual Styler for Contact Form 7 Forms ===
+=== WOW Styler for CF7 – Visual Styler for Contact Form 7 Forms ===
 Contributors: Tobias_Conrad, freemius, subscribetech
-Tags: contact form 7, cf7, contactform7, contact form 7 style, form styler, form design, live preview
+Tags: contact form 7, cf7, contactform7, contact form 7 style, form styler
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 1.7.5
+Stable tag: 1.7.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Save time by styling Contact Form 7 once and applying the same design to multiple forms – CF7 WOW Styler keeps them on brand with visual controls and no CSS.
+Turn ‘just another CF7 form’ into a branded experience across all your forms. WOW Styler for CF7 lets you style multiple Contact Form 7 forms visually with live preview and reusable designs.
 
 == Description ==
 
 **Style your Contact Form 7 forms visually – no coding required.**
 
-Many website owners struggle with Contact Form 7 forms that look generic and don't match their brand. Creating professional-looking forms usually means either hiring a developer or learning CSS. With CF7 WOW Styler, you get a visual styling interface that lets you design forms directly in your browser—no code, no hassle.
+Many website owners struggle with Contact Form 7 forms that look generic and don't match their brand. Creating professional-looking forms usually means either hiring a developer or learning CSS. With WOW Styler for CF7, you get a visual styling interface that lets you design forms directly in your browser—no code, no hassle.
 
 **See it in action (1:18 video):**
 
@@ -22,9 +22,9 @@ https://www.youtube.com/watch?v=maY80TCYVWA
 
 ---
 
-**The Problem CF7 WOW Styler Solves**
+**The Problem WOW Styler for CF7 Solves**
 
-When you have multiple Contact Form 7 forms across your site, each one requires separate styling work. Without CF7 WOW Styler, you're stuck with:
+When you have multiple Contact Form 7 forms across your site, each one requires separate styling work. Without WOW Styler for CF7, you're stuck with:
 
 - Forms that all look the same, clashing with your brand
 - Needing CSS knowledge (or hiring someone) to customize each form
@@ -32,18 +32,18 @@ When you have multiple Contact Form 7 forms across your site, each one requires 
 - Page builders that strip out your CSS, breaking your form design
 - Time wasted rebuilding form styles for every new form you create
 
-**How CF7 WOW Styler Works**
+**How WOW Styler for CF7 Works**
 
-Create one design. Reuse it everywhere. CF7 WOW Styler lets you:
+Create one design. Reuse it everywhere. WOW Styler for CF7 lets you:
 
 1. **Style directly in the browser** – No CSS editor needed. Visual controls for colors, spacing, buttons, backgrounds, fonts, and more.
 2. **See changes instantly** – Live preview shows every adjustment in real-time.
 3. **Save as reusable styles** – Once you've styled a form, save it as a scheme and apply it to other forms in seconds.
 4. **Adapt for different purposes** – Tweak the same base style for different forms (contact, support, sales) on the same page.
 
-**Why Choose CF7 WOW Styler?**
+**Why Choose WOW Styler for CF7?**
 
-CF7 WOW Styler is built for users who already use Contact Form 7 and want professional form design without learning CSS or switching to a new plugin. You keep all your existing forms, integrations, and workflows—you just add beautiful styling.
+WOW Styler for CF7 is built for users who already use Contact Form 7 and want professional form design without learning CSS or switching to a new plugin. You keep all your existing forms, integrations, and workflows—you just add beautiful styling.
 
 Live preview shows changes as you make them. Split view lets you compare your published form with your draft side by side. The plugin even pulls your theme's fonts and colors as a starting point, so you only customize what matters.
 
@@ -73,7 +73,7 @@ Instead of one long, confusing form with complex conditions, each department get
 
 **Get Started in 3 Steps**
 
-1. Install and activate CF7 WOW Styler
+1. Install and activate WOW Styler for CF7
 2. Go to Contact → CF7 Styler in your WordPress admin
 3. Select a form and start styling with the visual interface
 
@@ -85,12 +85,23 @@ Instead of one long, confusing form with complex conditions, each department get
 
 **Integrate with Your Marketing Stack**
 
-Use CF7 WOW Styler with other WordPress tools:
+Use WOW Styler for CF7 with other WordPress tools:
 
 - **WP2LEADS** – Collect form data and send it to your email marketing tool or CRM for automation
-- **WebinarIgnition** – Invite form leads to webinars for product demos and sales presentations
+- **WebinarIgnition** – Run live and automated webinars on WordPress and invite your best form leads to product demos, trainings, and launch events
 
 Forms collect the right people. Webinars close the sales.
+
+**Productivity forms + marketing forms**
+
+Use WOW Styler Pro to style multiple CF7 forms for quotes, support, contact, HR, and different departments—each with its own inbox and workflow. Then run separate marketing forms with free webinars, lead magnets, and sales automation in WebinarIgnition. Evergreen webinars build a solid information foundation, and live Q&A sessions focus only on high-intent questions that lead to action.
+
+Learn more about WebinarIgnition:
+
+- Plugin: https://wordpress.org/plugins/webinar-ignition/
+- Funnel guide: https://webinarignition.com/from-contact-form-to-automated-webinar-funnel-the-smart-path-for-wordpress-sites/
+
+Ideal for agencies, course creators, and WooCommerce shops.
 
 == How to Get Started with WOW Styler Free ==
 
@@ -98,11 +109,11 @@ Getting started is simple and takes just a few steps:
 
 - In your WordPress admin, go to Plugins → Add New
 - Search for "cf7 styler"
-- Install and activate CF7 WOW Styler
+- Install and activate WOW Styler for CF7
 - Go to Contact → CF7 Styler
 - Select one of your Contact Form 7 forms and start styling in the live preview
 
-== CF7 WOW Styler Free Features ==
+== WOW Styler for CF7 Free Features ==
 
 The free version lets you fully style one Contact Form 7 form with these customization options:
 
@@ -127,7 +138,7 @@ Need help? Our support team is ready to assist with any questions.
 
 == Quick Use Cases of the Free Version ==
 
-You can greatly benefit from CF7 WOW Styler's core features at no cost:
+You can greatly benefit from WOW Styler for CF7's core features at no cost:
 
 - Change colors (text, background, hover) to keep your brand identity
 - Save different style variations and apply them to different forms
@@ -137,7 +148,7 @@ You can greatly benefit from CF7 WOW Styler's core features at no cost:
 
 == How to Switch to Pro ==
 
-If you have an active WP2LEADS Pro license, you unlock all CF7 WOW Styler Pro features at no extra cost.
+If you have an active WP2LEADS Pro license, you unlock all WOW Styler for CF7 Pro features at no extra cost.
 
 Otherwise, enjoy a 14-day free trial of all Pro features. Before the trial ends, we'll email you with upgrade options.
 
@@ -150,7 +161,7 @@ To upgrade to Pro:
 - Your license activates instantly
 - You'll receive your license key, download link, and invoice via email
 
-== CF7 WOW Styler Pro Features ==
+== WOW Styler for CF7 Pro Features ==
 
 The Pro version includes all free features plus:
 
@@ -161,7 +172,7 @@ The Pro version includes all free features plus:
 - Advanced background positioning (cover, contain, repeat, positioning)
 - Load styles in the body tag if your theme or page builder removes CSS from the header
 
-== Brilliant Use Cases of the WOW Styler Pro ==
+== Brilliant Use Cases of WOW Styler for CF7 Pro ==
 
 With Pro you can:
 
@@ -176,13 +187,13 @@ This is useful for WooCommerce shops, agencies, and SaaS providers with multiple
 
 Let's get your forms styled:
 
-1. Install and activate Contact Form 7 WOW Styler
+1. Install and activate WOW Styler for CF7 – Visual Styler for Contact Form 7 Forms
 2. Go to CF7 Styler in the Contact submenu
 3. Select one of your forms and start styling
 
 **Note:** If you like example forms already connected to KlickTipp (a German email and SMS marketing platform), check out WP2LEADS.
 
-If you're using WP2LEADS with an active Pro license, CF7 WOW Styler Pro is completely free for you.
+If you're using WP2LEADS with an active Pro license, WOW Styler for CF7 Pro is completely free for you.
 
 == Frequently Asked Questions ==
 
@@ -200,9 +211,9 @@ Shops, agencies, and SaaS providers often benefit from multiple forms:
 
 Each team can have its own form with its own questions and recipient email, instead of maintaining one large conditional form.
 
-= How can I get WOW Styler Pro for free? =
+= How can I get WOW Styler for CF7 Pro for free? =
 
-If you have activated a WP2LEADS Pro license, you can use CF7 WOW Styler Pro for free.
+If you have activated a WP2LEADS Pro license, you can use WOW Styler for CF7 Pro for free.
 
 Join our affiliate program and refer paying customers. You'll earn 35% commission on each sale—refer 3 customers and your license essentially pays for itself (3 × 35% = 105%).
 
@@ -214,22 +225,22 @@ Yes. We welcome feature suggestions. Please describe your use case in the suppor
 
 = Do you have an affiliate program? =
 
-Yes. Earn 35% lifetime commission on every referral through your affiliate link. Write a blog post about CF7 WOW Styler and get 12 months of Pro access free.
+Yes. Earn 35% lifetime commission on every referral through your affiliate link. Write a blog post about WOW Styler for CF7 and get 12 months of Pro access free.
 
 Find all program details inside the plugin under Affiliation.
 
 Watch this video to learn more about earning with the affiliate program:
 https://www.youtube.com/watch?v=1eMYnhXzTaU
 
-= What are the server requirements for WOW Styler? =
+= What are the server requirements for WOW Styler for CF7? =
 
 Minimum PHP memory: 64MB. 128MB is recommended for optimal performance.
 
 = What if I use Thrive Architect? =
 
-We have a video tutorial showing how to add CF7 WOW Styler styling inside Thrive Architect.
+We have a video tutorial showing how to add WOW Styler for CF7 styling inside Thrive Architect.
 
-= What can I style with CF7 WOW Styler? =
+= What can I style with WOW Styler for CF7? =
 
 **Form Text & Typography**
 
@@ -286,7 +297,7 @@ Yes. Contribute translations via Loco Translate and send the files to support@sa
 
 Your Pro features activate instantly.
 
-Have fun styling your Contact Form 7 forms like a pro! 😊
+Have fun styling your Contact Form 7 forms like a pro!
 
 = How can I report security bugs? =
 
@@ -294,21 +305,29 @@ Report security vulnerabilities through the Patchstack Vulnerability Disclosure 
 
 == Screenshots ==
 
-1. How to add style in contact form 7 to meet your sites CI and design?
-2. Make radio button items one per line and checkbox items one per line
+1. How to add style in contact form 7 to meet your site's CI and design
+2. Make radio button items one per line and checkbox items one per line
 3. How to add Contact Form 7 background images
-4. Lets style Contact Form 7
-5. Before - unstyled contactform7
-6. Please rate us - form with styler interface with Contact Form 7 style
+4. Let's style Contact Form 7
+5. Before – unstyled Contact Form 7
+6. Please rate us – form with styler interface with Contact Form 7 style
 7. Example how to add style in Contact Form 7 with Sunflower form backgrounds
-8. GIF what is new with version 
+8. GIF what is new with version
 
 == Changelog ==
 
+= 1.7.6 2026.02.24 =
+
+- Security fixes and improvements based on feedback from the WordPress Plugins Team and Plugin Check (PCP) reports.
+- Plugin Check (PCP) tested and improved thanks to the Plugin Check team.
+- Aligned plugin name, license, headers, text domain, and escaping with the latest WordPress.org guidelines.
+
 = 1.7.5 2025.12.23 =
 
-Thanks for using WOW CF7 Styler.
+Thanks for using WOW Styler for CF7.
 Updated Freemius SDK for better usability
+Confirmed compatibility with the latest WordPress and PHP versions
+Aligned plugin name, license, and headers with WordPress.org guidelines
 
 = 1.7.4 2025.11.18 =
 
@@ -430,4 +449,4 @@ https://contactform7.com/2023/08/06/contact-form-7-58/
 * Freemius SDK fix
 * New language support: Italian, Vietnamese, Hindi, Spanish (Mexico), Urdu, Russian, Portuguese (Brazil), German, Polish, Spanish (Spain), French, Japanese
 
-Thank you for your trust and support by using CF7 WOW Styler Pro!
+Thank you for your trust and support by using WOW Styler for CF7 Pro!
