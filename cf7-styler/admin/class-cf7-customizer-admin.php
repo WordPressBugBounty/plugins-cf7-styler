@@ -226,7 +226,7 @@ class Cf7_Customizer_Admin {
                 $preview_mode = get_option('cf7cstmzr-preview-mode', false);
                 $is_split_mode = $preview_mode === 'split-mode';
                 ?>
-                <div id="style-preview-container" style="max-width: <?php echo esc_attr($content_width);; ?>; margin: auto; padding: 20px;">
+                <div id="style-preview-container" style="max-width: <?php echo $content_width ?>; margin: auto; padding: 20px;">
                     <?php
                     if ($is_split_mode) {
                         $split_mode = get_option('cf7cstmzr-split-mode', 'live-style');
@@ -267,7 +267,7 @@ class Cf7_Customizer_Admin {
                                 border-right: 1px solid #ccc;
                                 border-bottom: 1px solid #ccc;
                                 border-left: 1px solid #eee;
-                                background-image: url("<?php echo esc_url_raw(CF7CSTMZR_PLUGIN_URL) . '/public/img/vertical.png'; ?>");
+                                background-image: url("<?php echo CF7CSTMZR_PLUGIN_URL . '/public/img/vertical.png'; ?>");
                                 background-size: contain;
                                 background-repeat: no-repeat!important;
                                 background-position: center center!important;
@@ -295,7 +295,7 @@ class Cf7_Customizer_Admin {
                                     <?php echo do_shortcode('[contact-form-7 id="'.esc_attr($form_id).'" title="' . $form->post_title . '"]'); ?>
                                 </div>
                             </div>
-                            <div class="split <?php echo esc_attr($split_mode); ?>" id="split-right">
+                            <div class="split <?php echo $split_mode; ?>" id="split-right">
                                 <div class="split-inner">
                                     <?php echo do_shortcode('[contact-form-7 id="'.esc_attr($form_id).'" title="' . $form->post_title . '"]'); ?>
                                 </div>
@@ -477,7 +477,7 @@ class Cf7_Customizer_Admin {
         if (!empty($style_schemes)) {
             ?>
             <h2>
-                <?php echo esc_html__('Select style scheme for this form', 'cf7-styler') ?>
+                <?php echo __('Select style scheme for this form', 'cf7-styler') ?>
             </h2>
 
             <select name="cf7cstmzr_style_scheme" id="cf7cstmzr_style_scheme" class="large-text">
@@ -488,7 +488,7 @@ class Cf7_Customizer_Admin {
                         continue;
                     }
                     ?>
-                    <option value="<?php echo esc_attr($slug) ?>"<?php echo esc_attr($slug === $selected_style) ? ' selected' : ''; ?>><?php echo $scheme['title'] ?></option>
+                    <option value="<?php echo $slug ?>"<?php echo $slug === $selected_style ? ' selected' : ''; ?>><?php echo $scheme['title'] ?></option>
                     <?php
                 }
                 ?>
@@ -499,76 +499,38 @@ class Cf7_Customizer_Admin {
                 ?>
                 <p>
                     <?php
-                    echo sprintf( 
-            		/* translators: %s: styled form title. */	
-					esc_html__( 'Currently <strong>"%1$s</strong> form is styled with <strong>"%2$s</strong>. As in free version you can style only one form at a time and if you activate style for current form, style will be removed from other form.', 'cf7-styler' ), $styled_form_title, $styled_form_style_title );
+                    echo sprintf( __( 'Currently <strong>%s</strong> form is styled with <strong>%s</strong>. As in free version you can style only one form at a time and if you activate style for current form, style will be removed from other form.', 'cf7-styler' ), $styled_form_title, $styled_form_style_title );
                     ?>
                 </p>
                 <?php
             }
             ?>
-            <a class="button button-primary" target="_blank" href="<?php echo esc_url_raw(get_admin_url()); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize">
-                <?php esc_html_e('Open styler', 'cf7-styler') ?>
+            <a class="button button-primary" target="_blank" href="<?php echo get_admin_url(); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize">
+                <?php _e('Open styler', 'cf7-styler') ?>
             </a>
             <?php
         }
     }
 
-    public function save_cf7_metabox( $post_id, $post, $update ) {
+    public function save_cf7_metabox($post_ID, $post, $update) {
+        $plugin_version = Cf7_License::get_license_version();
 
-		/* -----------------------------
-		* 1. Basic safety checks
-		* ----------------------------- */
+        $cf7cstmzr_style_scheme = !empty($_POST['cf7cstmzr_style_scheme']) ? sanitize_text_field($_POST['cf7cstmzr_style_scheme']) : false;
 
-		// Verify nonce
-		if (
-			! isset( $_POST['cf7cstmzr_nonce'] ) ||
-			! wp_verify_nonce( $_POST['cf7cstmzr_nonce'], 'cf7cstmzr_save_metabox' )
-		) {
-			return;
-		}
+        if (!empty($cf7cstmzr_style_scheme)) {
+            if ('free' === $plugin_version) {
+                global $wpdb;
 
-		// Prevent autosave / revision
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
+                $sql = "DELETE FROM {$wpdb->postmeta} WHERE meta_key='cf7cstmzr_style_scheme';";
 
-		if ( wp_is_post_revision( $post_id ) ) {
-			return;
-		}
+                $wpdb->query($sql);
+            }
 
-		// Capability check
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-
-		/* -----------------------------
-		* 2. Process value
-		* ----------------------------- */
-
-		$plugin_version = Cf7_License::get_license_version();
-
-		$style_scheme = isset( $_POST['cf7cstmzr_style_scheme'] )
-			? sanitize_text_field( wp_unslash( $_POST['cf7cstmzr_style_scheme'] ) )
-			: '';
-
-		if ( empty( $style_scheme ) ) {
-			delete_post_meta( $post_id, 'cf7cstmzr_style_scheme' );
-			return;
-		}
-
-		/* -----------------------------
-		* 3. Free vs Pro logic
-		* ----------------------------- */
-
-		if ( 'free' === $plugin_version ) {
-			// Allow only ONE global scheme in free version
-			delete_metadata( 'post', 0, 'cf7cstmzr_style_scheme', '', true );
-		}
-
-		update_post_meta( $post_id, 'cf7cstmzr_style_scheme', $style_scheme );
-	}
-
+            update_post_meta( $post_ID, 'cf7cstmzr_style_scheme', $cf7cstmzr_style_scheme );
+        } else {
+            delete_post_meta($post_ID, 'cf7cstmzr_style_scheme');
+        }
+    }
 
     public function plugin_menu_optin() {
         global $submenu;

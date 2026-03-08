@@ -33,7 +33,7 @@ if (!empty($required_plugins)) {
 
                             <div class="button-holder">
                                 <button id="install-<?php echo $slug ?>" class="cf7cstmzr-install-plugin button button-primary" data-plugin="<?php echo $slug ?>">
-                                    <?php _e('Install and Activate', 'cf7-styler'); ?>
+                                    <?php _e('Install and Activate', 'more-better-reviews-for-woocommerce'); ?>
                                 </button>
                             </div>
                         </div>
