@@ -1,3 +1,6 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <button class="cf7cstmzr-close-welcome button button-primary">Skip tutorial and start styling</button> 
 <hr>
 <a href="https://design-for-contact-form-7-wow-styler.tawk.help/" target="_blank"> Open KB in a new tab/window</a> Idea: Have the KB in one half of the screen and the cf7 form in the other half.

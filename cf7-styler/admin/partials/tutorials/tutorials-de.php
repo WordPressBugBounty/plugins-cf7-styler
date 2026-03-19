@@ -1,3 +1,6 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+?>
 <button class="cf7cstmzr-close-welcome button button-primary">Weiter gestalten</button> 
 <hr>
 <iframe src="https://design-for-contact-form-7-wow-styler.tawk.help/" width="100%" height="800px"></iframe>

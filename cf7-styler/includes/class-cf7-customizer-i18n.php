@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Define the internationalization functionality
  *
@@ -32,18 +32,18 @@ class Cf7_Customizer_i18n {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_textdomain() {
+	// public function load_plugin_textdomain() {
 
-        add_filter( 'plugin_locale', 'Cf7_Customizer_i18n::check_de_locale');
+    //     add_filter( 'plugin_locale', 'Cf7_Customizer_i18n::check_de_locale');
 
-		load_plugin_textdomain(
-            'cf7-styler',
-			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
-		);
+	// 	load_plugin_textdomain(
+    //         'cf7-styler',
+	// 		false,
+	// 		dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+	// 	);
 
-        remove_filter( 'plugin_locale', 'Cf7_Customizer_i18n::check_de_locale');
-	}
+    //     remove_filter( 'plugin_locale', 'Cf7_Customizer_i18n::check_de_locale');
+	// }
 
     public static function check_de_locale($domain) {
         $site_lang = get_user_locale();

@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
     cf7cstmzr_form_text_color
     cf7cstmzr_form_bg_color
@@ -94,47 +96,47 @@ if (!empty($enabled_globally)) {
 
 $style_scheme = Cf7_Style_Scheme::normalize_style_sheme($style_schemes, $style_scheme_slug);
 
-$args = array (
-    'numberposts' => -1,
-    'orderby'     => 'title',
-    'order'       => 'ASC',
-    'post_type'   => 'wpcf7_contact_form',
-    'post_status'   => 'publish',
-    'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
+$args = array(
+	'numberposts'      => -1,
+	'orderby'          => 'title',
+	'order'            => 'ASC',
+	'post_type'        => 'wpcf7_contact_form',
+	'post_status'      => 'publish',
+	'suppress_filters' => false,
 );
 
 $cf7_forms = get_posts($args);
 
-$cf7_scheme_args = array (
-    'numberposts' => -1,
-    'orderby'     => 'title',
-    'order'       => 'ASC',
-    'post_type'   => 'wpcf7_contact_form',
-    'post_status'   => 'publish',
-    'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
-    'meta_query' => array(
-        'relation' => 'EXISTS',
-        array(
-            'key' => 'cf7cstmzr_style_scheme',
-        )
-    )
+$cf7_scheme_args = array(
+	'numberposts'      => -1,
+	'orderby'          => 'title',
+	'order'            => 'ASC',
+	'post_type'        => 'wpcf7_contact_form',
+	'post_status'      => 'publish',
+	'suppress_filters' => false,
+	'meta_query'       => array(
+		'relation' => 'EXISTS',
+		array(
+			'key' => 'cf7cstmzr_style_scheme',
+		),
+	),
 );
 
 $forms_group_by_style_scheme = Cf7_Style_Scheme::get_forms_group_by_style_scheme();
 $current_url_state = get_site_url() . '/wp-admin/admin.php?page=cf7cstmzr_page';
 
-if (!empty($_GET['tab'])) {
-    $current_url_state .= '&tab=' . filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+if ( ! empty( $_GET['tab'] ) ) {
+	$current_url_state .= '&tab=' . filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 }
 
-if (!empty($_GET['style_scheme'])) {
-    $current_url_state .= '&style_scheme=' . filter_input( INPUT_GET, 'style_scheme', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+if ( ! empty( $_GET['style_scheme'] ) ) {
+	$current_url_state .= '&style_scheme=' . filter_input( INPUT_GET, 'style_scheme', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 }
 
 $permalink_structure = get_option('permalink_structure');
 ?>
-<div id="cf7cstmzr-main-container"<?php echo !empty($is_fw) ? ' class="fw"' : ''; ?>>
-    <input type="hidden" id="cf7cstmzr-current-url" value="<?php echo $current_url_state; ?>">
+<div id="cf7cstmzr-main-container"<?php echo ! empty( $is_fw ) ? ' class="fw"' : ''; ?>>
+    <input type="hidden" id="cf7cstmzr-current-url" value="<?php echo esc_url_raw( $current_url_state ); ?>">
     <div class="cf7cstmzr-row">
         <div class="cf7cstmzr-col">
             <div class="cf7cstmzr-col-inner">
@@ -143,10 +145,10 @@ $permalink_structure = get_option('permalink_structure');
                     <form id="cf7cstmzr-settings-form">
                         <div id="cf7cstmzr-settings-container-header">
                             <div id="cf7cstmzr-settings-container-header-title" style="padding: 10px;margin:0 0 5px 0;background-color:#fff;border-top:5px solid #ccc; border-bottom: 1px solid #ccc;">
-                                <h3 style="margin: 0;"><?php _e('Style schemes settings', 'cf7-styler'); ?></h3>
+                                <h3 style="margin: 0;"><?php esc_html_e( 'Style schemes settings', 'cf7-styler' ); ?></h3>
 
-                                <span id="cf7cstmzr_to_fw" class="dashicons dashicons-editor-expand" title="<?php _e('Full Screen', 'cf7-styler') ?>"<?php echo !empty($is_fw) ? ' style="display:none;"' : ''; ?>></span>
-                                <span id="cf7cstmzr_exit_fw" class="dashicons dashicons-editor-contract" title="<?php _e('Exit Full Screen', 'cf7-styler') ?>" <?php echo empty($is_fw) ? ' style="display:none;"' : ''; ?>></span>
+                                <span id="cf7cstmzr_to_fw" class="dashicons dashicons-editor-expand" title="<?php esc_attr_e( 'Full Screen', 'cf7-styler' ); ?>"<?php echo ! empty( $is_fw ) ? ' style="display:none;"' : ''; ?>></span>
+                                <span id="cf7cstmzr_exit_fw" class="dashicons dashicons-editor-contract" title="<?php esc_attr_e( 'Exit Full Screen', 'cf7-styler' ); ?>" <?php echo empty( $is_fw ) ? ' style="display:none;"' : ''; ?>></span>
                             </div>
                             <!-- Style Scheme Settings Control - Start -->
                             <div class="cf7cstmzr-settings-control">
@@ -158,8 +160,8 @@ $permalink_structure = get_option('permalink_structure');
                                             <?php
                                             ob_start();
                                             ?>
-                                            <h4 id="cf7cstmzr_selected_style_scheme" class="cf7cstmzr-description-togler-holder" style="margin-top:0;" data-slug="<?php echo $style_scheme_slug; ?>">
-                                                <?php echo $style_schemes[$style_scheme_slug]['title']; ?>
+                                            <h4 id="cf7cstmzr_selected_style_scheme" class="cf7cstmzr-description-togler-holder" style="margin-top:0;" data-slug="<?php echo esc_attr( $style_scheme_slug ); ?>">
+                                                <?php echo esc_html( $style_schemes[ $style_scheme_slug ]['title'] ); ?>
                                                 <?php
                                                 if ('free' !== $plugin_version) {
                                                     ?>
@@ -177,11 +179,11 @@ $permalink_structure = get_option('permalink_structure');
                                                 if (1 < count($style_schemes)) {
                                                     ?>
                                                     <h4 class="cf7cstmzr-description-togler-holder" style="margin-top:0;">
-                                                        <?php _e('Style schemes list', 'cf7-styler'); ?>
+                                                        <?php esc_html_e( 'Style schemes list', 'cf7-styler' ); ?>
                                                         <span class="dashicons dashicons-editor-help cf7cstmzr-description-togler" data-target="cf7cstmzr-select-scheme-description"></span>
                                                     </h4>
 
-                                                    <select id="cf7cstmzr_select_style_scheme" data-confirm="<?php _e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" class="cf7cstmzr-form-control" style="margin-bottom:10px;">
+                                                    <select id="cf7cstmzr_select_style_scheme" data-confirm="<?php esc_attr_e( 'Do you want to save changes before leaving page?', 'cf7-styler' ); ?>" class="cf7cstmzr-form-control" style="margin-bottom:10px;">
                                                         <?php
                                                         foreach ($style_schemes as $style_scheme_item_slug => $style_scheme_item) {
                                                             $style_forms_array = array();
@@ -190,10 +192,10 @@ $permalink_structure = get_option('permalink_structure');
                                                                 $style_forms_array = $forms_group_by_style_scheme[$style_scheme_item_slug];
                                                             }
 
-                                                            $style_forms_array_json = json_encode( $style_forms_array )
+                                                            $style_forms_array_json = wp_json_encode( $style_forms_array );
                                                             ?>
-                                                            <option value="<?php echo $style_scheme_item_slug; ?>"<?php echo $style_scheme_item_slug === $style_scheme_slug ? ' selected' : ''; ?> data-forms='<?php echo $style_forms_array_json; ?>'>
-                                                                <?php echo $style_scheme_item['title']; ?>
+                                                            <option value="<?php echo esc_attr( $style_scheme_item_slug ); ?>"<?php echo $style_scheme_item_slug === $style_scheme_slug ? ' selected' : ''; ?> data-forms='<?php echo esc_attr( $style_forms_array_json ); ?>'>
+                                                                <?php echo esc_html( $style_scheme_item['title'] ); ?>
                                                             </option>
                                                             <?php
                                                         }
@@ -202,8 +204,8 @@ $permalink_structure = get_option('permalink_structure');
                                                     <?php
                                                     if ('default' !== $style_scheme_slug) {
                                                         ?>
-                                                        <input id="cf7cstmzr-current-slug" type="hidden" value="<?php echo $style_scheme_slug ?>">
-                                                        <input id="cf7cstmzr-current-title" type="hidden" value="<?php echo $style_schemes[$style_scheme_slug]['title']; ?>">
+                                                        <input id="cf7cstmzr-current-slug" type="hidden" value="<?php echo esc_attr( $style_scheme_slug ); ?>">
+                                                        <input id="cf7cstmzr-current-title" type="hidden" value="<?php echo esc_attr( $style_schemes[ $style_scheme_slug ]['title'] ); ?>">
                                                         <?php
                                                     }
 
@@ -211,7 +213,7 @@ $permalink_structure = get_option('permalink_structure');
                                                 }
                                             }
 
-                                            echo $settings_select_content;
+                                            echo $settings_select_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                             ?>
                                         </div>
                                         <?php
@@ -227,10 +229,12 @@ $permalink_structure = get_option('permalink_structure');
                                                             <p style="margin-top:0;margin-bottom:10px;">
                                                                 <small>
                                                                     <?php
-                                                                    if (!empty($enabled_globally)) { // Check if any Scheme enabled
-                                                                        echo sprintf( __( '<strong>%s</strong> used for all forms globally, click "Use for all forms" if you want to use current Scheme.', 'cf7-styler' ), $enabled_globally_title );
+                                                                    if ( ! empty( $enabled_globally ) ) { // Check if any Scheme enabled
+                                                                        echo wp_kses_post( 
+														            		/* translators: %s: global policy title. */	
+																			sprintf( __( '<strong>%s</strong> used for all forms globally, click "Use for all forms" if you want to use current Scheme.', 'cf7-styler' ), $enabled_globally_title ) );
                                                                     } else { // No scheme enabled
-                                                                        _e('You do not use any of Style Schemes for Contact Form 7. Click "Use for all forms" to use current Scheme globally.', 'cf7-styler');
+                                                                        esc_html_e( 'You do not use any of Style Schemes for Contact Form 7. Click "Use for all forms" to use current Scheme globally.', 'cf7-styler' );
                                                                     }
                                                                     ?>
                                                                 </small>
@@ -238,8 +242,8 @@ $permalink_structure = get_option('permalink_structure');
                                                         </div>
 
                                                         <div>
-                                                            <button id="cf7cstmzr-enable-globally" class="button button-success button-small" type="button" data-scheme="<?php echo $style_scheme_slug ?>">
-                                                                <?php _e('Activate style for all forms*', 'cf7-styler') ?>
+                                                            <button id="cf7cstmzr-enable-globally" class="button button-success button-small" type="button" data-scheme="<?php echo esc_attr( $style_scheme_slug ); ?>">
+                                                                <?php esc_html_e( 'Activate style for all forms*', 'cf7-styler' ); ?>
                                                             </button>
                                                         </div>
                                                         <?php
@@ -248,31 +252,31 @@ $permalink_structure = get_option('permalink_structure');
                                                         <div id="cf7cstmzr-select-scheme-description" style="display: none;">
                                                             <p style="margin-top:0;margin-bottom:10px;">
                                                                 <small>
-                                                                    <?php _e('This Style Scheme enabled globally for all forms. If you want to use your theme\'s style for Contact Form 7 click "Disable" button.', 'cf7-styler') ?>
+                                                                    <?php esc_html_e( 'This Style Scheme enabled globally for all forms. If you want to use your theme\'s style for Contact Form 7 click "Disable" button.', 'cf7-styler' ); ?>
                                                                 </small>
                                                             </p>
                                                         </div>
 
                                                         <div>
                                                             <button id="cf7cstmzr-disable-globally" class="button button-primary button-small" type="button">
-                                                                <?php _e('Disable style for all forms', 'cf7-styler') ?>
+                                                                <?php esc_html_e( 'Disable style for all forms', 'cf7-styler' ); ?>
                                                             </button>
                                                         </div>
                                                         <?php
                                                     }
                                                     ?>
                                                     <div class="cf7cstmzr-description-togler-holder" style="padding-top: 10px;">
-                                                        <input type="checkbox" value="1" id="cf7cstmzr-load-body-tag"<?php echo !empty($is_body_tag) ? ' checked' : '';?>> <?php _e('Load styles in <code>&lt;body&gt;</code> tag', 'cf7-styler') ?>
+                                                        <input type="checkbox" value="1" id="cf7cstmzr-load-body-tag"<?php echo ! empty( $is_body_tag ) ? ' checked' : ''; ?>> <?php wp_kses_post(_e( 'Load styles in <code>&lt;body&gt;</code> tag', 'cf7-styler' )); ?>
                                                         <span class="dashicons dashicons-editor-help cf7cstmzr-description-togler" data-target="cf7cstmzr-body-tag-description"></span>
                                                     </div>
                                                     <div id="cf7cstmzr-body-tag-description" style="display: none;">
                                                         <div style="margin-top:10px;margin-bottom:10px;">
                                                                 <small style="display: block;">
-                                                                    <?php _e('Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading style scheme within <code>&lt;body&gt;</code> tag will fix this issue and show your forms styled.', 'cf7-styler') ?>
+                                                                    <?php echo wp_kses_post( __( 'Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading style scheme within <code>&lt;body&gt;</code> tag will fix this issue and show your forms styled.', 'cf7-styler' ) ); ?>
                                                                 </small>
 
                                                                 <small style="display: block;margin-top:10px;">
-                                                                    <?php _e('If you need to load style scheme inside <code>&lt;body&gt;</code> tag only on some pages, you can do it on frontend using "CF7 Styler" button. This function is only available for single post types (pages, posts, products etc.) and in premium version. You can not do it on archives pages (blog, products list etc) in this case you need to use global settings.', 'cf7-styler') ?>
+                                                                    <?php echo wp_kses_post( __( 'If you need to load style scheme inside <code>&lt;body&gt;</code> tag only on some pages, you can do it on frontend using "CF7 Styler" button. This function is only available for single post types (pages, posts, products etc.) and in premium version. You can not do it on archives pages (blog, products list etc) in this case you need to use global settings.', 'cf7-styler' ) ); ?>
                                                                 </small>
                                                         </div>
                                                     </div>
@@ -287,45 +291,45 @@ $permalink_structure = get_option('permalink_structure');
                                                 <hr style="margin-top:10px;margin-bottom:10px;">
                                                 <div id="upgrade-to-pro-list">
                                                     <div>
-                                                        &#8226; <?php _e('Style all forms in one click globally', 'cf7-styler'); ?>
+                                                        &#8226; <?php esc_html_e( 'Style all forms in one click globally', 'cf7-styler' ); ?>
                                                     </div>
                                                     <div style="margin-top: 3px;">
-                                                        &#8226; <?php _e('Create multiple style schemes', 'cf7-styler') ?>
+                                                        &#8226; <?php esc_html_e( 'Create multiple style schemes', 'cf7-styler' ); ?>
                                                     </div>
                                                     <div style="margin-top: 3px;">
-                                                        &#8226; <?php _e('Style each form with any style scheme individually', 'cf7-styler'); ?>
+                                                        &#8226; <?php esc_html_e( 'Style each form with any style scheme individually', 'cf7-styler' ); ?>
                                                     </div>
                                                     <div style="margin-top: 3px;">
-                                                        &#8226; <?php _e('Load styles in <code>&lt;body&gt;</code> tag', 'cf7-styler') ?> <span class="dashicons dashicons-editor-help cf7cstmzr-description-togler" data-target="cf7cstmzr-body-tag-description"></span>
+                                                        &#8226; <?php echo wp_kses_post( __( 'Load styles in <code>&lt;body&gt;</code> tag', 'cf7-styler' ) ); ?> <span class="dashicons dashicons-editor-help cf7cstmzr-description-togler" data-target="cf7cstmzr-body-tag-description"></span>
                                                     </div>
                                                     <div class="button-holder">
-                                                        <a class="button button-small button-success go-to-upgrade" data-confirm="<?php _e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" href="admin.php?page=cf7cstmzr_page-pricing" target="_blank"><?php _e('Upgrade to Pro', 'cf7-styler') ?></a>
-                                                        <a class="button button-small button-success go-to-upgrade" data-confirm="<?php _e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" href="admin.php?trial=true&page=cf7cstmzr_page-pricing" target="_blank"><?php _e('14-days Trial', 'cf7-styler') ?></a>
+                                                        <a class="button button-small button-success go-to-upgrade" data-confirm="<?php esc_attr_e( 'Do you want to save changes before leaving page?', 'cf7-styler' ); ?>" href="admin.php?page=cf7cstmzr_page-pricing" target="_blank"><?php esc_html_e( 'Upgrade to Pro', 'cf7-styler' ); ?></a>
+                                                        <a class="button button-small button-success go-to-upgrade" data-confirm="<?php esc_attr_e( 'Do you want to save changes before leaving page?', 'cf7-styler' ); ?>" href="admin.php?trial=true&page=cf7cstmzr_page-pricing" target="_blank"><?php esc_html_e( '14-days Trial', 'cf7-styler' ); ?></a>
                                                     </div>
                                                 </div>
 
                                                 <div id="cf7cstmzr-body-tag-description" style="display: none;">
                                                     <div style="margin-top:10px;margin-bottom:10px;">
                                                         <small style="display: block;">
-                                                            <?php _e('Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading style scheme within <code>&lt;body&gt;</code> tag will fix this issue and show your forms styled.', 'cf7-styler') ?>
+                                                            <?php echo wp_kses_post( __( 'Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading style scheme within <code>&lt;body&gt;</code> tag will fix this issue and show your forms styled.', 'cf7-styler' ) ); ?>
                                                         </small>
 
                                                         <small style="display: block;margin-top:10px;">
-                                                            <?php _e('If you need to load style scheme inside <code>&lt;body&gt;</code> tag only on some pages, you can do it on frontend using "CF7 Styler" button. This function is only available for single post types (pages, posts, products etc.). You can not do it on archives pages (blog, products list etc) in this case you need to use global settings.', 'cf7-styler') ?>
+                                                            <?php echo wp_kses_post( __( 'If you need to load style scheme inside <code>&lt;body&gt;</code> tag only on some pages, you can do it on frontend using "CF7 Styler" button. This function is only available for single post types (pages, posts, products etc.). You can not do it on archives pages (blog, products list etc) in this case you need to use global settings.', 'cf7-styler' ) ); ?>
                                                         </small>
 
                                                         <small style="display: block;margin-top:10px;">
-                                                            <?php _e('As an alternative you can disable clean out the styles like on Thrive architect:', 'cf7-styler') ?>
+                                                            <?php esc_html_e( 'As an alternative you can disable clean out the styles like on Thrive architect:', 'cf7-styler' ); ?>
                                                             <br>
-                                                            <?php _e('Step 1. Click "Edit with Thrive architect" link in admin page list', 'cf7-styler') ?>
+                                                            <?php esc_html_e( 'Step 1. Click "Edit with Thrive architect" link in admin page list', 'cf7-styler' ); ?>
                                                             <br>
-                                                            <?php _e('Step 2. Click "Settings" icon on right vertical menu', 'cf7-styler') ?>
+                                                            <?php esc_html_e( 'Step 2. Click "Settings" icon on right vertical menu', 'cf7-styler' ); ?>
                                                             <br>
-                                                            <?php _e('Step 3. "Advanced settings" => "CSS in the &lt;head&gt; section"', 'cf7-styler') ?>
+                                                            <?php echo wp_kses_post( __( 'Step 3. "Advanced settings" => "CSS in the &lt;head&gt; section"', 'cf7-styler' ) ); ?>
                                                             <br>
-                                                            <?php _e('Step 4. Make sure that "Do not strip CSS from &lt;head&gt;" is checked', 'cf7-styler') ?>
+                                                            <?php echo wp_kses_post( __( 'Step 4. Make sure that "Do not strip CSS from &lt;head&gt;" is checked', 'cf7-styler' ) ); ?>
                                                             <br>
-                                                            <?php _e('Step 5. Click "SAVE WORK" button', 'cf7-styler') ?>
+                                                            <?php esc_html_e( 'Step 5. Click "SAVE WORK" button', 'cf7-styler' ); ?>
                                                         </small>
                                                     </div>
                                                 </div>
@@ -334,7 +338,7 @@ $permalink_structure = get_option('permalink_structure');
                                         }
                                     } else {
                                         ?>
-                                        <h4 style="margin-top: 0;margin-bottom: 10px;"><?php _e('Start with creating Default Style Scheme', 'cf7-styler') ?></h4>
+                                        <h4 style="margin-top: 0;margin-bottom: 10px;"><?php esc_html_e( 'Start with creating Default Style Scheme', 'cf7-styler' ); ?></h4>
                                         <?php
                                     }
                                     ?>
@@ -349,7 +353,7 @@ $permalink_structure = get_option('permalink_structure');
                                         <?php
                                         if (false) {
                                             ?>
-                                            <button id="cf7cstmzr-settings-save" class="cf7cstmzr-settings-save button button-icon" type="button" disabled="disabled" title="<?php _e("I'm happy with this! Save", 'cf7-styler') ?>">
+                                            <button id="cf7cstmzr-settings-save" class="cf7cstmzr-settings-save button button-icon" type="button" disabled="disabled" title="<?php esc_attr_e( "I'm happy with this! Save", 'cf7-styler' ); ?>">
                                                 <span class="dashicons dashicons-yes" style="vertical-align: middle;"></span>
                                             </button>
                                             <?php
@@ -357,8 +361,8 @@ $permalink_structure = get_option('permalink_structure');
 
                                         if (true) {
                                             ?>
-                                            <button id="cf7cstmzr-settings-save" class="cf7cstmzr-settings-save button" type="button" disabled="disabled" title="<?php _e("I'm happy with this! Save", 'cf7-styler') ?>">
-                                                <?php _e('Save', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-settings-save" class="cf7cstmzr-settings-save button" type="button" disabled="disabled" title="<?php esc_attr_e( "I'm happy with this! Save", 'cf7-styler' ); ?>">
+                                                <?php esc_html_e( 'Save', 'cf7-styler' ); ?>
                                             </button>
                                             <?php
                                         }
@@ -367,7 +371,7 @@ $permalink_structure = get_option('permalink_structure');
                                         <?php
                                         if ('free' !== $plugin_version) {
                                             ?>
-                                            <button id="cf7cstmzr-settings-save-as" class="cf7cstmzr-settings-save-as button button-primary button-icon" type="button"<?php echo empty($style_schemes) ? ' style="display:none;"' : ''; ?> title="<?php _e("Create new style scheme!", 'cf7-styler') ?>">
+                                            <button id="cf7cstmzr-settings-save-as" class="cf7cstmzr-settings-save-as button button-primary button-icon" type="button"<?php echo empty( $style_schemes ) ? ' style="display:none;"' : ''; ?> title="<?php esc_attr_e( 'Create new style scheme!', 'cf7-styler' ); ?>">
                                                 <span class="dashicons dashicons-plus" style="vertical-align: middle;"></span>
                                             </button>
                                             <?php
@@ -375,12 +379,12 @@ $permalink_structure = get_option('permalink_structure');
 
                                         if (true) {
                                             ?>
-                                            <button id="cf7cstmzr-settings-reset" class="cf7cstmzr-settings-reset button button-primary button-icon" type="button" title="<?php _e('Clean Styles', 'cf7-styler') ?>">
+                                            <button id="cf7cstmzr-settings-reset" class="cf7cstmzr-settings-reset button button-primary button-icon" type="button" title="<?php esc_attr_e( 'Clean Styles', 'cf7-styler' ); ?>">
                                                 <span class="dashicons dashicons-editor-removeformatting" style="vertical-align: middle;"></span>
                                             </button>
 
-                                            <button id="cf7cstmzr-settings-default" class="cf7cstmzr-settings-default button button-primary" type="button" data-default-settings='<?php echo json_encode($default_style_scheme_settings['scheme']) ?>'>
-                                                <?php _e('Reset to default', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-settings-default" class="cf7cstmzr-settings-default button button-primary" type="button" data-default-settings='<?php echo esc_attr( wp_json_encode( $default_style_scheme_settings['scheme'] ) ); ?>'>
+                                                <?php esc_html_e( 'Reset to default', 'cf7-styler' ); ?>
                                             </button>
                                             <?php
                                         }
@@ -399,19 +403,19 @@ $permalink_structure = get_option('permalink_structure');
                                     if ('free' !== $plugin_version) {
                                         ?>
                                         <div id="cf7cstmzr-settings-create-new" class="cf7cstmzr-settings-control-item" style="display: none">
-                                            <input id="cf7cstmzr_settings_title_new" class="cf7cstmzr-form-control" type="text" value="" style="margin-bottom:10px" placeholder="<?php _e('Input style scheme title', 'cf7-styler') ?>">
+                                            <input id="cf7cstmzr_settings_title_new" class="cf7cstmzr-form-control" type="text" value="" style="margin-bottom:10px" placeholder="<?php esc_attr_e( 'Input style scheme title', 'cf7-styler' ); ?>">
                                             <p style="margin: 5px 0">
                                                 <small>
-                                                    <?php _e('You can create new style scheme with current scheme settings. If you want to create blank style schem unchek checkbox below.', 'cf7-styler') ?>
+                                                    <?php esc_html_e( 'You can create new style scheme with current scheme settings. If you want to create blank style schem unchek checkbox below.', 'cf7-styler' ); ?>
                                                 </small>
                                             </p>
 
                                             <div style="margin-bottom: 10px;">
-                                                <input id="cf7cstmzr_settings_copy_new" type="checkbox" value="1" checked><?php _e('Copy current style scheme settings', 'cf7-styler') ?>
+                                                <input id="cf7cstmzr_settings_copy_new" type="checkbox" value="1" checked><?php esc_html_e( 'Copy current style scheme settings', 'cf7-styler' ); ?>
                                             </div>
 
-                                            <button id="cf7cstmzr-settings-create" class="cf7cstmzr-settings-create button button-primary" type="button"><?php _e('Create', 'cf7-styler') ?></button>
-                                            <button id="cf7cstmzr-settings-save-as-cancel" class="cf7cstmzr-settings-save-as-cancel button" type="button"><?php _e('Cancel', 'cf7-styler') ?></button>
+                                            <button id="cf7cstmzr-settings-create" class="cf7cstmzr-settings-create button button-primary" type="button"><?php esc_html_e( 'Create', 'cf7-styler' ); ?></button>
+                                            <button id="cf7cstmzr-settings-save-as-cancel" class="cf7cstmzr-settings-save-as-cancel button" type="button"><?php esc_html_e( 'Cancel', 'cf7-styler' ); ?></button>
                                         </div>
                                         <?php
                                     }
@@ -422,16 +426,16 @@ $permalink_structure = get_option('permalink_structure');
                                 <?php
                                 if (!empty($permalink_structure)) {
                                     ?>
-                                    <input id="cf7cstmzr-url" type="hidden" value="<?php echo get_site_url() . '/cf7cstmzr-form-customizer/' ?>">
+                                    <input id="cf7cstmzr-url" type="hidden" value="<?php echo esc_url_raw( get_site_url() . '/cf7cstmzr-form-customizer/' ); ?>">
                                     <?php
 
                                 } else {
                                     ?>
-                                    <input id="cf7cstmzr-url" type="hidden" value="<?php echo get_site_url() . '/?cf7cstmzr_page=1&form_id=' ?>">
+                                    <input id="cf7cstmzr-url" type="hidden" value="<?php echo esc_url_raw( get_site_url() . '/?cf7cstmzr_page=1&form_id=' ); ?>">
                                     <?php
                                 }
                                 ?>
-                                <input id="cf7cstmzr-admin-url" type="hidden" value="<?php echo get_site_url() . '/wp-admin/admin.php?page=cf7cstmzr_page&tab=form-customize' ?>">
+                                <input id="cf7cstmzr-admin-url" type="hidden" value="<?php echo esc_url_raw( get_site_url() . '/wp-admin/admin.php?page=cf7cstmzr_page&tab=form-customize' ); ?>">
                             </div>
                             <!-- Style Scheme Settings Control - End -->
                         </div>
@@ -443,28 +447,28 @@ $permalink_structure = get_option('permalink_structure');
                             ?>
 
                             <!-- Form Text - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Form Text', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Form Text', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_form_text_color"><?php _e('Text Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_text_color" name="cf7cstmzr_form_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_text_color']; ?>">
+                                            <label for="cf7cstmzr_form_text_color"><?php esc_html_e( 'Text Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_text_color" name="cf7cstmzr_form_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_text_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_form_text_size"><?php _e('Font Size', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_text_size" name="cf7cstmzr_form_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo $style_scheme['form_text_size']; ?>">
+                                            <label for="cf7cstmzr_form_text_size"><?php esc_html_e( 'Font Size', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_text_size" name="cf7cstmzr_form_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo esc_attr( $style_scheme['form_text_size'] ); ?>">
                                         </div>
                                     </div>
 
 
-                                    <label for="cf7cstmzr_form_text_font-family"><?php _e('Font Family', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_form_text_font-family"><?php esc_html_e( 'Font Family', 'cf7-styler' ); ?></label>
                                     <select name="cf7cstmzr_form_text_font-family" id="cf7cstmzr_form_text_font-family" class="cf7cstmzr-form-control cf7cstmzr-dropdown-field" style="max-width:200px;">
-                                        <option value=""><?php _e('- select -', 'cf7-styler') ?></option>
+                                        <option value=""><?php esc_html_e( '- select -', 'cf7-styler' ); ?></option>
                                         <?php
                                         foreach ($web_safe_fonts as $font_slug => $font_family) {
                                             ?>
-                                            <option value="<?php echo $font_slug; ?>"<?php echo $style_scheme['form_text_font_family'] === $font_slug ? ' selected' : ''; ?>><?php echo $font_family[0]; ?></option>
+                                            <option value="<?php echo esc_attr( $font_slug ); ?>"<?php echo $style_scheme['form_text_font_family'] === $font_slug ? ' selected' : ''; ?>><?php echo esc_html( $font_family[0] ); ?></option>
                                             <?php
                                         }
                                         ?>
@@ -473,52 +477,52 @@ $permalink_structure = get_option('permalink_structure');
 
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <label>
-                                        <?php _e('Links Settings', 'cf7-styler') ?>
+                                        <?php esc_html_e( 'Links Settings', 'cf7-styler' ); ?>
                                     </label>
 
                                     <div style="display: inline-block">
-                                        <label for="cf7cstmzr_form_text_link-color"><?php _e('Links Color', 'cf7-styler') ?></label>
-                                        <input id="cf7cstmzr_form_text_link-color" name="cf7cstmzr_form_text_link-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_text_link_color']; ?>">
+                                        <label for="cf7cstmzr_form_text_link-color"><?php esc_html_e( 'Links Color', 'cf7-styler' ); ?></label>
+                                        <input id="cf7cstmzr_form_text_link-color" name="cf7cstmzr_form_text_link-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_text_link_color'] ); ?>">
                                     </div>
 
                                     <div style="display: inline-block">
-                                        <label for="cf7cstmzr_form_text_link-hover-color"><?php _e('Links Hover Color', 'cf7-styler') ?></label>
-                                        <input id="cf7cstmzr_form_text_link-hover-color" name="cf7cstmzr_form_text_link-hover-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_text_link_hover_color']; ?>">
+                                        <label for="cf7cstmzr_form_text_link-hover-color"><?php esc_html_e( 'Links Hover Color', 'cf7-styler' ); ?></label>
+                                        <input id="cf7cstmzr_form_text_link-hover-color" name="cf7cstmzr_form_text_link-hover-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_text_link_hover_color'] ); ?>">
                                     </div>
                                 </div>
 
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <label>
-                                        <?php _e('Labels Settings', 'cf7-styler') ?>
+                                        <?php esc_html_e( 'Labels Settings', 'cf7-styler' ); ?>
                                     </label>
 
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_form_text_label-color"><?php _e('Labels Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_text_label-color" name="cf7cstmzr_form_text_label-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_text_label_color']; ?>">
+                                            <label for="cf7cstmzr_form_text_label-color"><?php esc_html_e( 'Labels Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_text_label-color" name="cf7cstmzr_form_text_label-color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_text_label_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_form_text_label-size"><?php _e('Labels Font Size', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_text_label-size" name="cf7cstmzr_form_text_label-size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo $style_scheme['form_text_label_size']; ?>">
+                                            <label for="cf7cstmzr_form_text_label-size"><?php esc_html_e( 'Labels Font Size', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_text_label-size" name="cf7cstmzr_form_text_label-size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo esc_attr( $style_scheme['form_text_label_size'] ); ?>">
                                         </div>
                                     </div>
 
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top;margin-right:10px;">
-                                            <label for="cf7cstmzr_form_text_label-weight"><?php _e('Font Weight', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_text_label-weight" name="cf7cstmzr_form_text_label-weight" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="100" max="900" step="100" type="number" value="<?php echo $style_scheme['form_text_label_weight']; ?>">
+                                            <label for="cf7cstmzr_form_text_label-weight"><?php esc_html_e( 'Font Weight', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_text_label-weight" name="cf7cstmzr_form_text_label-weight" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="100" max="900" step="100" type="number" value="<?php echo esc_attr( $style_scheme['form_text_label_weight'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_form_text_label-style"><?php _e('Font Style', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_form_text_label-style"><?php esc_html_e( 'Font Style', 'cf7-styler' ); ?></label>
 
                                             <select name="cf7cstmzr_form_text_label-style" id="cf7cstmzr_form_text_label-style" class="cf7cstmzr-form-control cf7cstmzr-dropdown-field" style="max-width:200px;">
-                                                <option value=""><?php _e('- select -', 'cf7-styler') ?></option>
-                                                <option value="normal"<?php echo $style_scheme['form_text_label_style'] === 'normal' ? ' selected' : ''; ?>><?php _e('Normal', 'cf7-styler') ?></option>
-                                                <option value="italic"<?php echo $style_scheme['form_text_label_style'] === 'italic' ? ' selected' : ''; ?>><?php _e('Italic', 'cf7-styler') ?></option>
-                                                <option value="oblique"<?php echo $style_scheme['form_text_label_style'] === 'normal' ? ' selected' : ''; ?>><?php _e('Oblique', 'cf7-styler') ?></option>
-                                                <option value="inherit"<?php echo $style_scheme['form_text_label_style'] === 'normal' ? ' selected' : ''; ?>><?php _e('Inherit', 'cf7-styler') ?></option>
+                                                <option value=""><?php esc_html_e( '- select -', 'cf7-styler' ); ?></option>
+                                                <option value="normal"<?php echo $style_scheme['form_text_label_style'] === 'normal' ? ' selected' : ''; ?>><?php esc_html_e( 'Normal', 'cf7-styler' ); ?></option>
+                                                <option value="italic"<?php echo $style_scheme['form_text_label_style'] === 'italic' ? ' selected' : ''; ?>><?php esc_html_e( 'Italic', 'cf7-styler' ); ?></option>
+                                                <option value="oblique"<?php echo $style_scheme['form_text_label_style'] === 'oblique' ? ' selected' : ''; ?>><?php esc_html_e( 'Oblique', 'cf7-styler' ); ?></option>
+                                                <option value="inherit"<?php echo $style_scheme['form_text_label_style'] === 'inherit' ? ' selected' : ''; ?>><?php esc_html_e( 'Inherit', 'cf7-styler' ); ?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -527,10 +531,10 @@ $permalink_structure = get_option('permalink_structure');
                             <!-- Form Text - End -->
 
                             <!-- Form BG Image & Colors - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Form BG Image & Colors', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Form BG Image & Colors', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
-                                    <label for="cf7cstmzr_form_bg_color"><?php _e('Background Color', 'cf7-styler') ?></label>
-                                    <input id="cf7cstmzr_form_bg_color" name="cf7cstmzr_form_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_bg_color']; ?>">
+                                    <label for="cf7cstmzr_form_bg_color"><?php esc_html_e( 'Background Color', 'cf7-styler' ); ?></label>
+                                    <input id="cf7cstmzr_form_bg_color" name="cf7cstmzr_form_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_bg_color'] ); ?>">
                                 </div>
 
                                 <!-- Form BG Image - Start -->
@@ -544,11 +548,11 @@ $permalink_structure = get_option('permalink_structure');
                                         $style_scheme['form_bg_img_size'] = '';
                                         ?>
                                         <p style="margin-top:0;margin-bottom:5px;">
-                                            <?php _e('Image background settings available in live mode only for Professional version. You can test it in preview mode "current style", but it will not be saved.', 'cf7-styler') ?>
+                                            <?php esc_html_e( 'Image background settings available in live mode only for Professional version. You can test it in preview mode "current style", but it will not be saved.', 'cf7-styler' ); ?>
                                         </p>
 
                                         <p style="margin-top:0;">
-                                            <a class="button button-small button-success go-to-upgrade" href="admin.php?page=cf7cstmzr_page-pricing" data-confirm="<?php _e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" target="_blank"><?php _e('Upgrade to Pro', 'cf7-styler') ?></a>
+                                            <a class="button button-small button-success go-to-upgrade" href="admin.php?page=cf7cstmzr_page-pricing" data-confirm="<?php esc_html_e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" target="_blank"><?php esc_html_e('Upgrade to Pro', 'cf7-styler') ?></a>
                                         </p>
                                         <?php
 
@@ -557,33 +561,33 @@ $permalink_structure = get_option('permalink_structure');
                                     ?>
                                     <div>
                                         <div style="display: inline-block; vertical-align: top; margin-right:10px;">
-                                            <label for="cf7cstmzr_form_bg_img"><?php _e('Background Image', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_form_bg_img"><?php esc_html_e( 'Background Image', 'cf7-styler' ); ?></label>
 
-                                            <div id="cf7cstmzr_uploaded_image_holder" data-save="<?php echo $no_save_class; ?>">
+                                            <div id="cf7cstmzr_uploaded_image_holder" data-save="<?php echo esc_attr( $no_save_class ); ?>">
                                                 <?php
-                                                if (!empty($style_scheme['form_bg_img'])) {
+                                                if ( ! empty( $style_scheme['form_bg_img'] ) ) {
                                                     $image_attributes = wp_get_attachment_image_src( $style_scheme['form_bg_img'], 'full' );
                                                     ?>
-                                                    <img src="<?php echo $image_attributes[0] ?>" alt="">
+                                                    <img src="<?php echo esc_url_raw( $image_attributes[0] ); ?>" alt="">
                                                     <?php
                                                 }
                                                 ?>
                                             </div>
 
-                                            <input id="cf7cstmzr_form_bg_img" name="cf7cstmzr_form_bg_img" type="hidden" value="<?php echo $style_scheme['form_bg_img'] ?>"><br>
+                                            <input id="cf7cstmzr_form_bg_img" name="cf7cstmzr_form_bg_img" type="hidden" value="<?php echo esc_attr( $style_scheme['form_bg_img'] ); ?>"><br>
 
-                                            <button id="cf7cstmzr_upload_image_btn" class="button button-primary button-small" type="button"<?php echo !empty($style_scheme['form_bg_img']) ? ' style="display:none;"' : '' ?>>
-                                                <?php _e('Upload Image', 'cf7-styler'); ?>
+                                            <button id="cf7cstmzr_upload_image_btn" class="button button-primary button-small" type="button"<?php echo ! empty( $style_scheme['form_bg_img'] ) ? ' style="display:none;"' : ''; ?>>
+                                                <?php esc_html_e( 'Upload Image', 'cf7-styler' ); ?>
                                             </button>
 
-                                            <button id="cf7cstmzr_delete_image_btn" class="button button-primary button-small" type="button"<?php echo empty($style_scheme['form_bg_img']) ? ' style="display:none;"' : '' ?>>
-                                                <?php _e('Delete Image', 'cf7-styler'); ?>
+                                            <button id="cf7cstmzr_delete_image_btn" class="button button-primary button-small" type="button"<?php echo empty( $style_scheme['form_bg_img'] ) ? ' style="display:none;"' : ''; ?>>
+                                                <?php esc_html_e( 'Delete Image', 'cf7-styler' ); ?>
                                             </button>
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top;">
                                             <div id="cf7cstmzr_form_bg_img-position-holder">
-                                                <label><?php _e('Image Position', 'cf7-styler') ?></label>
+                                                <label><?php esc_html_e( 'Image Position', 'cf7-styler' ); ?></label>
 
                                                 <div id="cf7cstmzr_top_right_bottom_left_container">
                                                     <div class="cf7cstmzr_top_right"></div>
@@ -593,65 +597,65 @@ $permalink_structure = get_option('permalink_structure');
 
                                                     <input id="cf7cstmzr_form_bg_img-position_top"
                                                            name="cf7cstmzr_form_bg_img-position"
-                                                           class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_top<?php echo $no_save_class; ?>"
+                                                           class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_top<?php echo esc_attr( $no_save_class ); ?>"
                                                            type="radio"
                                                            value="top"<?php echo 'top' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_top-right"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_top-right<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_top-right<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="top-right"<?php echo 'top-right' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_right"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_right<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_right<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="right"<?php echo 'right' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_right-bottom"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_right-bottom<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_right-bottom<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="right-bottom"<?php echo 'right-bottom' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_bottom"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_bottom<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_bottom<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio" value="bottom"<?php echo 'bottom' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_bottom-left"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_bottom-left<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_bottom-left<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="bottom-left"<?php echo 'bottom-left' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_left"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_left<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_left<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="left"<?php echo 'left' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_left-top"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_left-top<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_left-top<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="left-top"<?php echo 'left-top' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ><input
                                                             id="cf7cstmzr_form_bg_img-position_center"
                                                             name="cf7cstmzr_form_bg_img-position"
-                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_center<?php echo $no_save_class; ?>"
+                                                            class="cf7cstmzr-radio-field cf7cstmzr_position cf7cstmzr_position_center<?php echo esc_attr( $no_save_class ); ?>"
                                                             type="radio"
                                                             value="center"<?php echo 'center' === $style_scheme['form_bg_img_position'] ? ' checked' : ''; ?>
-                                                        <?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>
+                                                        <?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>
                                                     ></div>
                                             </div>
                                         </div>
@@ -660,22 +664,22 @@ $permalink_structure = get_option('permalink_structure');
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top; margin-right:10px;">
                                             <div id="cf7cstmzr_form_bg_img-opacity-holder" style="margin-top: 10px;">
-                                                <label for="cf7cstmzr_form_bg_img-opacity"><?php _e('Image Opacity', 'cf7-styler') ?></label>
-                                                <input id="cf7cstmzr_form_bg_img-opacity" name="cf7cstmzr_form_bg_img-opacity" class="cf7cstmzr-number cf7cstmzr-form-control<?php echo $no_save_class; ?>" min="0" max="1" step="0.1" type="number" value="<?php echo $style_scheme['form_bg_img_opacity']; ?>"<?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>>
+                                                <label for="cf7cstmzr_form_bg_img-opacity"><?php esc_html_e( 'Image Opacity', 'cf7-styler' ); ?></label>
+                                                <input id="cf7cstmzr_form_bg_img-opacity" name="cf7cstmzr_form_bg_img-opacity" class="cf7cstmzr-number cf7cstmzr-form-control<?php echo esc_attr( $no_save_class ); ?>" min="0" max="1" step="0.1" type="number" value="<?php echo esc_attr( $style_scheme['form_bg_img_opacity'] ); ?>"<?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>>
                                             </div>
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
                                             <div id="cf7cstmzr_form_bg_img-size-holder" style="margin-top: 10px;">
-                                                <label for="cf7cstmzr_form_bg_img-size"><?php _e('Image Size', 'cf7-styler') ?></label>
-                                                <select id="cf7cstmzr_form_bg_img-size" name="cf7cstmzr_form_bg_img-size" class="cf7cstmzr-form-control<?php echo $no_save_class; ?>"<?php echo empty($style_scheme['form_bg_img']) ? ' disabled' : ''; ?>>
-                                                    <option value=""><?php _e('- select -', 'cf7-styler') ?></option>
-                                                    <option value="no-repeat"<?php echo 'no-repeat' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Original size', 'cf7-styler') ?></option>
-                                                    <option value="cover"<?php echo 'cover' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Cover', 'cf7-styler') ?></option>
-                                                    <option value="contain"<?php echo 'contain' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Contain', 'cf7-styler') ?></option>
-                                                    <option value="repeat-y"<?php echo 'repeat-y' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Repeat vertical', 'cf7-styler') ?></option>
-                                                    <option value="repeat-x"<?php echo 'repeat-x' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Repeat horizontal', 'cf7-styler') ?></option>
-                                                    <option value="repeat"<?php echo 'repeat' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php _e('Repeat both', 'cf7-styler') ?></option>
+                                                <label for="cf7cstmzr_form_bg_img-size"><?php esc_html_e( 'Image Size', 'cf7-styler' ); ?></label>
+                                                <select id="cf7cstmzr_form_bg_img-size" name="cf7cstmzr_form_bg_img-size" class="cf7cstmzr-form-control<?php echo esc_attr( $no_save_class ); ?>"<?php echo empty( $style_scheme['form_bg_img'] ) ? ' disabled' : ''; ?>>
+                                                    <option value=""><?php esc_html_e( '- select -', 'cf7-styler' ); ?></option>
+                                                    <option value="no-repeat"<?php echo 'no-repeat' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Original size', 'cf7-styler' ); ?></option>
+                                                    <option value="cover"<?php echo 'cover' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Cover', 'cf7-styler' ); ?></option>
+                                                    <option value="contain"<?php echo 'contain' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Contain', 'cf7-styler' ); ?></option>
+                                                    <option value="repeat-y"<?php echo 'repeat-y' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Repeat vertical', 'cf7-styler' ); ?></option>
+                                                    <option value="repeat-x"<?php echo 'repeat-x' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Repeat horizontal', 'cf7-styler' ); ?></option>
+                                                    <option value="repeat"<?php echo 'repeat' === $style_scheme['form_bg_img_size'] ? ' selected' : ''; ?>><?php esc_html_e( 'Repeat both', 'cf7-styler' ); ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -686,7 +690,7 @@ $permalink_structure = get_option('permalink_structure');
                             <!-- Form BG Image & Colors - End -->
 
                             <!-- Form Padding, Margin & Border - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Form Padding, Margin & Border', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Form Padding, Margin & Border', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <?php
                                     $form_padding = false;
@@ -699,22 +703,22 @@ $permalink_structure = get_option('permalink_structure');
                                         $form_padding = $style_scheme['form_padding_top'];
                                     }
                                     ?>
-                                    <label for="cf7cstmzr_form_padding"><?php _e('Padding', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_form_padding"><?php esc_html_e( 'Padding', 'cf7-styler' ); ?></label>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_padding ? '' : ' style="display:none;"' ?>>
-                                        <input id="cf7cstmzr_form_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $form_padding; ?>">
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_padding ? '' : ' style="display:none;"'; ?>>
+                                        <input id="cf7cstmzr_form_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $form_padding ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </div>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_padding ? '' : ' style="display:none;"' ?>>
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_padding ? '' : ' style="display:none;"'; ?>>
                                         <label for="cf7cstmzr_form_padding-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                        <input id="cf7cstmzr_form_padding-top" name="cf7cstmzr_form_padding_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_padding_top']; ?>">
+                                        <input id="cf7cstmzr_form_padding-top" name="cf7cstmzr_form_padding_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_padding_top'] ); ?>">
                                         <label for="cf7cstmzr_form_padding-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                        <input id="cf7cstmzr_form_padding-right" name="cf7cstmzr_form_padding_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_padding_right']; ?>"><br>
+                                        <input id="cf7cstmzr_form_padding-right" name="cf7cstmzr_form_padding_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_padding_right'] ); ?>"><br>
                                         <label for="cf7cstmzr_form_padding-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                        <input id="cf7cstmzr_form_padding-bottom" name="cf7cstmzr_form_padding_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_padding_bottom']; ?>">
+                                        <input id="cf7cstmzr_form_padding-bottom" name="cf7cstmzr_form_padding_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_padding_bottom'] ); ?>">
                                         <label for="cf7cstmzr_form_padding-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                        <input id="cf7cstmzr_form_padding-left" name="cf7cstmzr_form_padding_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_padding_left']; ?>">
+                                        <input id="cf7cstmzr_form_padding-left" name="cf7cstmzr_form_padding_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_padding_left'] ); ?>">
                                     </div>
                                 </div>
 
@@ -730,22 +734,22 @@ $permalink_structure = get_option('permalink_structure');
                                         $form_margin = $style_scheme['form_margin_top'];
                                     }
                                     ?>
-                                    <label for="cf7cstmzr_form_margin"><?php _e('Margin', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_form_margin"><?php esc_html_e( 'Margin', 'cf7-styler' ); ?></label>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_margin ? '' : ' style="display:none;"' ?>>
-                                        <input id="cf7cstmzr_form_margin" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $form_margin; ?>">
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_margin ? '' : ' style="display:none;"'; ?>>
+                                        <input id="cf7cstmzr_form_margin" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $form_margin ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </div>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_margin ? '' : ' style="display:none;"' ?>>
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_margin ? '' : ' style="display:none;"'; ?>>
                                         <label for="cf7cstmzr_form_margin-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                        <input id="cf7cstmzr_form_margin-top" name="cf7cstmzr_form_margin_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_margin_top']; ?>">
+                                        <input id="cf7cstmzr_form_margin-top" name="cf7cstmzr_form_margin_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_margin_top'] ); ?>">
                                         <label for="cf7cstmzr_form_margin-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                        <input id="cf7cstmzr_form_margin-right" name="cf7cstmzr_form_margin_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_margin_right']; ?>"><br>
+                                        <input id="cf7cstmzr_form_margin-right" name="cf7cstmzr_form_margin_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_margin_right'] ); ?>"><br>
                                         <label for="cf7cstmzr_form_margin-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                        <input id="cf7cstmzr_form_margin-bottom" name="cf7cstmzr_form_margin_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_margin_bottom']; ?>">
+                                        <input id="cf7cstmzr_form_margin-bottom" name="cf7cstmzr_form_margin_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_margin_bottom'] ); ?>">
                                         <label for="cf7cstmzr_form_margin-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                        <input id="cf7cstmzr_form_margin-left" name="cf7cstmzr_form_margin_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_margin_left']; ?>">
+                                        <input id="cf7cstmzr_form_margin-left" name="cf7cstmzr_form_margin_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_margin_left'] ); ?>">
                                     </div>
                                 </div>
 
@@ -761,36 +765,36 @@ $permalink_structure = get_option('permalink_structure');
                                         $form_border_width = $style_scheme['form_border_width_top'];
                                     }
                                     ?>
-                                    <label for="cf7cstmzr_form_border_width"><?php _e('Border Width', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_form_border_width"><?php esc_html_e( 'Border Width', 'cf7-styler' ); ?></label>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_border_width ? '' : ' style="display:none;"' ?>>
-                                        <input id="cf7cstmzr_form_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $form_border_width; ?>">
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $form_border_width ? '' : ' style="display:none;"'; ?>>
+                                        <input id="cf7cstmzr_form_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $form_border_width ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </div>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_border_width ? ' style="margin-bottom:10px;"' : ' style="display:none;"' ?>>
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $form_border_width ? ' style="margin-bottom:10px;"' : ' style="display:none;"'; ?>>
                                         <label for="cf7cstmzr_form_border_width-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                        <input id="cf7cstmzr_form_border_width-top" name="cf7cstmzr_form_border_width_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_border_width_top']; ?>">
+                                        <input id="cf7cstmzr_form_border_width-top" name="cf7cstmzr_form_border_width_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_border_width_top'] ); ?>">
 
                                         <label for="cf7cstmzr_form_border_width-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                        <input id="cf7cstmzr_form_border_width-right" name="cf7cstmzr_form_border_width_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_border_width_right']; ?>"><br>
+                                        <input id="cf7cstmzr_form_border_width-right" name="cf7cstmzr_form_border_width_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_border_width_right'] ); ?>"><br>
 
                                         <label for="cf7cstmzr_form_border_width-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                        <input id="cf7cstmzr_form_border_width-bottom" name="cf7cstmzr_form_border_width_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_border_width_bottom']; ?>">
+                                        <input id="cf7cstmzr_form_border_width-bottom" name="cf7cstmzr_form_border_width_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_border_width_bottom'] ); ?>">
 
                                         <label for="cf7cstmzr_form_border_width-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                        <input id="cf7cstmzr_form_border_width-left" name="cf7cstmzr_form_border_width_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['form_border_width_left']; ?>">
+                                        <input id="cf7cstmzr_form_border_width-left" name="cf7cstmzr_form_border_width_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['form_border_width_left'] ); ?>">
                                     </div>
 
                                     <div style="margin-bottom: 10px;">
-                                        <label for="cf7cstmzr_form_border_type"><?php _e('Border Type', 'cf7-styler') ?></label>
+                                        <label for="cf7cstmzr_form_border_type"><?php esc_html_e( 'Border Type', 'cf7-styler' ); ?></label>
 
                                         <select name="cf7cstmzr_form_border_type" id="cf7cstmzr_form_border_type" class="cf7cstmzr-form-control cf7cstmzr-dropdown-field">
-                                            <option value=""><?php _e('- select -', 'cf7-styler') ?></option>
+                                            <option value=""><?php esc_html_e( '- select -', 'cf7-styler' ); ?></option>
                                             <?php
-                                            foreach (Cf7_Template::get_border_type() as $border_type_val => $border_type_label) {
+                                            foreach ( Cf7_Template::get_border_type() as $border_type_val => $border_type_label ) {
                                                 ?>
-                                                <option value="<?php echo $border_type_val ?>"<?php echo $style_scheme['form_border_type'] === $border_type_val ? ' selected' : ''; ?>><?php echo $border_type_label ?></option>
+                                                <option value="<?php echo esc_attr( $border_type_val ); ?>"<?php echo $style_scheme['form_border_type'] === $border_type_val ? ' selected' : ''; ?>><?php echo esc_html( $border_type_label ); ?></option>
                                                 <?php
                                             }
                                             ?>
@@ -799,13 +803,13 @@ $permalink_structure = get_option('permalink_structure');
 
                                     <div>
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_form_border_radius"><?php _e('Border Radius', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_border_radius" name="cf7cstmzr_form_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['form_border_radius']; ?>">
+                                            <label for="cf7cstmzr_form_border_radius"><?php esc_html_e( 'Border Radius', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_border_radius" name="cf7cstmzr_form_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['form_border_radius'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block;vertical-align: top;">
-                                            <label for="cf7cstmzr_form_border_color"><?php _e('Border Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_form_border_color" name="cf7cstmzr_form_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['form_border_color']; ?>">
+                                            <label for="cf7cstmzr_form_border_color"><?php esc_html_e( 'Border Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_form_border_color" name="cf7cstmzr_form_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['form_border_color'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -817,27 +821,27 @@ $permalink_structure = get_option('permalink_structure');
                             <!-- Form Padding, Margin & Border - End -->
 
                             <!-- Input Fields Text and Colors - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Input Fields', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Input Fields', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
-                                    <label for="cf7cstmzr_input_width"><?php _e('Make input fields full width?', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_width"><?php esc_html_e( 'Make input fields full width?', 'cf7-styler' ); ?></label>
 
                                     <input id="cf7cstmzr_input_width_yes" name="cf7cstmzr_input_full-width" class="cf7cstmzr-radio-field" type="radio" value="yes"<?php echo 'yes' === $style_scheme['input_full_width'] ? ' checked' : ''; ?>>
-                                    <label for="cf7cstmzr_input_width_yes" class="cf7cstmzr_inline_label"><?php _e('YES', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_width_yes" class="cf7cstmzr_inline_label"><?php esc_html_e( 'YES', 'cf7-styler' ); ?></label>
                                     <br>
                                     <input id="cf7cstmzr_input_width_no" name="cf7cstmzr_input_full-width" class="cf7cstmzr-radio-field" type="radio" value="no"<?php echo 'no' === $style_scheme['input_full_width'] ? ' checked' : ''; ?>>
-                                    <label for="cf7cstmzr_input_width_no" class="cf7cstmzr_inline_label"><?php _e('NO', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_width_no" class="cf7cstmzr_inline_label"><?php esc_html_e( 'NO', 'cf7-styler' ); ?></label>
                                 </div>
 
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_text_size"><?php _e('Font Size', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_text_size" name="cf7cstmzr_input_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['input_text_size']; ?>">
+                                            <label for="cf7cstmzr_input_text_size"><?php esc_html_e( 'Font Size', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_text_size" name="cf7cstmzr_input_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['input_text_size'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_text_line-height"><?php _e('Line Height', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_text_line-height" name="cf7cstmzr_input_text_line-height" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" step="0.1" type="number" value="<?php echo $style_scheme['input_text_line_height']; ?>">
+                                            <label for="cf7cstmzr_input_text_line-height"><?php esc_html_e( 'Line Height', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_text_line-height" name="cf7cstmzr_input_text_line-height" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" step="0.1" type="number" value="<?php echo esc_attr( $style_scheme['input_text_line_height'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -845,19 +849,19 @@ $permalink_structure = get_option('permalink_structure');
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_text_color"><?php _e('Text Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_text_color" name="cf7cstmzr_input_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['input_text_color']; ?>">
+                                            <label for="cf7cstmzr_input_text_color"><?php esc_html_e( 'Text Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_text_color" name="cf7cstmzr_input_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['input_text_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_bg_color"><?php _e('BG Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_bg_color" name="cf7cstmzr_input_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['input_bg_color']; ?>">
+                                            <label for="cf7cstmzr_input_bg_color"><?php esc_html_e( 'BG Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_bg_color" name="cf7cstmzr_input_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['input_bg_color'] ); ?>">
 
                                         </div>
                                     </div>
                                     <div style="margin-bottom: 10px;">
-                                        <div style="display: inline-block; vertical-align: top"><label for="cf7cstmzr_input_bg_color-opacity"><?php _e('BG Opacity', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_bg_color-opacity" name="cf7cstmzr_input_bg_color-opacity" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" max="1" step="0.1" type="number" value="<?php echo $style_scheme['input_bg_color_opacity']; ?>">
+                                        <div style="display: inline-block; vertical-align: top"><label for="cf7cstmzr_input_bg_color-opacity"><?php esc_html_e( 'BG Opacity', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_bg_color-opacity" name="cf7cstmzr_input_bg_color-opacity" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" max="1" step="0.1" type="number" value="<?php echo esc_attr( $style_scheme['input_bg_color_opacity'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
@@ -878,22 +882,22 @@ $permalink_structure = get_option('permalink_structure');
                                     }
                                     ?>
 
-                                    <label for="cf7cstmzr_input_padding"><?php _e('Padding', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_padding"><?php esc_html_e( 'Padding', 'cf7-styler' ); ?></label>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_padding ? '' : ' style="display:none;"' ?>>
-                                        <input id="cf7cstmzr_input_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $input_padding; ?>">
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_padding ? '' : ' style="display:none;"'; ?>>
+                                        <input id="cf7cstmzr_input_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $input_padding ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </div>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_padding ? '' : ' style="display:none;"' ?>>
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_padding ? '' : ' style="display:none;"'; ?>>
                                         <label for="cf7cstmzr_input_padding-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                        <input id="cf7cstmzr_input_padding-top" name="cf7cstmzr_input_padding_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_padding_top']; ?>">
+                                        <input id="cf7cstmzr_input_padding-top" name="cf7cstmzr_input_padding_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_padding_top'] ); ?>">
                                         <label for="cf7cstmzr_input_padding-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                        <input id="cf7cstmzr_input_padding-right" name="cf7cstmzr_input_padding_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_padding_right']; ?>"><br>
+                                        <input id="cf7cstmzr_input_padding-right" name="cf7cstmzr_input_padding_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_padding_right'] ); ?>"><br>
                                         <label for="cf7cstmzr_input_padding-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                        <input id="cf7cstmzr_input_padding-bottom" name="cf7cstmzr_input_padding_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_padding_bottom']; ?>">
+                                        <input id="cf7cstmzr_input_padding-bottom" name="cf7cstmzr_input_padding_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_padding_bottom'] ); ?>">
                                         <label for="cf7cstmzr_input_padding-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                        <input id="cf7cstmzr_input_padding-left" name="cf7cstmzr_input_padding_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_padding_left']; ?>">
+                                        <input id="cf7cstmzr_input_padding-left" name="cf7cstmzr_input_padding_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_padding_left'] ); ?>">
                                     </div>
                                 </div>
 
@@ -909,22 +913,22 @@ $permalink_structure = get_option('permalink_structure');
                                         $input_margin = $style_scheme['input_margin_top'];
                                     }
                                     ?>
-                                    <label for="cf7cstmzr_input_margin"><?php _e('Margin', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_margin"><?php esc_html_e( 'Margin', 'cf7-styler' ); ?></label>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_margin ? '' : ' style="display:none;"' ?>>
-                                        <input id="cf7cstmzr_input_margin" name="cf7cstmzr_input_margin" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $input_margin; ?>">
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_margin ? '' : ' style="display:none;"'; ?>>
+                                        <input id="cf7cstmzr_input_margin" name="cf7cstmzr_input_margin" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $input_margin ); ?>">
                                         <span class="dashicons dashicons-arrow-down-alt2"></span>
                                     </div>
 
-                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_margin ? '' : ' style="display:none;"' ?>>
+                                    <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_margin ? '' : ' style="display:none;"'; ?>>
                                         <label for="cf7cstmzr_input_margin-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                        <input id="cf7cstmzr_input_margin-top" name="cf7cstmzr_input_margin_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_margin_top']; ?>">
+                                        <input id="cf7cstmzr_input_margin-top" name="cf7cstmzr_input_margin_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_margin_top'] ); ?>">
                                         <label for="cf7cstmzr_input_margin-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                        <input id="cf7cstmzr_input_margin-right" name="cf7cstmzr_input_margin_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_margin_right']; ?>"><br>
+                                        <input id="cf7cstmzr_input_margin-right" name="cf7cstmzr_input_margin_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_margin_right'] ); ?>"><br>
                                         <label for="cf7cstmzr_input_margin-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                        <input id="cf7cstmzr_input_margin-bottom" name="cf7cstmzr_input_margin_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_margin_bottom']; ?>">
+                                        <input id="cf7cstmzr_input_margin-bottom" name="cf7cstmzr_input_margin_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_margin_bottom'] ); ?>">
                                         <label for="cf7cstmzr_input_margin-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                        <input id="cf7cstmzr_input_margin-left" name="cf7cstmzr_input_margin_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_margin_left']; ?>">
+                                        <input id="cf7cstmzr_input_margin-left" name="cf7cstmzr_input_margin_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_margin_left'] ); ?>">
                                     </div>
                                 </div>
 
@@ -940,38 +944,38 @@ $permalink_structure = get_option('permalink_structure');
                                         $input_border_width = $style_scheme['input_border_width_top'];
                                     }
                                     ?>
-                                    <label for="cf7cstmzr_input_border_width"><?php _e('Border', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_input_border_width"><?php esc_html_e( 'Border', 'cf7-styler' ); ?></label>
 
                                     <div style="margin-bottom: 10px;">
-                                        <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_border_width ? '' : ' style="display:none;"' ?>>
-                                            <input id="cf7cstmzr_input_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo $input_border_width; ?>">
+                                        <div class="cf7cstmzr-settings-item-body-setting-variations-main"<?php echo false !== $input_border_width ? '' : ' style="display:none;"'; ?>>
+                                            <input id="cf7cstmzr_input_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-parent-input cf7cstmzr-parent-text-field" type="number" min="0" value="<?php echo esc_attr( $input_border_width ); ?>">
                                             <span class="dashicons dashicons-arrow-down-alt2"></span>
                                         </div>
 
-                                        <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_border_width ? '' : ' style="display:none;"' ?>>
+                                        <div class="cf7cstmzr-settings-item-body-setting-variations"<?php echo false === $input_border_width ? '' : ' style="display:none;"'; ?>>
                                             <label for="cf7cstmzr_input_border_width-top" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-up-alt"></span></label>
-                                            <input id="cf7cstmzr_input_border_width-top" name="cf7cstmzr_input_border_width_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_border_width_top']; ?>">
+                                            <input id="cf7cstmzr_input_border_width-top" name="cf7cstmzr_input_border_width_top" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_border_width_top'] ); ?>">
 
                                             <label for="cf7cstmzr_input_border_width-right" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-right-alt"></span></label>
-                                            <input id="cf7cstmzr_input_border_width-right" name="cf7cstmzr_input_border_width_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_border_width_right']; ?>"><br>
+                                            <input id="cf7cstmzr_input_border_width-right" name="cf7cstmzr_input_border_width_right" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_border_width_right'] ); ?>"><br>
 
                                             <label for="cf7cstmzr_input_border_width-bottom" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-down-alt"></span></label>
-                                            <input id="cf7cstmzr_input_border_width-bottom" name="cf7cstmzr_input_border_width_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_border_width_bottom']; ?>">
+                                            <input id="cf7cstmzr_input_border_width-bottom" name="cf7cstmzr_input_border_width_bottom" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_border_width_bottom'] ); ?>">
 
                                             <label for="cf7cstmzr_input_border_width-left" class="cf7cstmzr_inline_label"><span class="dashicons dashicons-arrow-left-alt"></span></label>
-                                            <input id="cf7cstmzr_input_border_width-left" name="cf7cstmzr_input_border_width_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['input_border_width_left']; ?>">
+                                            <input id="cf7cstmzr_input_border_width-left" name="cf7cstmzr_input_border_width_left" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-inline-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['input_border_width_left'] ); ?>">
                                         </div>
                                     </div>
 
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_border_radius"><?php _e('Radius', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_border_radius" name="cf7cstmzr_input_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['input_border_radius']; ?>">
+                                            <label for="cf7cstmzr_input_border_radius"><?php esc_html_e( 'Radius', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_border_radius" name="cf7cstmzr_input_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['input_border_radius'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_input_border_color"><?php _e('Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_input_border_color" name="cf7cstmzr_input_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['input_border_color']; ?>">
+                                            <label for="cf7cstmzr_input_border_color"><?php esc_html_e( 'Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_input_border_color" name="cf7cstmzr_input_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['input_border_color'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -983,7 +987,7 @@ $permalink_structure = get_option('permalink_structure');
                             <!-- Input Fields Text and Colors - End -->
 
                             <!-- Checkboxes & Radiobuttons - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Checkboxes & Radiobuttons', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Checkboxes & Radiobuttons', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <?php
                                     $no_save_class = '';
@@ -992,11 +996,11 @@ $permalink_structure = get_option('permalink_structure');
                                         $style_scheme['radiobutton_full_width'] = '';
                                         ?>
                                         <p style="margin-top:0;margin-bottom:5px;">
-                                            <?php _e('One per line styles for checkboxes and radiobuttons in live mode only for Professional version. You can test it in preview mode "current style", but it will not be saved.', 'cf7-styler') ?>
+                                            <?php esc_html_e( 'One per line styles for checkboxes and radiobuttons in live mode only for Professional version. You can test it in preview mode "current style", but it will not be saved.', 'cf7-styler' ); ?>
                                         </p>
 
                                         <p style="margin-top:0;">
-                                            <a class="button button-small button-success go-to-upgrade" href="admin.php?page=cf7cstmzr_page-pricing" data-confirm="<?php _e('Do you want to save changes before leaving page?', 'cf7-styler'); ?>" target="_blank"><?php _e('Upgrade to Pro', 'cf7-styler') ?></a>
+                                            <a class="button button-small button-success go-to-upgrade" href="admin.php?page=cf7cstmzr_page-pricing" data-confirm="<?php esc_attr_e( 'Do you want to save changes before leaving page?', 'cf7-styler' ); ?>" target="_blank"><?php esc_html_e( 'Upgrade to Pro', 'cf7-styler' ); ?></a>
                                         </p>
                                         <?php
 
@@ -1006,31 +1010,31 @@ $permalink_structure = get_option('permalink_structure');
 
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block;vertical-align: top;margin-right:10px;max-width:45%;">
-                                            <label for="cf7cstmzr_input_width"><?php _e('Make checkbox item one per line', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_input_width"><?php esc_html_e( 'Make checkbox item one per line', 'cf7-styler' ); ?></label>
 
-                                            <input id="cf7cstmzr_checkbox_width_yes" name="cf7cstmzr_checkbox_full-width" class="cf7cstmzr-radio-field<?php echo $no_save_class; ?>" type="radio" value="yes"<?php echo 'yes' === $style_scheme['checkbox_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_checkbox_width_yes" class="cf7cstmzr_inline_label"><?php _e('YES', 'cf7-styler') ?></label>
+                                            <input id="cf7cstmzr_checkbox_width_yes" name="cf7cstmzr_checkbox_full-width" class="cf7cstmzr-radio-field<?php echo esc_attr( $no_save_class ); ?>" type="radio" value="yes"<?php echo 'yes' === $style_scheme['checkbox_full_width'] ? ' checked' : ''; ?>>
+                                            <label for="cf7cstmzr_checkbox_width_yes" class="cf7cstmzr_inline_label"><?php esc_html_e( 'YES', 'cf7-styler' ); ?></label>
                                             <br>
-                                            <input id="cf7cstmzr_checkbox_width_no" name="cf7cstmzr_checkbox_full-width" class="cf7cstmzr-radio-field<?php echo $no_save_class; ?>" type="radio" value="no"<?php echo 'no' === $style_scheme['checkbox_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_checkbox_width_no" class="cf7cstmzr_inline_label"><?php _e('NO', 'cf7-styler') ?></label>
+                                            <input id="cf7cstmzr_checkbox_width_no" name="cf7cstmzr_checkbox_full-width" class="cf7cstmzr-radio-field<?php echo esc_attr( $no_save_class ); ?>" type="radio" value="no"<?php echo 'no' === $style_scheme['checkbox_full_width'] ? ' checked' : ''; ?>>
+                                            <label for="cf7cstmzr_checkbox_width_no" class="cf7cstmzr_inline_label"><?php esc_html_e( 'NO', 'cf7-styler' ); ?></label>
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top;max-width:45%;">
-                                            <label for="cf7cstmzr_radiobutton_width"><?php _e('Make radiobutton item one per line', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_radiobutton_width"><?php esc_html_e( 'Make radiobutton item one per line', 'cf7-styler' ); ?></label>
 
-                                            <input id="cf7cstmzr_radiobutton_width_yes" name="cf7cstmzr_radiobutton_full-width" class="cf7cstmzr-radio-field<?php echo $no_save_class; ?>" type="radio" value="yes"<?php echo 'yes' === $style_scheme['radiobutton_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_radiobutton_width_yes" class="cf7cstmzr_inline_label"><?php _e('YES', 'cf7-styler') ?></label>
+                                            <input id="cf7cstmzr_radiobutton_width_yes" name="cf7cstmzr_radiobutton_full-width" class="cf7cstmzr-radio-field<?php echo esc_attr( $no_save_class ); ?>" type="radio" value="yes"<?php echo 'yes' === $style_scheme['radiobutton_full_width'] ? ' checked' : ''; ?>>
+                                            <label for="cf7cstmzr_radiobutton_width_yes" class="cf7cstmzr_inline_label"><?php esc_html_e( 'YES', 'cf7-styler' ); ?></label>
                                             <br>
-                                            <input id="cf7cstmzr_radiobutton_width_no" name="cf7cstmzr_radiobutton_full-width" class="cf7cstmzr-radio-field<?php echo $no_save_class; ?>" type="radio" value="no"<?php echo 'no' === $style_scheme['radiobutton_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_radiobutton_width_no" class="cf7cstmzr_inline_label"><?php _e('NO', 'cf7-styler') ?></label>
+                                            <input id="cf7cstmzr_radiobutton_width_no" name="cf7cstmzr_radiobutton_full-width" class="cf7cstmzr-radio-field<?php echo esc_attr( $no_save_class ); ?>" type="radio" value="no"<?php echo 'no' === $style_scheme['radiobutton_full_width'] ? ' checked' : ''; ?>>
+                                            <label for="cf7cstmzr_radiobutton_width_no" class="cf7cstmzr_inline_label"><?php esc_html_e( 'NO', 'cf7-styler' ); ?></label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="display: inline-block; vertical-align: top">
-                                        <label for="cf7cstmzr_checkbox_text_label-size"><?php _e('Labels Font Size', 'cf7-styler') ?></label>
-                                        <input id="cf7cstmzr_checkbox_text_label-size" name="cf7cstmzr_checkbox_text_label-size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo $style_scheme['checkbox_text_label_size']; ?>">
+                                        <label for="cf7cstmzr_checkbox_text_label-size"><?php esc_html_e( 'Labels Font Size', 'cf7-styler' ); ?></label>
+                                        <input id="cf7cstmzr_checkbox_text_label-size" name="cf7cstmzr_checkbox_text_label-size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="1" type="number" value="<?php echo esc_attr( $style_scheme['checkbox_text_label_size'] ); ?>">
                                     </div>
                                 </div>
                             <?php Cf7_Template::settings_item_end(); ?>
@@ -1038,22 +1042,22 @@ $permalink_structure = get_option('permalink_structure');
 
                             <!-- Button Text & Colors - Start -->
                             <?php // Cf7_Template::settings_item_start(__('Button Size, Text & Colors', 'cf7-styler')); ?>
-                            <?php Cf7_Template::settings_item_start(__('Buttons', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Buttons', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_input_width"><?php _e('Make full width?', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_input_width"><?php esc_html_e( 'Make full width?', 'cf7-styler' ); ?></label>
 
                                             <input id="cf7cstmzr_button_width_yes" name="cf7cstmzr_button_full-width" class="cf7cstmzr-radio-field" type="radio" value="yes"<?php echo 'yes' === $style_scheme['button_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_button_width_yes" class="cf7cstmzr_inline_label"><?php _e('YES', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_button_width_yes" class="cf7cstmzr_inline_label"><?php esc_html_e( 'YES', 'cf7-styler' ); ?></label>
                                             <br>
                                             <input id="cf7cstmzr_button_width_no" name="cf7cstmzr_button_full-width" class="cf7cstmzr-radio-field" type="radio" value="no"<?php echo 'no' === $style_scheme['button_full_width'] ? ' checked' : ''; ?>>
-                                            <label for="cf7cstmzr_button_width_no" class="cf7cstmzr_inline_label"><?php _e('NO', 'cf7-styler') ?></label>
+                                            <label for="cf7cstmzr_button_width_no" class="cf7cstmzr_inline_label"><?php esc_html_e( 'NO', 'cf7-styler' ); ?></label>
                                         </div>
 
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_padding"><?php _e('Padding', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_padding" name="cf7cstmzr_button_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo $style_scheme['button_padding']; ?>">
+                                            <label for="cf7cstmzr_button_padding"><?php esc_html_e( 'Padding', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_padding" name="cf7cstmzr_button_padding" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" type="number" value="<?php echo esc_attr( $style_scheme['button_padding'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -1061,65 +1065,65 @@ $permalink_structure = get_option('permalink_structure');
                                 <div class="cf7cstmzr-settings-item-body-setting">
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_text_color"><?php _e('Text Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_text_color" name="cf7cstmzr_button_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_text_color']; ?>">
+                                            <label for="cf7cstmzr_button_text_color"><?php esc_html_e( 'Text Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_text_color" name="cf7cstmzr_button_text_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_text_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_text_color-hover"><?php _e('Hover Text Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_text_color-hover" name="cf7cstmzr_button_text_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_text_color_hover']; ?>">
+                                            <label for="cf7cstmzr_button_text_color-hover"><?php esc_html_e( 'Hover Text Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_text_color-hover" name="cf7cstmzr_button_text_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_text_color_hover'] ); ?>">
                                         </div>
                                     </div>
 
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_bg_color"><?php _e('BG Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_bg_color" name="cf7cstmzr_button_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_bg_color']; ?>">
+                                            <label for="cf7cstmzr_button_bg_color"><?php esc_html_e( 'BG Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_bg_color" name="cf7cstmzr_button_bg_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_bg_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_bg_color-hover"><?php _e('Hover BG Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_bg_color-hover" name="cf7cstmzr_button_bg_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_bg_color_hover']; ?>">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="cf7cstmzr-settings-item-body-setting">
-                                    <div style="margin-bottom: 10px;">
-                                        <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_text_size"><?php _e('Font Size', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_text_size" name="cf7cstmzr_button_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['button_text_size']; ?>">
-                                        </div>
-
-                                        <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
-                                            <label for="cf7cstmzr_button_text_line-height"><?php _e('Line Height', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_text_line-height" name="cf7cstmzr_button_text_line-height" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" step="0.1" type="number" value="<?php echo $style_scheme['button_text_line_height']; ?>">
+                                            <label for="cf7cstmzr_button_bg_color-hover"><?php esc_html_e( 'Hover BG Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_bg_color-hover" name="cf7cstmzr_button_bg_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_bg_color_hover'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="cf7cstmzr-settings-item-body-setting">
-                                    <label><?php _e('Button Border', 'cf7-styler') ?></label>
+                                    <div style="margin-bottom: 10px;">
+                                        <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
+                                            <label for="cf7cstmzr_button_text_size"><?php esc_html_e( 'Font Size', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_text_size" name="cf7cstmzr_button_text_size" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['button_text_size'] ); ?>">
+                                        </div>
+
+                                        <div style="display: inline-block;vertical-align: top;margin-right: 10px;">
+                                            <label for="cf7cstmzr_button_text_line-height"><?php esc_html_e( 'Line Height', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_text_line-height" name="cf7cstmzr_button_text_line-height" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" min="0" step="0.1" type="number" value="<?php echo esc_attr( $style_scheme['button_text_line_height'] ); ?>">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cf7cstmzr-settings-item-body-setting">
+                                    <label><?php esc_html_e( 'Button Border', 'cf7-styler' ); ?></label>
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_button_border_width"><?php _e('Width', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_border_width" name="cf7cstmzr_button_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['button_border_width']; ?>">
+                                            <label for="cf7cstmzr_button_border_width"><?php esc_html_e( 'Width', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_border_width" name="cf7cstmzr_button_border_width" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['button_border_width'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_button_border_radius"><?php _e('Radius', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_border_radius" name="cf7cstmzr_button_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo $style_scheme['button_border_radius']; ?>">
+                                            <label for="cf7cstmzr_button_border_radius"><?php esc_html_e( 'Radius', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_border_radius" name="cf7cstmzr_button_border_radius" class="cf7cstmzr-number cf7cstmzr-form-control cf7cstmzr-text-field" type="number" value="<?php echo esc_attr( $style_scheme['button_border_radius'] ); ?>">
                                         </div>
                                     </div>
                                     <div style="margin-bottom: 10px;">
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_button_border_color"><?php _e('Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_border_color" name="cf7cstmzr_button_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_border_color']; ?>">
+                                            <label for="cf7cstmzr_button_border_color"><?php esc_html_e( 'Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_border_color" name="cf7cstmzr_button_border_color" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_border_color'] ); ?>">
                                         </div>
 
                                         <div style="display: inline-block; vertical-align: top">
-                                            <label for="cf7cstmzr_button_border_color-hover"><?php _e('Hover Color', 'cf7-styler') ?></label>
-                                            <input id="cf7cstmzr_button_border_color-hover" name="cf7cstmzr_button_border_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo $style_scheme['button_border_color_hover']; ?>">
+                                            <label for="cf7cstmzr_button_border_color-hover"><?php esc_html_e( 'Hover Color', 'cf7-styler' ); ?></label>
+                                            <input id="cf7cstmzr_button_border_color-hover" name="cf7cstmzr_button_border_color-hover" class="cf7cstmzr-color-picker" type="text" value="<?php echo esc_attr( $style_scheme['button_border_color_hover'] ); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -1131,21 +1135,21 @@ $permalink_structure = get_option('permalink_structure');
                             <!-- Button Text & Colors - End -->
 
                             <!-- Custom Styles - Start -->
-                            <?php Cf7_Template::settings_item_start(__('Custom CSS', 'cf7-styler')); ?>
+                            <?php Cf7_Template::settings_item_start( __( 'Custom CSS', 'cf7-styler' ) ); ?>
                                 <div class="cf7cstmzr-settings-item-body-setting">
-                                    <label for="cf7cstmzr_custom_css"><?php _e('Custom CSS Code', 'cf7-styler') ?></label>
+                                    <label for="cf7cstmzr_custom_css"><?php esc_html_e( 'Custom CSS Code', 'cf7-styler' ); ?></label>
 
                                     <div style="margin:10px 0;">
                                         <button id="cf7cstmzr_custom_css_save" class="button button-small" type="button" disabled>
-                                            <?php _e('Preview', 'cf7-styler') ?>
+                                            <?php esc_html_e( 'Preview', 'cf7-styler' ); ?>
                                         </button>
 
-                                        <button id="cf7cstmzr_custom_css_clear" class="button button-small<?php echo !empty($style_scheme['custom_css']) ? ' button-primary' : '' ?>" type="button"<?php echo empty($style_scheme['custom_css']) ? ' disabled' : '' ?>>
-                                            <?php _e('Clear', 'cf7-styler') ?>
+                                        <button id="cf7cstmzr_custom_css_clear" class="button button-small<?php echo ! empty( $style_scheme['custom_css'] ) ? ' button-primary' : ''; ?>" type="button"<?php echo empty( $style_scheme['custom_css'] ) ? ' disabled' : ''; ?>>
+                                            <?php esc_html_e( 'Clear', 'cf7-styler' ); ?>
                                         </button>
                                     </div>
 
-                                    <textarea name="cf7cstmzr_custom_css" id="cf7cstmzr_custom-css" class="widefat textarea" cols="30" rows="10"><?php echo $style_scheme['custom_css']; ?></textarea>
+                                    <textarea name="cf7cstmzr_custom_css" id="cf7cstmzr_custom-css" class="widefat textarea" cols="30" rows="10"><?php echo esc_textarea( $style_scheme['custom_css'] ); ?></textarea>
 
                             </div>
                             <?php Cf7_Template::settings_item_end(); ?>
@@ -1161,13 +1165,13 @@ $permalink_structure = get_option('permalink_structure');
             <!-- Select Form - Start -->
             <div id="cf7cstmzr-preview-container-header">
                 <div id="cf7cstmzr-preview-container-header-title" style="padding: 10px;margin:0 0 5px 0;background-color:#fff;border-top:5px solid #ccc; border-bottom: 1px solid #ccc;">
-                    <h3 style="margin:0;display: inline-block;margin-right: 25px;"><?php _e('Style schemes preview', 'cf7-styler'); ?></h3>
+                    <h3 style="margin:0;display: inline-block;margin-right: 25px;"><?php esc_html_e( 'Style schemes preview', 'cf7-styler' ); ?></h3>
                     <?php include CF7CSTMZR_PLUGIN_PATH . 'admin/partials/cf7-customizer-admin-preview-mode.php'; ?>
 
                     <div class="cf7cstmzr-preview-control-icons only-desktop" style="display: inline-block;">
-                        <span class="dashicons dashicons-desktop" title="<?php _e('Desktop View', 'cf7-styler') ?>"></span>
-                        <span class="dashicons dashicons-tablet" title="<?php _e('Tablet View', 'cf7-styler') ?>"></span>
-                        <span class="dashicons dashicons-smartphone" title="<?php _e('Mobile View', 'cf7-styler') ?>"></span>
+                        <span class="dashicons dashicons-desktop" title="<?php esc_attr_e( 'Desktop View', 'cf7-styler' ); ?>"></span>
+                        <span class="dashicons dashicons-tablet" title="<?php esc_attr_e( 'Tablet View', 'cf7-styler' ); ?>"></span>
+                        <span class="dashicons dashicons-smartphone" title="<?php esc_attr_e( 'Mobile View', 'cf7-styler' ); ?>"></span>
                     </div>
                 </div>
 
@@ -1182,9 +1186,9 @@ $permalink_structure = get_option('permalink_structure');
                                     <h4<?php echo $show_description ? ' class="cf7cstmzr-description-togler-holder"' : ''; ?> style="display: inline-block;">
                                         <?php
                                         if (1 === count($cf7_forms)) {
-                                            echo get_the_title($cf7_forms[0]->ID);
+                                            echo esc_html( get_the_title( $cf7_forms[0]->ID ) );
                                         } else {
-                                            echo __('Contact form 7 list', 'cf7-styler');
+                                            echo esc_html__( 'Contact form 7 list', 'cf7-styler' );
                                         }
 
                                         // if ($show_description) {
@@ -1222,16 +1226,22 @@ $permalink_structure = get_option('permalink_structure');
 
                                                 }
                                             }
+											$selected_form_id = '';
+											if(isset($_GET['form_post_id'])){
+												$selected_form_id = (int) $_GET['form_post_id'] === (int) $cf7_form->ID ? ' selected' : '';
+											}else{
+												$selected_form_id = (int) $cache_form === (int) $cf7_form->ID ? ' selected' : '';
+											}
                                             ?>
                                             <option
-                                                    value="<?php echo $cf7_form->ID ?>"
-                                                    data-scheme="<?php echo $form_style_scheme_data; ?>"
-                                                    data-scheme-title="<?php echo $form_style_scheme_data_title; ?>"
-                                                    data-scheme-global="<?php echo $enabled_globally; ?>"
-                                                    data-scheme-global-title="<?php echo $enabled_globally_title; ?>"
-                                                <?php echo (int)$cache_form === (int)$cf7_form->ID ? ' selected' : ''; ?>
+                                                    value="<?php echo esc_attr( $cf7_form->ID ); ?>"
+                                                    data-scheme="<?php echo esc_attr( $form_style_scheme_data ); ?>"
+                                                    data-scheme-title="<?php echo esc_attr( $form_style_scheme_data_title ); ?>"
+                                                    data-scheme-global="<?php echo esc_attr( $enabled_globally ); ?>"
+                                                    data-scheme-global-title="<?php echo esc_attr( $enabled_globally_title ); ?>"
+                                                	<?php echo esc_attr($selected_form_id); ?>
                                             >
-                                                <?php echo get_the_title($cf7_form->ID); ?>
+                                                <?php echo esc_html( get_the_title( $cf7_form->ID ) ); ?>
                                             </option>
                                             <?php
                                             $i++;
@@ -1288,12 +1298,12 @@ $permalink_structure = get_option('permalink_structure');
                                         }
                                     }
                                     ?>
-                                    <button id="cf7cstmzr-enable-for-form" class="button button-success"  type="button" data-scheme="<?php echo $style_scheme_slug ?>"<?php echo $display_enabled_button; ?>>
-                                        <?php _e('Activate style for current form', 'cf7-styler') ?>
+                                    <button id="cf7cstmzr-enable-for-form" class="button button-success"  type="button" data-scheme="<?php echo esc_attr( $style_scheme_slug ); ?>"<?php echo wp_kses_post($display_enabled_button); ?>>
+                                        <?php esc_html_e( 'Activate style for current form', 'cf7-styler' ); ?>
                                     </button>
 
-                                    <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo $first_form_scheme ?>"<?php echo $display_disabled_button; ?>>
-                                        <?php _e('Disable style for current form', 'cf7-styler') ?>
+                                    <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo esc_attr( $first_form_scheme ); ?>"<?php echo wp_kses_post($display_disabled_button); ?>>
+                                        <?php esc_html_e( 'Disable style for current form', 'cf7-styler' ); ?>
                                     </button>
                                 </div>
                                 <?php
@@ -1303,20 +1313,24 @@ $permalink_structure = get_option('permalink_structure');
                                         <?php
                                         ?>
                                         <p style="margin-top:0;margin-bottom:5px;">
-                                            <span id="cf7cstmzr-enabled-message"<?php echo $display_enabled_message; ?>>
-                                                <?php _e('This form is styled with current Style Scheme, you can disable it and use global settings.', 'cf7-styler') ?>
+                                            <span id="cf7cstmzr-enabled-message"<?php echo wp_kses_post($display_enabled_message); ?>>
+                                                <?php esc_html_e( 'This form is styled with current Style Scheme, you can disable it and use global settings.', 'cf7-styler' ); ?>
                                             </span>
 
-                                            <span id="cf7cstmzr-enabled-another-message"<?php echo $display_enabled_another_message; ?>>
-                                                <?php echo sprintf( __( 'This form is styled with <strong>%s</strong>, you can style it with current Style scheme.', 'cf7-styler' ), $first_form_scheme_title ); ?>
+                                            <span id="cf7cstmzr-enabled-another-message"<?php echo wp_kses_post($display_enabled_another_message); ?>>
+                                                <?php echo wp_kses(
+								            		/* translators: %s: first form title. */	 
+													sprintf( __( 'This form is styled with <strong>%s</strong>, you can style it with current Style scheme.', 'cf7-styler' ), $first_form_scheme_title ), array( 'strong' => array() ) ); ?>
                                             </span>
 
-                                            <span id="cf7cstmzr-disabled-message"<?php echo $display_disabled_message; ?>>
-                                                <?php echo sprintf( __( 'This form is styled with <strong>%s</strong> globally, you can style it with current Style scheme.', 'cf7-styler' ), $enabled_globally_title ); ?>
+                                            <span id="cf7cstmzr-disabled-message"<?php echo wp_kses_post($display_disabled_message); ?>>
+                                                <?php echo wp_kses( 
+								            		/* translators: %s: enabeled globally title. */	 
+													sprintf( __( 'This form is styled with <strong>%s</strong> globally, you can style it with current Style scheme.', 'cf7-styler' ), $enabled_globally_title ), array( 'strong' => array() ) ); ?>
                                             </span>
 
-                                            <span id="cf7cstmzr-disabled-globally-message"<?php echo $display_disabled_globally_message; ?>>
-                                                <?php _e('This form not styled with any Style scheme, you can enable current Scheme for this form or set up global Style Scheme by clicking "Use for all forms" below scheme title.', 'cf7-styler') ?>
+                                            <span id="cf7cstmzr-disabled-globally-message"<?php echo wp_kses_post($display_disabled_globally_message); ?>>
+                                                <?php esc_html_e( 'This form not styled with any Style scheme, you can enable current Scheme for this form or set up global Style Scheme by clicking "Use for all forms" below scheme title.', 'cf7-styler' ); ?>
                                             </span>
                                         </p>
                                     </div>
@@ -1325,12 +1339,12 @@ $permalink_structure = get_option('permalink_structure');
                                         <?php
                                         if (false) {
                                             ?>
-                                            <button id="cf7cstmzr-enable-for-form" class="button button-success" type="button" data-scheme="<?php echo $style_scheme_slug ?>"<?php echo $display_enabled_button; ?>>
-                                                <?php _e('Activate style for current form', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-enable-for-form" class="button button-success" type="button" data-scheme="<?php echo esc_attr( $style_scheme_slug ); ?>"<?php echo wp_kses_post($display_enabled_button); ?>>
+                                                <?php esc_html_e( 'Activate style for current form', 'cf7-styler' ); ?>
                                             </button>
 
-                                            <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo $first_form_scheme ?>"<?php echo $display_disabled_button; ?>>
-                                                <?php _e('Disable style for current form', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo esc_attr( $first_form_scheme ); ?>"<?php echo wp_kses_post($display_disabled_button); ?>>
+                                                <?php esc_html_e( 'Disable style for current form', 'cf7-styler' ); ?>
                                             </button>
                                             <?php
                                         }
@@ -1340,7 +1354,7 @@ $permalink_structure = get_option('permalink_structure');
                                         if (false) {
                                             ?>
                                             <div style="padding-top: 3px;display: inline-block;margin-left: 10px;">
-                                                <input type="checkbox" value="1" id="cf7cstmzr-preview-unstyle"<?php echo empty($is_styled) ? ' checked' : '';?>> <?php _e('Preview Unstyled', 'cf7-styler') ?>
+                                                <input type="checkbox" value="1" id="cf7cstmzr-preview-unstyle"<?php echo empty( $is_styled ) ? ' checked' : ''; ?>> <?php esc_html_e( 'Preview Unstyled', 'cf7-styler' ); ?>
                                             </div>
                                             <?php
                                         }
@@ -1356,7 +1370,7 @@ $permalink_structure = get_option('permalink_structure');
                                     $individually_styled_forms = Cf7_Style_Scheme::get_individually_styled_forms();
 
                                     if (!empty($individually_styled_forms)) {
-                                        foreach ($individually_styled_forms  as $styled_id => $styled_form_style) {
+                                        foreach ($individually_styled_forms as $styled_id => $styled_form_style) {
                                             $styled_form = get_post($styled_id);
 
                                             if (!empty($styled_form)) {
@@ -1371,20 +1385,22 @@ $permalink_structure = get_option('permalink_structure');
                                     <div
                                             id="cf7cstmzr-select-single-form-description"
                                             class="cf7cstmzr-description"
-                                            data-form="<?php echo $styled_form_id ?>"
-                                            data-form-title="<?php echo $styled_form_title ?>"
-                                            data-scheme="<?php echo $styled_form_style_slug ?>"
-                                            data-scheme-title="<?php echo $styled_form_style_title ?>"
+                                            data-form="<?php echo esc_attr( $styled_form_id ); ?>"
+                                            data-form-title="<?php echo esc_attr( $styled_form_title ); ?>"
+                                            data-scheme="<?php echo esc_attr( $styled_form_style_slug ); ?>"
+                                            data-scheme-title="<?php echo esc_attr( $styled_form_style_title ); ?>"
                                     >
-                                        <span id="cf7cstmzr-enabled-single-form"<?php echo $display_enabled_single_form; ?>>
+                                        <span id="cf7cstmzr-enabled-single-form"<?php echo wp_kses_post($display_enabled_single_form); ?>>
                                             <?php
-                                            echo sprintf( __( 'Currently <strong id="cf7cstmzr-styled_form_title">%s</strong> form is styled with <strong id="cf7cstmzr-styled_form_style_title">%s</strong>. As in free version you can style only one form at a time and if you activate style for current form, style will be removed from other form.', 'cf7-styler' ), $styled_form_title, $styled_form_style_title );
+                                            echo wp_kses( 
+							            		/* translators: %s: styled form title. */	 
+												sprintf( __( 'Currently <strong id="cf7cstmzr-styled_form_title">%1$s</strong> form is styled with <strong id="cf7cstmzr-styled_form_style_title">%2$s</strong>. As in free version you can style only one form at a time and if you activate style for current form, style will be removed from other form.', 'cf7-styler' ), esc_html( $styled_form_title ), esc_html( $styled_form_style_title ) ), array( 'strong' => array( 'id' => array() ) ) );
                                             ?>
                                         </span>
 
-                                        <span id="cf7cstmzr-disabled-single-form"<?php echo $display_disabled_single_form; ?>>
+                                        <span id="cf7cstmzr-disabled-single-form"<?php echo wp_kses_post($display_disabled_single_form); ?>>
                                             <?php
-                                            echo sprintf( __( 'No form is styled with style scheme, click "Activate style for current form" button to apply current scheme for this form.', 'cf7-styler' ), $styled_form_title, $styled_form_style_title );
+                                            echo esc_html__( 'No form is styled with style scheme, click "Activate style for current form" button to apply current scheme for this form.', 'cf7-styler' );
                                             ?>
                                         </span>
                                     </div>
@@ -1392,12 +1408,12 @@ $permalink_structure = get_option('permalink_structure');
                                     if (false) {
                                         ?>
                                         <div style="margin-bottom: 10px;">
-                                            <button id="cf7cstmzr-enable-for-form" class="button button-success" type="button" data-scheme="<?php echo $style_scheme_slug ?>"<?php echo $display_enabled_button; ?>>
-                                                <?php _e('Activate style for current form', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-enable-for-form" class="button button-success" type="button" data-scheme="<?php echo esc_attr( $style_scheme_slug ); ?>"<?php echo wp_kses_post($display_enabled_button); ?>>
+                                                <?php esc_html_e( 'Activate style for current form', 'cf7-styler' ); ?>
                                             </button>
 
-                                            <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo $first_form_scheme ?>"<?php echo $display_disabled_button; ?>>
-                                                <?php _e('Disable style for current form', 'cf7-styler') ?>
+                                            <button id="cf7cstmzr-disable-for-form" class="button button-primary" type="button" data-scheme="<?php echo esc_attr( $first_form_scheme ); ?>"<?php echo wp_kses_post($display_disabled_button); ?>>
+                                                <?php esc_html_e( 'Disable style for current form', 'cf7-styler' ); ?>
                                             </button>
                                         </div>
                                         <?php
@@ -1408,9 +1424,9 @@ $permalink_structure = get_option('permalink_structure');
                             <?php
                         } else { // No Contact Form 7 Items
                             ?>
-                            <h4 style="margin-top:0;margin-bottom:10px;font-size:16px;"><?php _e('You do not have any Contact Form 7 items', 'cf7-styler') ?></h4>
+                            <h4 style="margin-top:0;margin-bottom:10px;font-size:16px;"><?php esc_html_e( 'You do not have any Contact Form 7 items', 'cf7-styler' ); ?></h4>
                             <p style="margin-bottom: 0;">
-                                <?php _e('Start with creating your <a href="admin.php?page=wpcf7-new">first Contact Form 7</a>', 'cf7-styler') ?>
+                                <?php echo wp_kses( __( 'Start with creating your <a href="admin.php?page=wpcf7-new">first Contact Form 7</a>', 'cf7-styler' ), array( 'a' => array( 'href' => array() ) ) ); ?>
                             </p>
                             <?php
                         }
@@ -1439,7 +1455,7 @@ $permalink_structure = get_option('permalink_structure');
                                         title="Inline Frame Example"
                                         class="previous-iframe"
                                         style="width:100%;height:100%;"
-                                        src="<?php echo get_site_url(); ?>/cf7cstmzr-form-customizer/<?php echo $cf7_form_id ?>?style_scheme=<?php echo $style_scheme_slug ?>&on_load=1">
+                                        src="<?php echo esc_url_raw( get_site_url() . '/cf7cstmzr-form-customizer/' . $cf7_form_id . '?style_scheme=' . $style_scheme_slug . '&on_load=1' ); ?>">
                                 </iframe>
                                 <?php
                             }
@@ -1447,11 +1463,11 @@ $permalink_structure = get_option('permalink_structure');
                             ?>
                             <div style="padding: 35px 25px;">
                                 <p style="text-align:center;">
-                                    <?php _e('No Contact Form 7 items for preview', 'cf7-styler') ?>
+                                    <?php esc_html_e( 'No Contact Form 7 items for preview', 'cf7-styler' ); ?>
                                 </p>
 
                                 <p style="text-align:center;">
-                                    <?php _e('Start with creating your <a href="admin.php?page=wpcf7-new">first Contact Form 7</a>', 'cf7-styler') ?>
+                                    <?php echo wp_kses( __( 'Start with creating your <a href="admin.php?page=wpcf7-new">first Contact Form 7</a>', 'cf7-styler' ), array( 'a' => array( 'href' => array() ) ) ); ?>
                                 </p>
                             </div>
                             <?php

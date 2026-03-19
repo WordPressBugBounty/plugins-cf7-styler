@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * The admin-specific functionality of the plugin.
@@ -415,6 +416,12 @@ class Cf7_Customizer_Admin_Ajax {
     }
 
     public function cache_form() {
+		if (!wp_verify_nonce($_POST['security'], 'cf7cstmzr_ajax_nonce')) {
+			$response = array('success' => 0, 'error' => 1, 'message' => esc_html__('Error', 'cf7-styler') . ': ' . esc_html__('Nonce verification failed', 'cf7-styler'));
+
+			echo wp_json_encode( $response );
+			wp_die();
+		}
         $form = !empty($_POST['form']) ? sanitize_text_field($_POST['form']) : false;
 
         if (!$form) {
@@ -454,11 +461,14 @@ class Cf7_Customizer_Admin_Ajax {
         }
 
         if ('free' === $plugin_version) {
-            global $wpdb;
+           global $wpdb;
 
-            $sql = "DELETE FROM {$wpdb->postmeta} WHERE meta_key='cf7cstmzr_style_scheme';";
-
-            $wpdb->query($sql);
+			$wpdb->query(
+				$wpdb->prepare(
+					"DELETE FROM {$wpdb->postmeta} WHERE meta_key = %s",
+					'cf7cstmzr_style_scheme'
+				)
+			);
         }
 
         update_post_meta( $form, 'cf7cstmzr_style_scheme', $scheme );
@@ -531,7 +541,7 @@ class Cf7_Customizer_Admin_Ajax {
         $required_plugins = Cf7_Required_Plugin::get_required_plugins();
 
         if (empty($required_plugins[$plugin])) {
-            $response = array('success' => 0, 'error' => 1, 'message' => __('Error', 'wp2leads-wtsr') . ': ' . __('Plugin you are trying to install is not in the required list', 'wp2leads-wtsr'));
+            $response = array('success' => 0, 'error' => 1, 'message' => __('Error', 'cf7-styler') . ': ' . __('Plugin you are trying to install is not in the required list', 'cf7-styler'));
             echo json_encode($response);
 
             wp_die();
@@ -540,7 +550,7 @@ class Cf7_Customizer_Admin_Ajax {
         $result = Cf7_Required_Plugin::install_and_activate_plugin($plugin);
 
         if (!$result) {
-            $response = array('success' => 0, 'error' => 1, 'message' => __('Error', 'wp2leads-wtsr') . ': ' . __('Plugin could not be installed manually', 'wp2leads-wtsr'));
+            $response = array('success' => 0, 'error' => 1, 'message' => __('Error', 'cf7-styler') . ': ' . __('Plugin could not be installed manually', 'cf7-styler'));
 
             echo 'error';
             echo '&&&&&';
@@ -550,7 +560,7 @@ class Cf7_Customizer_Admin_Ajax {
 
         $plugin_name = $required_plugins[$plugin]['label'];
 
-        $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads-wtsr') . ': ' . $plugin_name . __(' installed and activated', 'wp2leads-wtsr'));
+        $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'cf7-styler') . ': ' . $plugin_name . __(' installed and activated', 'cf7-styler'));
 
         echo 'success';
         echo '&&&&&';

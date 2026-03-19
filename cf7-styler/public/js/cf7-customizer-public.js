@@ -15,7 +15,8 @@
 		var form = $(this).data('form');
 		var data = {
 			action: 'cf7cstmzr_cache_form',
-			form: form
+			form: form,
+			security: cf7cstmzrJsObj.security
 		};
 
 		$.ajax({
@@ -79,7 +80,8 @@
 		var data = {
 			action: 'cf7cstmzr_frontend_save',
 			loadBodyTag: loadBodyTag,
-			postId: postId
+			postId: postId,
+			security: cf7cstmzrJsObj.security
 		};
 
 		$.ajax({

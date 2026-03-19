@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Provide a admin area view for the plugin
@@ -26,9 +27,9 @@ return;
     <?php
     foreach ($tabs as $tab_slug => $tab) {
         ?>
-        <a href="?page=cf7cstmzr_page&tab=<?php echo $tab_slug ?>"
+        <a href="?page=cf7cstmzr_page&tab=<?php echo esc_attr($tab_slug) ?>"
            class="nav-tab <?php echo $active_tab === $tab_slug ? 'nav-tab-active' : ''; ?>"
-        ><?php echo $tab; ?></a>
+        ><?php echo esc_html($tab); ?></a>
         <?php
     }
     ?>

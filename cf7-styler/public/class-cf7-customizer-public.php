@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * The public-facing functionality of the plugin.
  *
@@ -285,19 +285,21 @@ class Cf7_Customizer_Public {
             }
         }
         if ($form_id) {
-            wp_enqueue_script('cf7cstmzr-split', plugin_dir_url( __FILE__ ) . 'js/split.min.js', array('jquery'), '1.5.11');
+            wp_enqueue_script('cf7cstmzr-split', plugin_dir_url( __FILE__ ) . 'js/split.min.js', array('jquery'), CF7CSTMZR_VERSION);
         }
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cf7-customizer-public.js', array( 'jquery' ), $this->version . time(), true );
 
 		wp_localize_script( $this->plugin_name, 'cf7cstmzrJsObj', array(
             'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+            'security'       => wp_create_nonce( 'cf7cstmzr_ajax_nonce' ),
         ));
 	}
 
 	public function add_wrapper($output, $tag, $attr, $m) {
-
 	    if ('contact-form-7' === sanitize_text_field($tag)) {
-            $permalink_structure = get_option('permalink_structure');
+			$form_post = wpcf7_get_contact_form_by_hash( $attr["id"]);
+	        $form_post_id = isset($form_post) && $form_post ? $form_post->id() : '';            
+			$permalink_structure = get_option('permalink_structure');
 
             if (!empty($permalink_structure)) {
                 $form_id = sanitize_text_field(get_query_var( 'cf7cstmzr-form' ));
@@ -334,7 +336,7 @@ class Cf7_Customizer_Public {
                     $is_page_body_tag = get_post_meta( $post->ID, 'cf7cstmzr-load-body-tag', true );
 
                     if (!empty($is_page_body_tag)) {
-                        $is_body_tag = $is_page_body_tag;
+                        // $is_body_tag = $is_page_body_tag;
                     }
                 }
 
@@ -350,25 +352,25 @@ class Cf7_Customizer_Public {
                         ?>
                         <div id="cf7cstmzr_frontend">
                             <div id="cf7cstmzr_frontend_togler">
-                                <span class="dashicons dashicons-admin-generic"></span> <?php _e('CF7 Styler', 'cf7-styler') ?>
+                                <span class="dashicons dashicons-admin-generic"></span> <?php esc_html_e( 'CF7 Styler', 'cf7-styler' ); ?>
                             </div>
 
                             <div style="margin-bottom: 15px;">
                                 <label for="cf7cstmzr_frontend_load-body-tag" style="font-size:13px;line-height:1;">
-                                    <input type="checkbox" id="cf7cstmzr_frontend_load-body-tag" value="1"<?php echo !empty($is_page_body_tag) ? ' checked' : '' ?>>
-                                    <?php _e('Load styles inside <code>&lt;body&gt;</code> tag on this page', 'cf7-styler') ?>
+                                    <input type="checkbox" id="cf7cstmzr_frontend_load-body-tag" value="1"<?php echo esc_attr( !empty($is_body_tag) ? ' checked' : '' ); ?>>
+                                    <?php echo wp_kses( __( 'Load styles inside <code>&lt;body&gt;</code> tag on this page', 'cf7-styler' ), array( 'code' => array() ) ); ?>
                                 </label>
                             </div>
 
                             <div>
-                                <button id="cf7cstmzr_frontend_save" class="cf7cstmzr-button" type="button" data-post="<?php echo $post->ID ?>">
-                                    <?php _e('Save', 'cf7-styler') ?>
+                                <button id="cf7cstmzr_frontend_save" class="cf7cstmzr-button" type="button" data-post="<?php echo absint( $post->ID ); ?>">
+                                    <?php esc_html_e( 'Save', 'cf7-styler' ); ?>
                                 </button>
                             </div>
 
                             <div>
                                 <button id="cf7cstmzr_frontend_close" class="cf7cstmzr-link" type="button">
-                                    <?php _e('Close', 'cf7-styler') ?>
+                                    <?php esc_html_e( 'Close', 'cf7-styler' ); ?>
                                 </button>
                             </div>
                         </div>
@@ -379,11 +381,11 @@ class Cf7_Customizer_Public {
                         ?>
                         <div style="text-align: right;">
                             <div id="cf7cstmzr_form_frontend_togler">
-                                <span class="dashicons dashicons-admin-generic"></span> <?php _e('CF7 Styler', 'cf7-styler') ?>
+                                <span class="dashicons dashicons-admin-generic"></span> <?php esc_html_e( 'CF7 Styler', 'cf7-styler' ); ?>
                             </div>
 
-                            <a class="cf7cstmzr_form_frontend_link" target="_blank" href="<?php echo get_admin_url(); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize" data-form="<?php echo $attr["id"]; ?>">
-                                <span class="dashicons dashicons-edit"></span> <?php _e('Open styler', 'cf7-styler') ?>
+                            <a class="cf7cstmzr_form_frontend_link" target="_blank" href="<?php echo esc_url( get_admin_url() ); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize&form_post_id=<?php echo esc_attr($form_post_id); ?>" data-form="<?php echo esc_attr( $attr['id'] ); ?>">
+                                <span class="dashicons dashicons-edit"></span> <?php esc_html_e( 'Open styler', 'cf7-styler' ); ?>
                             </a>
                         </div>
                         <?php
@@ -396,8 +398,8 @@ class Cf7_Customizer_Public {
                         wp_enqueue_style( 'dashicons' );
                         ?>
                         <div style="text-align: right;">
-                            <a class="cf7cstmzr_form_frontend_link" target="_blank" href="<?php echo get_admin_url(); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize" data-form="<?php echo $attr["id"]; ?>">
-                                <span class="dashicons dashicons-edit"></span> <?php _e('Open styler', 'cf7-styler') ?>
+                            <a class="cf7cstmzr_form_frontend_link" target="_blank" href="<?php echo esc_url( get_admin_url() ); ?>/admin.php?page=cf7cstmzr_page&tab=form-customize&form_post_id=<?php echo esc_attr($form_post_id); ?>" data-form="<?php echo esc_attr( $attr['id'] ); ?>">
+                                <span class="dashicons dashicons-edit"></span> <?php esc_html_e( 'Open styler', 'cf7-styler' ); ?>
                             </a>
                         </div>
                         <?php
@@ -475,25 +477,31 @@ class Cf7_Customizer_Public {
     }
 
     public function save_frontend_settings() {
+        if (!wp_verify_nonce($_POST['security'], 'cf7cstmzr_ajax_nonce')) {
+			$response = array('success' => 0, 'error' => 1, 'message' => esc_html__('Error', 'cf7-styler') . ': ' . esc_html__('Nonce verification failed', 'cf7-styler'));
+
+			echo wp_json_encode( $response );
+			wp_die();
+		}
         $loadBodyTag = !empty($_POST['loadBodyTag']) ? sanitize_text_field($_POST['loadBodyTag']) : false;
         $postId = !empty($_POST['postId']) ? sanitize_text_field($_POST['postId']) : false;
 
         if (empty($postId)) {
-            $response = array('success' => 0, 'error' => 1, 'message' => __('Error', 'cf7-styler') . ': ' . __('You can not use this settings on this page type', 'cf7-styler'));
+            $response = array('success' => 0, 'error' => 1, 'message' => esc_html__('Error', 'cf7-styler') . ': ' . esc_html__('You can not use this settings on this page type', 'cf7-styler'));
 
-            echo json_encode($response);
+            echo wp_json_encode( $response );
             wp_die();
         }
 
         if ($loadBodyTag && 'true' === $loadBodyTag) {
-            update_post_meta( $postId, 'cf7cstmzr-load-body-tag', 1 );
+            update_option( 'cf7cstmzr-load-body-tag', 1 );
         } else {
-            delete_post_meta( $postId, 'cf7cstmzr-load-body-tag' );
+            update_option( 'cf7cstmzr-load-body-tag', 0 );
         }
 
-        $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'cf7-styler') . ': ' . __('Saved', 'cf7-styler'));
+        $response = array('success' => 1, 'error' => 0, 'message' => esc_html__('Success', 'cf7-styler') . ': ' . esc_html__('Saved', 'cf7-styler'));
 
-        echo json_encode($response);
+        echo wp_json_encode( $response );
         wp_die();
     }
 }

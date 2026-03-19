@@ -1,4 +1,4 @@
-(function( $ ) {
+﻿(function( $ ) {
 	'use strict';
 	var editor;
 
@@ -631,6 +631,9 @@
 							$('#form-preview-container_inner iframe.previous-iframe' ).remove();
 							$('#formPreviewFrame').addClass('previous-iframe');
 							$('#formPreviewFrame').contents().scrollTop(frame_top);
+							if ($('#cf7cstmzr-split-fixed').is(':checked')) {
+								$('#formPreviewFrame').contents().find('#split-container').removeClass('float-split').addClass('scroll-split');
+							}
 						});
 					} else {
 						previewButton.each(function() {
@@ -656,6 +659,7 @@
 			url: ajaxurl,
 			data: {
 				action: 'cf7cstmzr_cache_form',
+				security: cf7cstmzr_ajax_object.security,
 				form: form
 			},
 			success: function (response) {
@@ -1243,12 +1247,13 @@
 		mainOffset = 40;
 		var mainPosition = $("#cf7cstmzr-main-container").position().top;
 
+		var heightOffset, heightPosition;
 		if ($("#cf7cstmzr-main-container").hasClass('fw')) {
-            var heightOffset = windowHeight;
-            var heightPosition = windowHeight;
+            heightOffset = windowHeight;
+            heightPosition = windowHeight;
 		} else {
-            var heightOffset = windowHeight - mainOffset - 15;
-            var heightPosition = windowHeight - mainPosition - 15;
+            heightOffset = windowHeight - mainOffset - 15;
+            heightPosition = windowHeight - mainPosition - 15;
         }
 
 		var settingsContainerHeader = $('#cf7cstmzr-settings-container-header');
@@ -1519,7 +1524,6 @@
 
 				if (decoded) {
 					if (decoded.success) {
-						$('#cf7cstmzr-split-fixed').attr('checked', false);
 						var frame_top = $('#formPreviewFrame').contents().scrollTop();
 						var formId = $('#cf7cstmzr_select_form').val();
 						var url = $('#cf7cstmzr-url').val();
@@ -1536,6 +1540,9 @@
 							$('#form-preview-container_inner iframe.previous-iframe' ).remove();
 							$('#formPreviewFrame').addClass('previous-iframe');
 							$('#formPreviewFrame').contents().scrollTop(frame_top);
+							if ($('#cf7cstmzr-split-fixed').is(':checked')) {
+								$('#formPreviewFrame').contents().find('#split-container').removeClass('float-split').addClass('scroll-split');
+							}
 						});
 					} else {
 						previewButton.each(function() {

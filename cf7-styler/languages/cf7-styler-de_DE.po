@@ -3,425 +3,452 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 11:35+0000\n"
-"PO-Revision-Date: 2023-04-15 16:02+0000\n"
+"PO-Revision-Date: 2026-03-19 13:32+0000\n"
 "Last-Translator: Tobias support@saleswonder.biz\n"
-"Language-Team: German\n"
-"Language: de-DE\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.1.2-alpha-55489"
+"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.4.18"
 
-#: admin/class-cf7-customizer-admin.php:463
+#: admin/class-cf7-customizer-admin-ajax.php:563
+msgid " installed and activated"
+msgstr " installiert und aktiviert"
+
+#: admin/class-cf7-customizer-admin.php:509
 msgid "- disable style scheme -"
-msgstr "- Style deaktivieren -"
+msgstr "- Stil-Schema deaktivieren -"
 
-#: includes/lib/Cf7_Template.php:68 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:463 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:517 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:672 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:789
+#: includes/lib/Cf7_Template.php:68
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:467
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:521
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:676
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:793
 msgid "- select -"
-msgstr "- wähle  -"
+msgstr "- auswählen -"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:303
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:307
 msgid "14-days Trial"
-msgstr "14 Tage testen"
+msgstr "14-Tage-Test"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:231
+#. %s: global policy title.
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:235
 #, php-format
 msgid ""
 "<strong>%s</strong> used for all forms globally, click \"Use for all forms\" "
 "if you want to use current Scheme."
 msgstr ""
-"<strong>%s</strong>-Style ist derzeit für alle Formulare aktiviert. Klicke "
-"auf den Button \"Aktiviere den Style für alle Formulare\" um den "
-"ausgewählten Style für alle Formulare zu nutzen. *Einzeln gestylte Formulare "
-"behalten ihren Style"
+"<strong>%s</strong> wird global für alle Formulare verwendet, klicken Sie "
+"auf \"Für alle Formulare verwenden\", wenn das aktuelle Schema verwendet "
+"werden soll."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:242
+#: cf7-styler.php:141
+msgid "A page with a short 2-minute introduction"
+msgstr "Eine Seite mit einer kurzen 2-minütigen Einführung"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:246
 msgid "Activate style for all forms*"
-msgstr "Aktiviere den Style für alle Formulare*"
+msgstr "Stil für alle Formulare aktivieren*"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1292 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1329 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1396
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1302
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1343
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1412
 msgid "Activate style for current form"
-msgstr "Aktiviere den Style für das ausgewählte Formular"
+msgstr "Stil für aktuelles Formular aktivieren"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:318
+#. %s = the term "focus session", displayed in bold
+#: cf7-styler.php:144
+#, php-format
+msgid "and an invitation to a %s."
+msgstr "und eine Einladung zu einer %s."
+
+#: cf7-styler.php:153
+msgid "And something interesting happens."
+msgstr "Und etwas Interessantes passiert."
+
+#: cf7-styler.php:138
+msgid "and you answer them one by one."
+msgstr "und Sie beantworten sie nacheinander."
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:322
 msgid ""
 "As an alternative you can disable clean out the styles like on Thrive "
 "architect:"
-msgstr ""
-"Alternative kannst du das Entfernen der Styles deaktivieren wie im Beispiel "
-"Thrive Architect:"
+msgstr "Alternativ kann der Stil wie bei Thrive Architect deaktiviert werden:"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:532
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:536
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:560
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:564
 msgid "Background Image"
 msgstr "Hintergrundbild"
 
-#: admin/partials/cf7-customizer-admin-tab-required-plugin.php:9
+#: admin/partials/cf7-customizer-admin-tab-required-plugin.php:11
 msgid ""
 "Before using WOW Style Contact Form 7, you need to install and activate "
 "Contact Form 7 plugin."
 msgstr ""
-"Bevor mit WOW-Stil Contact Form 7, müssen Sie installieren und aktivieren "
-"Contact Form 7 plugin."
+"Vor der Verwendung von WOW Style Contact Form 7 muss das Contact Form 7-"
+"Plugin installiert und aktiviert werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:853 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1076
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:857
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1080
 msgid "BG Color"
-msgstr "Hintergrund-Farbe"
+msgstr "BG-Farbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:859
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:863
 msgid "BG Opacity"
-msgstr "Hintergrund-Deckkraft"
+msgstr "BG-Opazität"
 
 #: includes/lib/Cf7_Template.php:43
 msgid "Blur radius"
-msgstr "Weichzeichner-Radius"
+msgstr "Unschärferadius"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:943
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:947
 msgid "Border"
-msgstr "Rahmen"
+msgstr "Rand"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:807
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:811
 msgid "Border Color"
-msgstr "Rahmenfarbe"
+msgstr "Randfarbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:802
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:806
 msgid "Border Radius"
-msgstr "Rahmen-Radius"
+msgstr "Randradius"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:786
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:790
 msgid "Border Type"
-msgstr "Rahmen-Style"
+msgstr "Randtyp"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:764
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:768
 msgid "Border Width"
-msgstr "Rahmenbreite"
+msgstr "Randbreite"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1102
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1106
 msgid "Button Border"
-msgstr "Button-Rahmen"
+msgstr "Button-Rand"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1041
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1045
 msgid "Buttons"
-msgstr "Button(s)"
+msgstr "Buttons"
 
 #: includes/lib/Cf7_Required_Plugin.php:13
 msgid "By Takayuki Miyoshi"
 msgstr "Von Takayuki Miyoshi"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:414
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:418
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: cf7-styler.php:129
+#. %s: link to install contact form 7.
+#: cf7-styler.php:240
 #, php-format
 msgid ""
 "CF7 Customizer requires Contact Form 7 plugin to be installed and active. "
 "You can download %s."
 msgstr ""
-"Contact Form 7 Styler erfordert ein installiertes und aktiviertes Contact "
-"Form 7-Plugin. Du kannst es hier herunterladen %s."
+"CF7 Customizer benötigt das Contact Form 7-Plugin, um installiert und aktiv "
+"zu sein. Sie können %s herunterladen."
 
-#: admin/class-cf7-customizer-admin-ajax.php:487
+#: admin/class-cf7-customizer-admin-ajax.php:505
 msgid "CF7 Form is not selected"
-msgstr "Bitte wähle ein CF7-Formular"
+msgstr "CF7-Formular ist nicht ausgewählt"
 
-#: public/class-cf7-customizer-public.php:342 
-#: public/class-cf7-customizer-public.php:371 
-#: admin/class-cf7-customizer-admin.php:94 
-#: admin/class-cf7-customizer-admin.php:95 
-#: admin/class-cf7-customizer-admin.php:115 
-#: admin/class-cf7-customizer-admin.php:116 
-#: admin/class-cf7-customizer-admin.php:430
+#: admin/class-cf7-customizer-admin.php:130
+#: admin/class-cf7-customizer-admin.php:131
+#: admin/class-cf7-customizer-admin.php:151
+#: admin/class-cf7-customizer-admin.php:152
+#: admin/class-cf7-customizer-admin.php:476
+#: public/class-cf7-customizer-public.php:355
+#: public/class-cf7-customizer-public.php:384
 msgid "CF7 Styler"
 msgstr "CF7 Styler"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:986
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:990
 msgid "Checkboxes & Radiobuttons"
-msgstr "Checkboxen & Radiobuttons"
+msgstr "Kontrollkästchen & Radiobuttons"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:378
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:382
 msgid "Clean Styles"
-msgstr "Auf Default-Style zurücksetzen"
+msgstr "Stile bereinigen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1144
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1148
 msgid "Clear"
-msgstr "Leeren"
+msgstr "Löschen"
 
-#: public/class-cf7-customizer-public.php:360
+#: public/class-cf7-customizer-public.php:373
 msgid "Close"
 msgstr "Schließen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:973 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1116
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:977
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1120
 msgid "Color"
 msgstr "Farbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1187
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1191
 msgid "Contact form 7 list"
-msgstr "Contact Form 7-Auswahl"
+msgstr "Contact Form 7 Liste"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:675
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:679
 msgid "Contain"
-msgstr "enthalten"
+msgstr "Enthalten"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:410
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:414
 msgid "Copy current style scheme settings"
-msgstr "Kopiere die aktuellen Style-Einstellungen"
+msgstr "Aktuelle Stil-Schema-Einstellungen kopieren"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:674
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:678
 msgid "Cover"
-msgstr "gefüllt"
+msgstr "Abdecken"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:413
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:417
 msgid "Create"
 msgstr "Erstellen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:293
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:297
 msgid "Create multiple style schemes"
-msgstr "Erstelle mehrere Style-Vorlagen"
+msgstr "Mehrere Stil-Schemata erstellen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:370
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:374
 msgid "Create new style scheme!"
-msgstr "Neuen Style erstellen!"
+msgstr "Neues Stil-Schema erstellen!"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:6
+#: cf7-styler.php:157
+msgid "Curious how websites create sessions like this?"
+msgstr "Neugierig, wie Websites solche Sitzungen erstellen?"
+
+#: admin/partials/cf7-customizer-admin-preview-mode.php:9
 msgid "Current Style"
-msgstr "Vorschau"
+msgstr "Aktueller Stil"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1381
+#. %s: styled form title.
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1397
 #, php-format
 msgid ""
-"Currently <strong id=\"cf7cstmzr-styled_form_title\">%s</strong> form is "
-"styled with <strong id=\"cf7cstmzr-styled_form_style_title\">%s</strong>. As "
-"in free version you can style only one form at a time and if you activate "
+"Currently <strong id=\"cf7cstmzr-styled_form_title\">%1$s</strong> form is "
+"styled with <strong id=\"cf7cstmzr-styled_form_style_title\">%2$s</strong>. "
+"As in free version you can style only one form at a time and if you activate "
 "style for current form, style will be removed from other form."
 msgstr ""
-"Im Moment ist das Formular <strong id=\"cf7cstmzr-styled_form_title\">"
-"%s</strong> ist mit Style <strong id=\"cf7cstmzr-styled_form_style_title\">"
-"%s</strong> gestyled. Nachdem du in der Free Version nur ein Formular "
-"zurzeit stylen kannst, wird bei Auswahl eines anderen Formulars das zuletzt "
-"gestylte Formular ungestyled."
+"Aktuell ist das <strong id=\"cf7cstmzr-styled_form_title\">%1$s</strong>-"
+"Formular mit <strong id=\"cf7cstmzr-styled_form_style_title\">%2$s</strong> "
+"gestaltet. In der kostenlosen Version kann nur ein Formular gleichzeitig "
+"gestaltet werden. Wenn der Stil für das aktuelle Formular aktiviert wird, "
+"wird der Stil von anderen Formularen entfernt."
 
-#: admin/class-cf7-customizer-admin.php:481
+#. %s: styled form title.
+#: admin/class-cf7-customizer-admin.php:529
 #, php-format
 msgid ""
-"Currently <strong>%s</strong> form is styled with <strong>%s</strong>. As in "
-"free version you can style only one form at a time and if you activate style "
-"for current form, style will be removed from other form."
+"Currently <strong>\"%1$s</strong> form is styled with <strong>\"%2$s</strong>"
+". As in free version you can style only one form at a time and if you "
+"activate style for current form, style will be removed from other form."
 msgstr ""
-"Im Moment ist das Formular <strong>%s</strong> ist mit Style <strong>"
-"%s</strong> gestyled. Nachdem du in der Free Version nur ein Formular "
-"zurzeit stylen kannst, wird bei Auswahl eines anderen Formulars das zuletzt "
-"gestylte Formular ungestyled."
+"Aktuell ist das <strong>\"%1$s\"</strong> Formular mit <strong>"
+"\"%2$s\"</strong> gestaltet. In der kostenlosen Version kann nur ein "
+"Formular gleichzeitig gestaltet werden, und wenn der Stil für das aktuelle "
+"Formular aktiviert wird, wird der Stil von dem anderen Formular entfernt."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1134
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1138
 msgid "Custom CSS"
 msgstr "Benutzerdefiniertes CSS"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1136
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1140
 msgid "Custom CSS Code"
 msgstr "Benutzerdefinierter CSS-Code"
 
 #: includes/lib/Cf7_Template.php:80
 msgid "Dashed"
-msgstr "Gestrichelte"
+msgstr "Gestrichelt"
 
-#: admin/class-cf7-customizer-admin-ajax.php:66 
-#: admin/class-cf7-customizer-admin-ajax.php:237 
+#: admin/class-cf7-customizer-admin-ajax.php:68
+#: admin/class-cf7-customizer-admin-ajax.php:241
 #: includes/lib/Cf7_Style_Scheme.php:7
 msgid "Default Scheme"
-msgstr "Standard-Style"
+msgstr "Standard-Schema"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:580
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:584
 msgid "Delete Image"
 msgstr "Bild löschen"
 
-#: admin/class-cf7-customizer-admin-ajax.php:286
+#: admin/class-cf7-customizer-admin-ajax.php:290
 msgid "deleted"
 msgstr "gelöscht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1168
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1172
 msgid "Desktop View"
 msgstr "Desktop-Ansicht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:258
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:262
 msgid "Disable style for all forms"
-msgstr "Deaktiviere den Style für alle Formulare"
+msgstr "Stil für alle Formulare deaktivieren"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1296 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1333 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1400
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1306
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1347
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1416
 msgid "Disable style for current form"
-msgstr "Deaktiviere den Style für das aktuelle Formular"
+msgstr "Stil für aktuelles Formular deaktivieren"
 
-#: admin/partials/cf7-customizer-admin-display.php:41
+#: admin/partials/cf7-customizer-admin-display.php:56
 msgid ""
 "Do you like to get styler premium version for free? Then <a href=\"?"
 "page=wp2l-admin&tab=settings\" target=\"_blank\">Enter your WP2LEADS pro "
 "license</a> or get a license <a href=\"https://wp2leads-for-klick-tipp."
 "com/web/go-pro-plus-get-all-done4u/\" target=\"_blank\">here</a>!"
 msgstr ""
-"Möchtest du die Styler Premium Version for free? Dann <a href=\"?page=wp2l-"
-"admin&tab=settings\" target=\"_blank\">gebe hier deine WP2LEADS Pro Lizenz-"
-"Daten ein </a> oder hole dir hier jetzt <a href=\"https://wp2leads-for-klick-"
-"tipp.com/web/go-pro-plus-get-all-done4u/\" target=\"_blank\">eine Lizenz und "
-"verbinde deine WordPress-Plugins mit Klick-Tipp!</a>"
+"Möchten Sie die Premium-Version des Stylers kostenlos erhalten? Dann <a "
+"href=\"?page=wp2l-admin&tab=settings\" target=\"_blank\">geben Sie Ihre "
+"WP2LEADS Pro-Lizenz ein</a> oder erhalten Sie eine Lizenz <a href=\"https:"
+"//wp2leads-for-klick-tipp.com/web/go-pro-plus-get-all-done4u/\" "
+"target=\"_blank\">hier</a>!"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:184 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:303 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:186
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:306
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:307
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:555
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1003
 msgid "Do you want to save changes before leaving page?"
-msgstr "Möchtest du die Einstellungen speichern bevor du die Seite verlässt?"
+msgstr "Änderungen vor dem Verlassen der Seite speichern?"
 
 #: includes/lib/Cf7_Template.php:79
 msgid "Dotted"
-msgstr "Gepunktet"
+msgstr "Gestrichelt"
 
 #: includes/lib/Cf7_Template.php:81
 msgid "Double"
 msgstr "Doppelt"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:32
+#: admin/partials/cf7-customizer-admin-preview-mode.php:35
 msgid "Duplicate form in second column"
-msgstr "Dupliziere Formular in der zweiten Spalte"
+msgstr "Formular in der zweiten Spalte duplizieren"
 
-#: admin/class-cf7-customizer-admin-ajax.php:396
+#: cf7-styler.php:148
+msgid "During these sessions:"
+msgstr "Während dieser Sitzungen:"
+
+#: admin/class-cf7-customizer-admin-ajax.php:402
 msgid "enabled for all forms"
-msgstr "Aktiviere den Style für alle Formulare"
+msgstr "für alle Formulare aktiviert"
 
-#: public/class-cf7-customizer-public.php:471 
-#: admin/class-cf7-customizer-admin-ajax.php:133 
-#: admin/class-cf7-customizer-admin-ajax.php:230 
-#: admin/class-cf7-customizer-admin-ajax.php:237 
-#: admin/class-cf7-customizer-admin-ajax.php:377 
-#: admin/class-cf7-customizer-admin-ajax.php:415 
-#: admin/class-cf7-customizer-admin-ajax.php:434 
-#: admin/class-cf7-customizer-admin-ajax.php:443 
-#: admin/class-cf7-customizer-admin-ajax.php:469 
-#: admin/class-cf7-customizer-admin-ajax.php:487 
-#: admin/class-cf7-customizer-admin-ajax.php:517
+#: admin/class-cf7-customizer-admin-ajax.php:136
+#: admin/class-cf7-customizer-admin-ajax.php:234
+#: admin/class-cf7-customizer-admin-ajax.php:241
+#: admin/class-cf7-customizer-admin-ajax.php:383
+#: admin/class-cf7-customizer-admin-ajax.php:420
+#: admin/class-cf7-customizer-admin-ajax.php:428
+#: admin/class-cf7-customizer-admin-ajax.php:448
+#: admin/class-cf7-customizer-admin-ajax.php:457
+#: admin/class-cf7-customizer-admin-ajax.php:487
+#: admin/class-cf7-customizer-admin-ajax.php:505
+#: admin/class-cf7-customizer-admin-ajax.php:535
+#: admin/class-cf7-customizer-admin-ajax.php:544
+#: admin/class-cf7-customizer-admin-ajax.php:553
+#: public/class-cf7-customizer-public.php:481
+#: public/class-cf7-customizer-public.php:490
 msgid "Error"
-msgstr "Achtung!"
+msgstr "Fehler"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:149
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:151
 msgid "Exit Full Screen"
-msgstr "Vollbildmodus verlassen"
+msgstr "Vollbildmodus beenden"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:461
+#: cf7-styler.php:145
+msgid "focus session"
+msgstr "Fokus-Sitzung"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:465
 msgid "Font Family"
-msgstr "Schriftfamilie"
+msgstr "Schriftart"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:455 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:834 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1090
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:459
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:838
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1094
 msgid "Font Size"
 msgstr "Schriftgröße"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:514
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:518
 msgid "Font Style"
-msgstr "Schrift-Stil"
+msgstr "Schriftstil"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:509
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:513
 msgid "Font Weight"
-msgstr "Schrift-Stärke"
+msgstr "Schriftgewicht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:530
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:534
 msgid "Form BG Image & Colors"
-msgstr "Formular-Hintergrundbild & Farbe"
+msgstr "Hintergrundbild & Farben des Formulars"
 
-#: admin/partials/cf7-customizer-admin-tabs.php:16
+#: admin/partials/cf7-customizer-admin-tabs.php:17
 msgid "Form Customizing"
-msgstr "Formular-Anpassung"
+msgstr "Formularanpassung"
 
-#: admin/class-cf7-customizer-admin-ajax.php:415 
-#: admin/class-cf7-customizer-admin-ajax.php:443 
-#: admin/class-cf7-customizer-admin-ajax.php:469
+#: admin/class-cf7-customizer-admin-ajax.php:428
+#: admin/class-cf7-customizer-admin-ajax.php:457
+#: admin/class-cf7-customizer-admin-ajax.php:487
 msgid "Form is not selected"
-msgstr "Kein Formular ausgewählt"
+msgstr "Formular ist nicht ausgewählt"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:689
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:693
 msgid "Form Padding, Margin & Border"
-msgstr "Formular-Abstände, Rahmen & Schatten"
+msgstr "Formular-Padding, -Margin & -Rahmen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:446
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:450
 msgid "Form Text"
-msgstr "Formular-Text, Links & Labels"
+msgstr "Formulartext"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:148
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:150
 msgid "Full Screen"
 msgstr "Vollbild"
 
 #: includes/lib/Cf7_Template.php:82
 msgid "Groove"
-msgstr "Groove"
+msgstr "Rille"
 
 #: includes/lib/Cf7_Template.php:31
 msgid "Horizontal Length"
-msgstr "Horizontale Breite"
+msgstr "Horizontale Länge"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1081
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1085
 msgid "Hover BG Color"
 msgstr "Hover-Hintergrundfarbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1121
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1125
 msgid "Hover Color"
 msgstr "Hover-Farbe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1069
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1073
 msgid "Hover Text Color"
-msgstr "Hover-Text Farbe"
-
-#. Description of the plugin
-msgid ""
-"How to turn your contact form7 form into a converting and easy to use and "
-"pro styled contact form, \"survey\" lead generator or an eye catching form"
-msgstr ""
-"Wie Sie Ihren Kontakt form7 form in a-Konvertierung und einfach zu bedienen "
-"und pro-styled Kontaktformular, \"Umfrage\" lead-generator oder eine "
-"auffällige form"
+msgstr "Hover-Textfarbe"
 
 #. Author URI of the plugin
-msgid "https://saleswonder.biz"
-msgstr "https://saleswonder.biz"
+msgid "https://saleswonder.biz/"
+msgstr "https://saleswonder.biz/"
 
 #. URI of the plugin
-msgid ""
-"https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-"
-"tipp-einfach-verbinden/"
-msgstr ""
-"https://saleswonder.biz/blog/4free-contact-form-7-cf7-formular-und-klick-"
-"tipp-einfach-verbinden/"
+msgid "https://wordpress.org/plugins/cf7-styler/"
+msgstr "https://wordpress.org/plugins/cf7-styler/"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:352 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:360
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:356
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:364
 msgid "I'm happy with this! Save"
-msgstr "Ich bin glücklich sowie es ist! Bitte speichern!"
+msgstr "Damit zufrieden! Speichern"
 
-#: admin/partials/cf7-customizer-admin-display.php:31
+#: admin/partials/cf7-customizer-admin-display.php:34
 msgid ""
 "If you are using page builders, like Thrive Architect, OptimizePress etc., "
 "please check our <a href=\"https://saleswonder.biz/knowledge-base/\" "
 "target=\"_blank\">Knowledge Base page</a> for fixing possible issues"
 msgstr ""
-"If you are using page builders, like Thrive Architect, OptimizePress etc., "
-"please check our <a href=\"https://saleswonder.biz/knowledge-base/\" "
-"target=\"_blank\">Knowledge Base page</a> for fixing possible issues"
+"Wenn Page Builder wie Thrive Architect, OptimizePress usw. verwendet werden, "
+"bitte unsere <a href=\"https://saleswonder.biz/knowledge-base/\" "
+"target=\"_blank\">Wissensdatenbank-Seite</a> auf mögliche Probleme "
+"überprüfen."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:275
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:279
 msgid ""
 "If you need to load style scheme inside <code>&lt;body&gt;</code> tag only "
 "on some pages, you can do it on frontend using \"CF7 Styler\" button. This "
@@ -429,15 +456,14 @@ msgid ""
 ") and in premium version. You can not do it on archives pages (blog, "
 "products list etc) in this case you need to use global settings."
 msgstr ""
-"Wenn du deinen Style nur auf bestimmten Seiten mit dem <code>&lt;body&gt;"
-"</code> Tag laden möchtest, nimm die Einstellungen direkt auf der Seite vor. "
-"Dazu kannst du dort den \"CF7 Styler\" Button nutzen. \n"
-"Diese Funktion ist nur single post types wie Seiten, Beiträge, Produkte usw. "
-"und in der Premium Version verfügbar. Für Archiv-Seiten (Blog, Products "
-"Listen usw. steht diese Funktion nicht zur Verfügung. Nutze in diesem Fall "
-"die globale Einstellung direkt über diesem Text."
+"Wenn das Styleschema nur auf bestimmten Seiten im <code>&lt;body&gt;</code>-"
+"Tag geladen werden soll, kann dies im Frontend mit der Schaltfläche \"CF7 "
+"Styler\" erfolgen. Diese Funktion ist nur für einzelne Beitragstypen (Seiten,"
+" Beiträge, Produkte usw.) und in der Premium-Version verfügbar. Auf "
+"Archivseiten (Blog, Produktliste usw.) kann dies nicht durchgeführt werden; "
+"in diesem Fall müssen globale Einstellungen verwendet werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:314
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:318
 msgid ""
 "If you need to load style scheme inside <code>&lt;body&gt;</code> tag only "
 "on some pages, you can do it on frontend using \"CF7 Styler\" button. This "
@@ -445,274 +471,304 @@ msgid ""
 "). You can not do it on archives pages (blog, products list etc) in this "
 "case you need to use global settings."
 msgstr ""
-"Wenn du deinen Style nur auf bestimmten Seiten mit dem <code>&lt;body&gt;"
-"</code> Tag laden möchtest, nimm die Einstellungen direkt auf der Seite vor. "
-"Dazu kannst du dort den \"CF7 Styler\" Button nutzen. \n"
-"Diese Funktion ist nur single post types wie Seiten, Beiträge, Produkte usw. "
-"und in der Premium Version verfügbar. Für Archiv-Seiten (Blog, Products "
-"Listen usw. steht diese Funktion nicht zur Verfügung. Nutze in diesem Fall "
-"die globale Einstellung direkt über diesem Text."
+"Wenn das Styleschema nur auf bestimmten Seiten im <code>&lt;body&gt;</code>-"
+"Tag geladen werden soll, kann dies im Frontend mit der Schaltfläche \"CF7 "
+"Styler\" erfolgen. Diese Funktion ist nur für einzelne Beitragstypen (Seiten,"
+" Beiträge, Produkte usw.) verfügbar. Auf Archivseiten (Blog, Produktliste "
+"usw.) kann dies nicht durchgeführt werden; in diesem Fall müssen globale "
+"Einstellungen verwendet werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:547
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551
 msgid ""
 "Image background settings available in live mode only for Professional "
 "version. You can test it in preview mode \"current style\", but it will not "
 "be saved."
 msgstr ""
-"Die Hintergrund-Einstellungen bleiben der Pro Version vorbehalten. Du kannst "
-"jedoch das Ergebnis in der Vorschau-Ansicht testen, jedoch nicht speichern."
+"Bildeinstellungen sind nur im Live-Modus für die Professional-Version "
+"verfügbar. Im Vorschaumodus \"aktueller Stil\" kann getestet werden, aber es "
+"wird nicht gespeichert."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:663
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:667
 msgid "Image Opacity"
-msgstr "Bild Deckkraft"
+msgstr "Bild-Transparenz"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:586
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:590
 msgid "Image Position"
-msgstr "Bild-Position"
+msgstr "Bildposition"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:670
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:674
 msgid "Image Size"
-msgstr "Füll-Eigenschaften"
+msgstr "Bildgröße"
 
-#: includes/lib/Cf7_Template.php:77 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:521
+#: includes/lib/Cf7_Template.php:77
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:525
 msgid "Inherit"
-msgstr "Vererbt"
+msgstr "Übernehmen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:820
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:824
 msgid "Input Fields"
-msgstr "Eingabe-Felder"
+msgstr "Eingabefelder"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:402
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:406
 msgid "Input style scheme title"
-msgstr "Benenne deinen Style"
+msgstr "Titel des Eingabestilschemas"
 
 #: includes/lib/Cf7_Template.php:70 includes/lib/Cf7_Template.php:84
 msgid "Inset"
-msgstr "Innen"
+msgstr "Eingekreist"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:519
+#: admin/partials/cf7-customizer-admin-tab-required-plugin.php:38
+msgid "Install and Activate"
+msgstr "Installieren und Aktivieren"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:523
 msgid "Italic"
 msgstr "Kursiv"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:497
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:501
 msgid "Labels Color"
-msgstr "Label-Farbe"
+msgstr "Farbe der Beschriftungen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:502 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1032
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:506
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1036
 msgid "Labels Font Size"
-msgstr "Schriftgröße"
+msgstr "Schriftgröße der Beschriftungen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:492
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:496
 msgid "Labels Settings"
-msgstr "Label-Einstellungen"
+msgstr "Einstellungen der Beschriftungen"
 
-#: admin/partials/cf7-customizer-admin-tabs.php:18
+#: admin/partials/cf7-customizer-admin-tabs.php:19
 msgid "License"
 msgstr "Lizenz"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:839 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1095
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:843
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1099
 msgid "Line Height"
 msgstr "Zeilenhöhe"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:480
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:484
 msgid "Links Color"
-msgstr "Link Farbe"
+msgstr "Farbe der Links"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:485
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:489
 msgid "Links Hover Color"
-msgstr "Link hover Farbe"
+msgstr "Hover-Farbe der Links"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:476
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:480
 msgid "Links Settings"
-msgstr "Link-Einstellungen"
+msgstr "Einstellungen der Links"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:7 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:19
+#: admin/partials/cf7-customizer-admin-preview-mode.php:10
+#: admin/partials/cf7-customizer-admin-preview-mode.php:22
 msgid "Live"
 msgstr "Live"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:265 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:299
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:269
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:303
 msgid "Load styles in <code>&lt;body&gt;</code> tag"
-msgstr "Lade Styles im <code>&lt;body&gt;</code> Tag"
+msgstr "Stile im <code>&lt;body&gt;</code>-Tag laden"
 
-#: public/class-cf7-customizer-public.php:348
+#: public/class-cf7-customizer-public.php:361
 msgid "Load styles inside <code>&lt;body&gt;</code> tag on this page"
-msgstr ""
-"Lade die Styles über den </br>HTML-<code>&lt;body&gt;</code>-Tag in diese "
-"Seite."
+msgstr "Stile im <code>&lt;body&gt;</code>-Tag auf dieser Seite laden"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1009
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1013
 msgid "Make checkbox item one per line"
-msgstr "Nur eine Checkbox pro Zeile"
+msgstr "Checkbox-Elemente zeilenweise anordnen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1045
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1049
 msgid "Make full width?"
-msgstr "In voller Breite anzeigen?"
+msgstr "Vollständig breit machen?"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:822
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:826
 msgid "Make input fields full width?"
-msgstr "Möchtest du die Eingabefelder in voller Breite?"
+msgstr "Eingabefelder vollständig breit machen?"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1019
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1023
 msgid "Make radiobutton item one per line"
-msgstr "Nur ein Radiobutton pro Zeile"
+msgstr "Radiobutton-Elemente zeilenweise anordnen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:733 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:912
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:737
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:916
 msgid "Margin"
-msgstr "Äußerer Abstand"
+msgstr "Abstand"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1170
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1174
 msgid "Mobile View"
-msgstr "Mobile-Ansicht"
+msgstr "Mobile Ansicht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:828 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1015 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1025 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1051
+#: cf7-styler.php:139
+msgid "More emails. More replies."
+msgstr "Mehr E-Mails. Mehr Antworten."
+
+#: cf7-styler.php:132
+msgid "Most websites begin with simple forms."
+msgstr "Die meisten Websites beginnen mit einfachen Formularen."
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:832
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1019
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1029
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1055
 msgid "NO"
-msgstr "Nein"
+msgstr "NEIN"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1450
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1466
 msgid "No Contact Form 7 items for preview"
-msgstr "Kein Contact Form 7 Formular für die Vorschau vorhanden"
+msgstr "Keine Contact Form 7-Elemente zur Vorschau"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1387
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1403
 msgid ""
 "No form is styled with style scheme, click \"Activate style for current "
 "form\" button to apply current scheme for this form."
 msgstr ""
-"Keines deiner Formulare ist gestyled. Klicke \"Aktiviere den Style für das "
-"aktuelle Formular\" um das ausgewählte Formular zu stylen."
+"Kein Formular ist mit einem Stil-Schema gestaltet. Klicken Sie auf die "
+"Schaltfläche \"Stil für aktuelles Formular aktivieren\", um das aktuelle "
+"Schema auf dieses Formular anzuwenden."
 
-#: admin/class-cf7-customizer-admin-ajax.php:517
+#: admin/class-cf7-customizer-admin-ajax.php:535
 msgid "No plugin selected to install"
-msgstr "Kein Plugin zur Installation ausgewählt"
+msgstr "Kein Plugin zum Installieren ausgewählt"
 
-#: admin/class-cf7-customizer-admin-ajax.php:230
+#: admin/class-cf7-customizer-admin-ajax.php:234
 msgid "No style scheme selected"
-msgstr "Kein Style ausgewählt"
+msgstr "Kein Stil-Schema ausgewählt"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:518
+#: cf7-styler.php:171
+msgid "No thanks."
+msgstr "Nein, danke."
+
+#: admin/class-cf7-customizer-admin-ajax.php:420
+#: public/class-cf7-customizer-public.php:481
+msgid "Nonce verification failed"
+msgstr "Nonce-Überprüfung fehlgeschlagen"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:522
 msgid "Normal"
 msgstr "Normal"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:520
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:524
 msgid "Oblique"
-msgstr "Oblique"
+msgstr "Schräg"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:995
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
 msgid ""
 "One per line styles for checkboxes and radiobuttons in live mode only for "
 "Professional version. You can test it in preview mode \"current style\", but "
 "it will not be saved."
 msgstr ""
-"Das untereinander Anordnen der Checkboxen und Radiobuttons bleibt der Pro "
-"Version vorbehalten. Du kannst jedoch das Ergebnis in der Vorschau-Ansicht "
-"testen, jedoch nicht speichern."
+"Stile für zeilenweise Checkboxen und Radiobuttons nur im Live-Modus für die "
+"Professional-Version. Im Vorschau-Modus \"aktueller Stil\" kann getestet "
+"werden, wird jedoch nicht gespeichert."
+
+#: cf7-styler.php:156
+msgid "One session. Many people."
+msgstr "Eine Sitzung. Viele Personen."
 
 #: includes/lib/Cf7_Template.php:61
 msgid "Opacity"
-msgstr "Deckkraft"
+msgstr "Opazität"
 
-#: public/class-cf7-customizer-public.php:375 
-#: public/class-cf7-customizer-public.php:389 
-#: admin/class-cf7-customizer-admin.php:488
+#: admin/class-cf7-customizer-admin.php:536
+#: public/class-cf7-customizer-public.php:388
+#: public/class-cf7-customizer-public.php:402
 msgid "Open styler"
-msgstr "Öffne CF7 Styler"
+msgstr "Styler öffnen"
 
-#: admin/class-cf7-customizer-admin.php:527
-msgid "Opt-in to see account"
-msgstr "Opt-in um Konto zu sehen"
-
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:673
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:677
 msgid "Original size"
-msgstr "original Größe"
+msgstr "Originalgröße"
 
 #: includes/lib/Cf7_Template.php:69
 msgid "Outline"
-msgstr "Außen"
+msgstr "Umriss"
 
 #: includes/lib/Cf7_Template.php:85
 msgid "Outset"
-msgstr "Outset"
+msgstr "Hervorhebung"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:702 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:881 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1055
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:706
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:885
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1059
 msgid "Padding"
-msgstr "Innere Abstand"
+msgstr "Polsterung"
 
-#: admin/class-cf7-customizer-admin-ajax.php:133
+#: admin/class-cf7-customizer-admin-ajax.php:136
 msgid "Please input style scheme title"
-msgstr "Gib deinem Style einen Namen"
+msgstr "Bitte Titel des Stil-Schemas eingeben"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1140
+#: admin/class-cf7-customizer-admin-ajax.php:553
+msgid "Plugin could not be installed manually"
+msgstr "Plugin konnte nicht manuell installiert werden"
+
+#: admin/class-cf7-customizer-admin-ajax.php:544
+msgid "Plugin you are trying to install is not in the required list"
+msgstr ""
+"Das Plugin, das installiert werden soll, ist nicht in der erforderlichen "
+"Liste"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1144
 msgid "Preview"
-msgstr "Ansicht"
+msgstr "Vorschau"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:2
+#: admin/partials/cf7-customizer-admin-preview-mode.php:5
 msgid "Preview mode"
-msgstr "Ansicht"
+msgstr "Vorschau-Modus"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1343
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1357
 msgid "Preview Unstyled"
-msgstr "Vorschau deaktivieren"
+msgstr "Vorschau ungestylt"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:968 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1110
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:972
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1114
 msgid "Radius"
 msgstr "Radius"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:678
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:682
 msgid "Repeat both"
-msgstr "vertikal & horizontal wiederholt"
+msgstr "Beide wiederholen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:677
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:681
 msgid "Repeat horizontal"
-msgstr "horizontal wiederholt"
+msgstr "Horizontal wiederholen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:676
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:680
 msgid "Repeat vertical"
-msgstr "vertikal wiederholt"
+msgstr "Vertikal wiederholen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:383
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:387
 msgid "Reset to default"
-msgstr "Zum Default-Style"
+msgstr "Auf Standard zurücksetzen"
 
 #: includes/lib/Cf7_Template.php:83
 msgid "Ridge"
-msgstr "Ridge"
+msgstr "Kante"
 
-#: public/class-cf7-customizer-public.php:354 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:361
+#: public/class-cf7-customizer-public.php:367
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:365
 msgid "Save"
 msgstr "Speichern"
 
-#: public/class-cf7-customizer-public.php:483 
-#: admin/class-cf7-customizer-admin-ajax.php:119
+#: admin/class-cf7-customizer-admin-ajax.php:121
+#: public/class-cf7-customizer-public.php:502
 msgid "Saved"
 msgstr "Gespeichert"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:17
+#: admin/partials/cf7-customizer-admin-preview-mode.php:20
 msgid "Second column view"
-msgstr "Ansicht der zweiten Spalte"
+msgstr "Zweite Spaltenansicht"
 
-#: admin/class-cf7-customizer-admin.php:459
+#: admin/class-cf7-customizer-admin.php:505
 msgid "Select style scheme for this form"
-msgstr "Wähle den Style für dieses Formular"
+msgstr "Stil-Schema für dieses Formular auswählen"
 
-#: admin/partials/cf7-customizer-admin-tabs.php:17
+#: admin/partials/cf7-customizer-admin-tabs.php:18
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: admin/class-cf7-customizer-admin-ajax.php:210
+#: admin/class-cf7-customizer-admin-ajax.php:213
 msgid "Settings saved as "
-msgstr "Dein Style wurde gespeichert unter "
+msgstr "Einstellungen gespeichert als "
 
 #: includes/lib/Cf7_Template.php:27
 msgid "Shadow"
@@ -720,299 +776,382 @@ msgstr "Schatten"
 
 #: includes/lib/Cf7_Template.php:56
 msgid "Shadow Color"
-msgstr "Schatten-Farbe"
+msgstr "Schattenfarbe"
 
 #: includes/lib/Cf7_Template.php:66
 msgid "Shadow Position"
-msgstr "Schatten-Position"
+msgstr "Schattenposition"
 
 #: includes/lib/Cf7_Template.php:78
 msgid "Solid"
-msgstr "Solid"
+msgstr "Durchgehend"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:271 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:310
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:275
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:314
 msgid ""
 "Some themes or page builders (fe. Thrive Architect, OptimizePress etc.) "
 "could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading "
 "style scheme within <code>&lt;body&gt;</code> tag will fix this issue and "
 "show your forms styled."
 msgstr ""
-"Nutze diese Funktion wenn deine Formulare gar nicht gestyled werden. Da "
-"einige Themes oder Page Builder wie Thrive Architect, OptimizePress usw. die "
-"Styles aus dem <code>&lt;head&gt;</code> Tag entfernen können, gibt es die "
-"Option die Styles im <code>&lt;body&gt;</code> Tag zu Laden. Dadurch werden "
-"deine Formulare wieder gestyled."
+"Einige Themes oder Page Builder (z. B. Thrive Architect, OptimizePress usw.) "
+"könnten Inline-Stile im <code>&lt;head&gt;</code>-Tag entfernen. Das Laden "
+"des Styleschemas im <code>&lt;body&gt;</code>-Tag behebt dieses Problem und "
+"zeigt die gestalteten Formulare an."
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:5
+#: cf7-styler.php:140
+msgid "Some websites add something different."
+msgstr "Einige Websites fügen etwas anderes hinzu."
+
+#: cf7-styler.php:29
+msgid "Sorry, you are not allowed to access this page."
+msgstr "Entschuldigung, der Zugriff auf diese Seite ist nicht erlaubt."
+
+#: admin/partials/cf7-customizer-admin-preview-mode.php:8
 msgid "Split mode"
-msgstr "Geteilt"
+msgstr "Split-Modus"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:12
+#: admin/partials/cf7-customizer-admin-preview-mode.php:15
 msgid "Split view"
 msgstr "Geteilte Ansicht"
 
 #: includes/lib/Cf7_Template.php:48
 msgid "Spread radius"
-msgstr "Schatten-Größe"
+msgstr "Verbreitungsradius"
 
-#: admin/partials/cf7-customizer-admin-tutorial.php:49
-msgid "Start styling"
-msgstr "Beginne mit dem stylen"
-
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:337
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:341
 msgid "Start with creating Default Style Scheme"
-msgstr "Beginne mit dem Erstellen des Standard-Styles"
+msgstr "Mit der Erstellung des Standard-Stil-Schemas beginnen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1413 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1454
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1429
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1470
 msgid ""
 "Start with creating your <a href=\"admin.php?page=wpcf7-new\">first Contact "
 "Form 7</a>"
 msgstr ""
-"Beginne mit dem Erstellen deines ersten <a href=\"admin.php?page=wpcf7-new\">"
-"Contact Form 7 Formulars</a>"
+"Beginnen Sie mit der Erstellung Ihres <a href=\"admin.php?page=wpcf7-new\">"
+"ersten Kontaktformulars 7</a>"
 
-#: admin/partials/cf7-customizer-admin-display.php:50
+#: admin/partials/cf7-customizer-admin-display.php:77
 msgid ""
 "Start your 14-day free trial with all Professional functions <a href=\"admin."
 "php?billing_cycle=annual&trial=true&page=cf7cstmzr_page-pricing\" class=\"go-"
 "to-upgrade\" data-confirm=\"Do you want to save changes before leaving page?"
 "\" target=\"_blank\">here</a>!"
 msgstr ""
-"Starte deine 14-Tage-Testversion mit allen Pro-Funktionen <a href=\"admin."
-"php?billing_cycle=annual&trial=true&page=cf7cstmzr_page-pricing\" class=\"go-"
-"to-upgrade\" data-confirm=\"Do you want to save changes before leaving page?"
-"\" target=\"_blank\">hier!</a>"
-
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:320
-msgid "Step 1. Click \"Edit with Thrive architect\" link in admin page list"
-msgstr ""
-"Schritt 1:  In der Admin-Seiten-Übersicht klicke auf den \"Edit with Thrive "
-"Architect\" -Link der Seite mit dem Formular."
-
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:322
-msgid "Step 2. Click \"Settings\" icon on right vertical menu"
-msgstr ""
-"Schritt 2: Klicke auf das \"Settings\" - Symbol im rechten vertikalen Menü"
+"Starten Sie Ihre 14-tägige kostenlose Testversion mit allen professionellen "
+"Funktionen <a href=\"admin.php?"
+"billing_cycle=annual&trial=true&page=cf7cstmzr_page-pricing\" class=\"go-to-"
+"upgrade\" data-confirm=\"Möchten Sie Änderungen speichern, bevor Sie die "
+"Seite verlassen?\" target=\"_blank\">hier</a>!"
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:324
-msgid "Step 3. \"Advanced settings\" => \"CSS in the &lt;head&gt; section\""
+msgid "Step 1. Click \"Edit with Thrive architect\" link in admin page list"
 msgstr ""
-"Schritt 3: Klicke \"Erweiterte Einstellungen\" => \"CSS in the <code>&lt;"
-"head&gt;</code> section\""
+"Schritt 1. Auf den Link \"Mit Thrive Architect bearbeiten\" in der Admin-"
+"Seitenliste klicken"
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:326
+msgid "Step 2. Click \"Settings\" icon on right vertical menu"
+msgstr ""
+"Schritt 2. Auf das \"Einstellungen\"-Symbol im rechten vertikalen Menü "
+"klicken"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:328
+msgid "Step 3. \"Advanced settings\" => \"CSS in the &lt;head&gt; section\""
+msgstr ""
+"Schritt 3. \"Erweiterte Einstellungen\" => \"CSS im &lt;head&gt;-Bereich\""
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:330
 msgid ""
 "Step 4. Make sure that \"Do not strip CSS from &lt;head&gt;\" is checked"
 msgstr ""
-"Schritt 4: Stelle sicher, dass \"Do not strip CSS from <code>&lt;head&gt;"
-"</code>\" ausgewählt ist"
+"Schritt 4. Stellen Sie sicher, dass \"CSS nicht aus dem &lt;head&gt; "
+"entfernen\" aktiviert ist."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:328
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:332
 msgid "Step 5. Click \"SAVE WORK\" button"
-msgstr "Schritt 5. Klicke auf den \"SAVE WORK\" Button"
+msgstr "Schritt 5. Auf die Schaltfläche \"ARBEIT SPEICHERN\" klicken"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:290
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:294
 msgid "Style all forms in one click globally"
-msgstr "Style alle Formulare global"
+msgstr "Alle Formulare mit einem Klick global gestalten"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:296
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:300
 msgid "Style each form with any style scheme individually"
-msgstr "Style jedes Formular in einem anderen Style"
+msgstr "Jedes Formular individuell mit einem Stil-Schema gestalten"
 
-#: admin/class-cf7-customizer-admin-ajax.php:405
+#: admin/class-cf7-customizer-admin-ajax.php:412
 msgid "Style scheme disabled for all forms"
-msgstr "Deaktiviere den Style für alle Formulare"
+msgstr "Stil-Schema für alle Formulare deaktiviert"
 
-#: admin/class-cf7-customizer-admin-ajax.php:477
+#: admin/class-cf7-customizer-admin-ajax.php:495
 msgid "Style scheme disabled for this form"
-msgstr "Der Style ist für dieses Formular ist deaktiviert "
+msgstr "Stil-Schema für dieses Formular deaktiviert"
 
-#: admin/class-cf7-customizer-admin-ajax.php:423 
-#: admin/class-cf7-customizer-admin-ajax.php:459
+#: admin/class-cf7-customizer-admin-ajax.php:436
+#: admin/class-cf7-customizer-admin-ajax.php:476
 msgid "Style scheme enabled for this form"
-msgstr "Der Style ist für dieses Formular ist aktiviert "
+msgstr "Stil-Schema für dieses Formular aktiviert"
 
-#: admin/class-cf7-customizer-admin-ajax.php:377 
-#: admin/class-cf7-customizer-admin-ajax.php:434
+#: admin/class-cf7-customizer-admin-ajax.php:383
+#: admin/class-cf7-customizer-admin-ajax.php:448
 msgid "Style scheme is not selected"
-msgstr "Kein Style ausgewählt"
+msgstr "Stil-Schema nicht ausgewählt"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:180
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:182
 msgid "Style schemes list"
-msgstr "CF7-Style-Auswahl"
+msgstr "Liste der Stil-Schemata"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1164
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1168
 msgid "Style schemes preview"
-msgstr "Formular-Vorschau"
+msgstr "Vorschau der Stil-Schemata"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:146
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:148
 msgid "Style schemes settings"
-msgstr "CF7-Style-Einstellungen"
+msgstr "Einstellungen der Stil-Schemata"
 
-#: admin/class-cf7-customizer-admin-ajax.php:298
+#: admin/class-cf7-customizer-admin-ajax.php:303
 msgid "Style will be loaded in <body> tag"
-msgstr "Style wird im <code>&lt;body&gt;</code> Tag geladen"
+msgstr "Stil wird im <body>-Tag geladen"
 
-#: admin/class-cf7-customizer-admin-ajax.php:301
+#: admin/class-cf7-customizer-admin-ajax.php:306
 msgid "Style will be loaded in <head> tag"
-msgstr "Style wird im <head>-Tag geladen"
+msgstr "Stil wird im <head>-Tag geladen"
 
-#: public/class-cf7-customizer-public.php:483 
-#: admin/class-cf7-customizer-admin-ajax.php:119 
-#: admin/class-cf7-customizer-admin-ajax.php:210 
-#: admin/class-cf7-customizer-admin-ajax.php:286 
-#: admin/class-cf7-customizer-admin-ajax.php:304 
-#: admin/class-cf7-customizer-admin-ajax.php:386 
-#: admin/class-cf7-customizer-admin-ajax.php:396 
-#: admin/class-cf7-customizer-admin-ajax.php:405 
-#: admin/class-cf7-customizer-admin-ajax.php:423 
-#: admin/class-cf7-customizer-admin-ajax.php:459 
-#: admin/class-cf7-customizer-admin-ajax.php:477
+#: admin/class-cf7-customizer-admin-ajax.php:121
+#: admin/class-cf7-customizer-admin-ajax.php:213
+#: admin/class-cf7-customizer-admin-ajax.php:290
+#: admin/class-cf7-customizer-admin-ajax.php:309
+#: admin/class-cf7-customizer-admin-ajax.php:392
+#: admin/class-cf7-customizer-admin-ajax.php:402
+#: admin/class-cf7-customizer-admin-ajax.php:412
+#: admin/class-cf7-customizer-admin-ajax.php:436
+#: admin/class-cf7-customizer-admin-ajax.php:476
+#: admin/class-cf7-customizer-admin-ajax.php:495
+#: admin/class-cf7-customizer-admin-ajax.php:563
+#: public/class-cf7-customizer-public.php:502
 msgid "Success"
-msgstr "Erfolgreich"
+msgstr "Erfolg"
 
-#: admin/class-cf7-customizer-admin.php:105 
-#: admin/class-cf7-customizer-admin.php:106 
-#: admin/class-cf7-customizer-admin.php:124 
-#: admin/class-cf7-customizer-admin.php:125
+#: admin/class-cf7-customizer-admin.php:141
+#: admin/class-cf7-customizer-admin.php:142
+#: admin/class-cf7-customizer-admin.php:160
+#: admin/class-cf7-customizer-admin.php:161
 msgid "Support & KB"
-msgstr "Unterstützung & KB"
+msgstr "Support & KB"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1169
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1173
 msgid "Tablet View"
 msgstr "Tablet-Ansicht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:450 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:848 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1064
-msgid "Text Color"
-msgstr "Text Farbe"
+#: cf7-styler.php:158
+msgid "Takes 5 seconds. Unsubscribe anytime."
+msgstr "Dauert 5 Sekunden. Jederzeit abbestellen."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1315
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:454
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:852
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1068
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#: cf7-styler.php:152
+msgid "They become part of the session."
+msgstr "Sie werden Teil der Sitzung."
+
+#. %s: enabeled globally title.
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1329
 #, php-format
 msgid ""
 "This form is styled with <strong>%s</strong> globally, you can style it with "
 "current Style scheme."
 msgstr ""
-"Das derzeitige und andere Formulare sind mit dem <strong>%s</strong>-Style "
-"gestaltet. Du kannst mit einem Klick auch den derzeitigen Style aktivieren."
+"Dieses Formular ist global mit <strong>%s</strong> gestaltet, es kann mit "
+"dem aktuellen Stil-Schema gestaltet werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1311
+#. %s: first form title.
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1323
 #, php-format
 msgid ""
 "This form is styled with <strong>%s</strong>, you can style it with current "
 "Style scheme."
 msgstr ""
-"Der zur Zeit genutzte Style des Formulars ist <strong>%s</strong>. Du kannst "
-"auch unten klicken und den ausgewählten Style anwenden."
+"Dieses Formular ist mit <strong>%s</strong> gestaltet, es kann mit dem "
+"aktuellen Stil-Schema gestaltet werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1307
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1317
 msgid ""
 "This form is styled with current Style Scheme, you can disable it and use "
 "global settings."
 msgstr ""
-"Für dieses Formular ist der aktuelle Style aktiviert. Du kannst diesen Style "
-"deaktivieren und so zum globalen Style zurückkehren."
+"Dieses Formular ist mit dem aktuellen Stil-Schema gestaltet, es kann "
+"deaktiviert und globale Einstellungen verwendet werden."
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1319
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1333
 msgid ""
 "This form not styled with any Style scheme, you can enable current Scheme "
 "for this form or set up global Style Scheme by clicking \"Use for all "
 "forms\" below scheme title."
 msgstr ""
-"Dieses Formular benutzt noch keinen Style. Du kannst den derzeitigen Style "
-"für das angezeigte Formular aktivieren oder mit dem Klick auf \"Aktiviere "
-"Style für alle Formulare\" den Style generell für alle Formulare festlegen. "
-"*Einzeln gestylte Formulare behalten ihren Style"
+"Dieses Formular ist mit keinem Stil-Schema gestaltet, es kann das aktuelle "
+"Schema für dieses Formular aktiviert oder ein globales Stil-Schema "
+"einrichten werden, indem auf \"Für alle Formulare verwenden\" unter dem "
+"Schema-Titel geklickt wird."
 
-#: admin/class-cf7-customizer-admin-ajax.php:386
+#: admin/class-cf7-customizer-admin-ajax.php:392
 msgid "This scheme is not existed"
-msgstr "Dieser Style existiert nicht"
+msgstr "Dieses Schema existiert nicht"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:251
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:255
 msgid ""
 "This Style Scheme enabled globally for all forms. If you want to use your "
 "theme's style for Contact Form 7 click \"Disable\" button."
 msgstr ""
-"Dieser Style ist global für alle Formulare aktiviert. Wenn du den Style "
-"deines Themes nutzen möchtest, dann klicken auf den \"Deaktiviere den Style "
-"für alle Formulare\"-Button. *Einzeln gestylte Formulare behalten ihren Style"
+"Dieses Stil-Schema ist global für alle Formulare aktiviert. Wenn das Design "
+"des Themes für das Kontaktformular 7 verwendet werden soll, auf die "
+"Schaltfläche \"Deaktivieren\" klicken."
 
 #. Author of the plugin
 msgid "Tobias Conrad"
 msgstr "Tobias Conrad"
 
-#: admin/partials/cf7-customizer-admin-tutorial.php:36
+#. Description of the plugin
+msgid ""
+"Turn “just another CF7 form” into a branded experience across all your forms."
+" WOW Styler for CF7 lets you style multiple Contact Form 7 forms visually "
+"with live preview and reusable designs, without writing CSS."
+msgstr ""
+"Verwandle \"ein weiteres CF7-Formular\" in ein markenbezogenes Erlebnis für "
+"alle Formulare. WOW Styler für CF7 ermöglicht es, mehrere Kontaktformulare 7 "
+"visuell mit Live-Vorschau und wiederverwendbaren Designs zu gestalten, ohne "
+"CSS zu schreiben."
+
+#: admin/partials/cf7-customizer-admin-tutorial.php:38
 msgid "Tutorial"
 msgstr "Tutorial"
 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:8 
-#: admin/partials/cf7-customizer-admin-preview-mode.php:26
-msgid "Unstyled"
-msgstr "Ohne Style"
+#: admin/class-cf7-customizer-admin.php:613
+msgid "Unlock access +"
+msgstr "Zugang freischalten +"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:302 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:551 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
+#: admin/partials/cf7-customizer-admin-preview-mode.php:11
+#: admin/partials/cf7-customizer-admin-preview-mode.php:29
+msgid "Unstyled"
+msgstr "Ungestaltet"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:306
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:555
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1003
 msgid "Upgrade to Pro"
 msgstr "Upgrade auf Pro"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:576
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:580
 msgid "Upload Image"
 msgstr "Bild hochladen"
 
 #: includes/lib/Cf7_Template.php:36
 msgid "Vertical Length"
-msgstr "Vertikaler Breite"
+msgstr "Vertikale Länge"
 
-#: admin/partials/cf7-customizer-admin-tutorial.php:34
+#: cf7-styler.php:137
+msgid "Visitors send requests…"
+msgstr "Besucher senden Anfragen…"
+
+#: admin/partials/cf7-customizer-admin-tutorial.php:36
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1105
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1109
 msgid "Width"
 msgstr "Breite"
 
-#. Name of the plugin
-#: cf7-styler.php:138 admin/partials/cf7-customizer-admin-display.php:22
+#: cf7-styler.php:251 admin/partials/cf7-customizer-admin-display.php:23
 msgid "WOW Style Contact Form 7"
-msgstr "WOW Style Contact Form 7"
+msgstr "WOW Style Kontaktformular 7"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:825 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1012 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1022 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1048
+#. Name of the plugin
+msgid "WOW Styler for CF7 – Visual Styler for Contact Form 7 Forms"
+msgstr "WOW Styler für CF7 – Visueller Styler für Kontaktformulare 7"
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:829
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1016
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1026
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1052
 msgid "YES"
-msgstr "Ja"
+msgstr "JA"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:405
+#: cf7-styler.php:154
+msgid "You are seen more and more as the expert."
+msgstr "Wird zunehmend als Experte wahrgenommen."
+
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:409
 msgid ""
 "You can create new style scheme with current scheme settings. If you want to "
 "create blank style schem unchek checkbox below."
 msgstr ""
-"Du kannst hier ein Style mit den aktuellen Einstellungen abspeichern. Wenn "
-"du einen leeren Style abspeichern möchtest entferne den Haken."
+"Ein neues Stil-Schema mit den aktuellen Einstellungen erstellen. Wenn ein "
+"leeres Stil-Schema erstellt werden soll, das Kontrollkästchen unten "
+"deaktivieren."
 
-#: admin/class-cf7-customizer-admin-ajax.php:237
+#: admin/class-cf7-customizer-admin-ajax.php:241
 msgid "You can not delete"
-msgstr "Löschen nicht möglich"
+msgstr "Kann nicht gelöscht werden"
 
-#: public/class-cf7-customizer-public.php:471
+#: public/class-cf7-customizer-public.php:490
 msgid "You can not use this settings on this page type"
-msgstr "Du kannst diese Einstellungen nicht für diesen Seitentyp nutzen."
+msgstr "Diese Einstellungen können auf diesem Seitentyp nicht verwendet werden"
 
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1411
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:1427
 msgid "You do not have any Contact Form 7 items"
-msgstr "Du hast noch kein Contact Form 7 Formular erstellt"
+msgstr "Es sind keine Kontaktformulare 7 vorhanden"
 
 #. No scheme enabled
-#: admin/partials/cf7-customizer-admin-tab-form-customize.php:233
+#: admin/partials/cf7-customizer-admin-tab-form-customize.php:237
 msgid ""
 "You do not use any of Style Schemes for Contact Form 7. Click \"Use for all "
 "forms\" to use current Scheme globally."
 msgstr ""
-"Du verwendest derzeit keinen Style für deine Contact Form 7 Formulare. "
-"Klicke auf \"Aktiviere den Style für alle Formulare\", um den angezeigten "
-"Style global zu aktivieren. *Einzeln gestylte Formulare behalten ihren Style"
+"Es werden keine Stil-Schemata für Kontaktformulare 7 verwendet. Klicken Sie "
+"auf \"Für alle Formulare verwenden\", um das aktuelle Schema global zu "
+"verwenden."
+
+#: cf7-styler.php:119
+msgid "You just activated the styler — before you start styling."
+msgstr ""
+"Der Styler wurde gerade aktiviert — bevor mit dem Styling begonnen wird."
+
+#: cf7-styler.php:125
+msgid "You just updated the styler — before you continue styling."
+msgstr "Styler wurde aktualisiert – bevor mit dem Styling fortgefahren wird."
+
+#: cf7-styler.php:155
+msgid "Your topic starts to carry more weight."
+msgstr "Das Thema gewinnt an Bedeutung."
+
+#: cf7-styler.php:136
+msgid "✉️ Accounting"
+msgstr "✉️ Buchhaltung"
+
+#: cf7-styler.php:134
+msgid "✉️ Contact"
+msgstr "✉️ Kontakt"
+
+#: cf7-styler.php:135
+msgid "✉️ Offer"
+msgstr "✉️ Angebot"
+
+#: cf7-styler.php:149
+msgid "👂 At first many just listen"
+msgstr "👂 Zunächst hören viele einfach zu"
+
+#: cf7-styler.php:170
+msgid "👉 Yes, send me the focus session ideas"
+msgstr "👉 Ja, sende mir die Ideen für die Fokus-Sitzung"
+
+#: cf7-styler.php:150
+msgid "🙋 Over time, more start asking questions"
+msgstr "🙋 Im Laufe der Zeit stellen mehr Fragen"
+
+#: cf7-styler.php:151
+msgid "🤝 People begin interacting and sharing their situations"
+msgstr "🤝 Menschen beginnen, zu interagieren und ihre Situationen zu teilen"

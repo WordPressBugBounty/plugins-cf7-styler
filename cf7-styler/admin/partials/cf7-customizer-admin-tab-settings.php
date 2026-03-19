@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 $style_scheme_slug = 'default';
 $style_schemes = get_option('cf7cstmzr_style_schemes', array());
 

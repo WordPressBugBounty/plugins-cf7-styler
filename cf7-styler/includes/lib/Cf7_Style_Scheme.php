@@ -4,7 +4,7 @@
 class Cf7_Style_Scheme {
     public static function get_default_style_scheme() {
         return array(
-            'title' => __('Default Scheme', 'cf7-styler'),
+            'title' => esc_html__( 'Default Scheme', 'cf7-styler' ),
             'scheme' => array(
                 'form' => array(
                     'padding' => array(
@@ -251,39 +251,39 @@ foreach ($selectors as $selector) {
     }
 }
 ?>
-<?php echo implode(',' . PHP_EOL, $selectors_wrapper) ?> {<?php
-    if (!empty($style_scheme["form_text_color"])) echo PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_color"] . '!important;';
-    if (!empty($style_scheme["form_bg_color"])) echo PHP_EOL . "\t" . 'background-color: ' . $style_scheme["form_bg_color"] . '!important;';
-    if (!empty($style_scheme["form_text_size"])) echo PHP_EOL . "\t" . 'font-size: ' . $style_scheme["form_text_size"] . 'px!important;';
-    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo PHP_EOL . "\t" . 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;';
+<?php echo wp_kses_post( implode( ',' . PHP_EOL, $selectors_wrapper ) ); ?> {<?php
+    if (!empty($style_scheme["form_text_color"])) echo wp_kses( PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_color"] . '!important;', array() );
+    if (!empty($style_scheme["form_bg_color"])) echo wp_kses( PHP_EOL . "\t" . 'background-color: ' . $style_scheme["form_bg_color"] . '!important;', array() );
+    if (!empty($style_scheme["form_text_size"])) echo wp_kses( PHP_EOL . "\t" . 'font-size: ' . $style_scheme["form_text_size"] . 'px!important;', array() );
+    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo wp_kses( PHP_EOL . "\t" . 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;', array() );
 
     if (!empty($style_scheme["form_padding_top"])) {
-        echo PHP_EOL . "\t" . 'padding-top: ' . $style_scheme["form_padding_top"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'padding-top: ' . $style_scheme["form_padding_top"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_padding_right"])) {
-        echo PHP_EOL . "\t" . 'padding-right: ' . $style_scheme["form_padding_right"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'padding-right: ' . $style_scheme["form_padding_right"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_padding_bottom"])) {
-        echo PHP_EOL . "\t" . 'padding-bottom: ' . $style_scheme["form_padding_bottom"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'padding-bottom: ' . $style_scheme["form_padding_bottom"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_padding_left"])) {
-        echo PHP_EOL . "\t" . 'padding-left: ' . $style_scheme["form_padding_left"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'padding-left: ' . $style_scheme["form_padding_left"] . 'px!important;', array() );
     }
 
     if (!empty($style_scheme["form_margin_top"])) {
-        echo PHP_EOL . "\t" . 'margin-top: ' . $style_scheme["form_margin_top"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'margin-top: ' . $style_scheme["form_margin_top"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_margin_right"])) {
-        echo PHP_EOL . "\t" . 'margin-right: ' . $style_scheme["form_margin_right"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'margin-right: ' . $style_scheme["form_margin_right"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_margin_bottom"])) {
-        echo PHP_EOL . "\t" . 'margin-bottom: ' . $style_scheme["form_margin_bottom"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'margin-bottom: ' . $style_scheme["form_margin_bottom"] . 'px!important;', array() );
     }
     if (!empty($style_scheme["form_margin_left"])) {
-        echo PHP_EOL . "\t" . 'margin-left: ' . $style_scheme["form_margin_left"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'margin-left: ' . $style_scheme["form_margin_left"] . 'px!important;', array() );
     }
 
-    if (!empty($style_scheme["form_border_radius"])) echo PHP_EOL . "\t" . 'border-radius: ' . $style_scheme["form_border_radius"] . 'px!important;';
+    if (!empty($style_scheme["form_border_radius"])) echo wp_kses( PHP_EOL . "\t" . 'border-radius: ' . $style_scheme["form_border_radius"] . 'px!important;', array() );
 
     if (!empty($style_scheme['form_border_type'])) {
         $form_border_type = $style_scheme['form_border_type'];
@@ -292,11 +292,11 @@ foreach ($selectors as $selector) {
     }
 
     if (!empty($style_scheme["form_border_width_top"])) {
-        echo PHP_EOL . "\t" . 'border-top-style: '.$form_border_type.'!important;';
-        echo PHP_EOL . "\t" . 'border-top-width: ' . $style_scheme["form_border_width_top"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'border-top-style: '.$form_border_type.'!important;', array() );
+        echo wp_kses( PHP_EOL . "\t" . 'border-top-width: ' . $style_scheme["form_border_width_top"] . 'px!important;', array() );
 
         if (!empty($style_scheme["form_border_color"])) {
-            echo PHP_EOL . "\t" . 'border-top-color: ' . $style_scheme["form_border_color"] . '!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'border-top-color: ' . $style_scheme["form_border_color"] . '!important;', array() );
         } else {
             echo PHP_EOL . "\t" . 'border-top-color: transparent!important;';
         }
@@ -305,11 +305,11 @@ foreach ($selectors as $selector) {
     }
 
     if (!empty($style_scheme["form_border_width_right"])) {
-        echo PHP_EOL . "\t" . 'border-right-style: '.$form_border_type.'!important;';
-        echo PHP_EOL . "\t" . 'border-right-width: ' . $style_scheme["form_border_width_right"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'border-right-style: '.$form_border_type.'!important;', array() );
+        echo wp_kses( PHP_EOL . "\t" . 'border-right-width: ' . $style_scheme["form_border_width_right"] . 'px!important;', array() );
 
         if (!empty($style_scheme["form_border_color"])) {
-            echo PHP_EOL . "\t" . 'border-right-color: ' . $style_scheme["form_border_color"] . '!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'border-right-color: ' . $style_scheme["form_border_color"] . '!important;', array() );
         } else {
             echo PHP_EOL . "\t" . 'border-right-color: transparent!important;';
         }
@@ -318,11 +318,11 @@ foreach ($selectors as $selector) {
     }
 
     if (!empty($style_scheme["form_border_width_bottom"])) {
-        echo PHP_EOL . "\t" . 'border-bottom-style: '.$form_border_type.'!important;';
-        echo PHP_EOL . "\t" . 'border-bottom-width: ' . $style_scheme["form_border_width_bottom"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'border-bottom-style: '.$form_border_type.'!important;', array() );
+        echo wp_kses( PHP_EOL . "\t" . 'border-bottom-width: ' . $style_scheme["form_border_width_bottom"] . 'px!important;', array() );
 
         if (!empty($style_scheme["form_border_color"])) {
-            echo PHP_EOL . "\t" . 'border-bottom-color: ' . $style_scheme["form_border_color"] . '!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'border-bottom-color: ' . $style_scheme["form_border_color"] . '!important;', array() );
         } else {
             echo PHP_EOL . "\t" . 'border-bottom-color: transparent!important;';
         }
@@ -331,11 +331,11 @@ foreach ($selectors as $selector) {
     }
 
     if (!empty($style_scheme["form_border_width_left"])) {
-        echo PHP_EOL . "\t" . 'border-left-style: '.$form_border_type.'!important;';
-        echo PHP_EOL . "\t" . 'border-left-width: ' . $style_scheme["form_border_width_left"] . 'px!important;';
+        echo wp_kses( PHP_EOL . "\t" . 'border-left-style: '.$form_border_type.'!important;', array() );
+        echo wp_kses( PHP_EOL . "\t" . 'border-left-width: ' . $style_scheme["form_border_width_left"] . 'px!important;', array() );
 
         if (!empty($style_scheme["form_border_color"])) {
-            echo PHP_EOL . "\t" . 'border-left-color: ' . $style_scheme["form_border_color"] . '!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'border-left-color: ' . $style_scheme["form_border_color"] . '!important;', array() );
         } else {
             echo PHP_EOL . "\t" . 'border-left-color: transparent!important;';
         }
@@ -376,9 +376,12 @@ foreach ($selectors as $selector) {
 
     ?>
 
-    -webkit-box-shadow: <?php echo $form_border_shadow_position; ?><?php echo $form_border_shadow_horizontal_length ?>px <?php echo $form_border_shadow_vertical_length ?>px <?php echo $form_border_shadow_blur_radius ?>px <?php echo $form_border_shadow_spread_radius ?>px rgba(<?php echo $form_border_shadow_color; ?><?php echo $form_border_shadow_opacity ?>);
-    -moz-box-shadow: <?php echo $form_border_shadow_position; ?><?php echo $form_border_shadow_horizontal_length ?>px <?php echo $form_border_shadow_vertical_length ?>px <?php echo $form_border_shadow_blur_radius ?>px <?php echo $form_border_shadow_spread_radius ?>px rgba(<?php echo $form_border_shadow_color; ?><?php echo $form_border_shadow_opacity ?>);
-    box-shadow: <?php echo $form_border_shadow_position; ?><?php echo $form_border_shadow_horizontal_length ?>px <?php echo $form_border_shadow_vertical_length ?>px <?php echo $form_border_shadow_blur_radius ?>px <?php echo $form_border_shadow_spread_radius ?>px rgba(<?php echo $form_border_shadow_color; ?><?php echo $form_border_shadow_opacity ?>);
+    <?php
+    $shadow_value = $form_border_shadow_position . $form_border_shadow_horizontal_length . 'px ' . $form_border_shadow_vertical_length . 'px ' . $form_border_shadow_blur_radius . 'px ' . $form_border_shadow_spread_radius . 'px rgba(' . $form_border_shadow_color . $form_border_shadow_opacity . ')';
+    echo wp_kses( '-webkit-box-shadow: ' . $shadow_value . ';' . PHP_EOL, array() );
+    echo wp_kses( '    -moz-box-shadow: ' . $shadow_value . ';' . PHP_EOL, array() );
+    echo wp_kses( '    box-shadow: ' . $shadow_value . ';', array() );
+    ?>
 }
 
 <?php if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) { ?>
@@ -392,8 +395,8 @@ foreach ($selectors as $selector) {
         }
     }
     ?>
-<?php echo implode(',' . PHP_EOL, $selectors_wrapper) ?> {
-    <?php echo PHP_EOL . "\t" . 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;'; ?>
+<?php echo wp_kses_post( implode( ',' . PHP_EOL, $selectors_wrapper ) ); ?> {
+    <?php echo wp_kses( PHP_EOL . "\t" . 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;', array() ); ?>
 }
 <?php } ?>
 
@@ -410,7 +413,7 @@ foreach ($selectors as $selector) {
     }
 }
 ?>
-<?php echo implode(',' . PHP_EOL, $selectors_wrapper)?> {<?php
+<?php echo wp_kses_post( implode( ',' . PHP_EOL, $selectors_wrapper ) ); ?> {<?php
     if ($style_scheme["form_bg_img"]) {
         $image_attributes = wp_get_attachment_image_src( $style_scheme['form_bg_img'], 'full' );
 
@@ -422,7 +425,7 @@ foreach ($selectors as $selector) {
             echo PHP_EOL . "\t" . "bottom: 0!important;";
             echo PHP_EOL . "\t" . "left: 0!important;";
             echo PHP_EOL . "\t" . "right: 0!important;";
-            echo PHP_EOL . "\t" . 'background-image: url("'.$image_attributes[0].'")!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'background-image: url("'.$image_attributes[0].'"  )!important;', array() );
 
             if (!empty($style_scheme['form_bg_img_size'])) {
                 if ('cover' === $style_scheme['form_bg_img_size']) {
@@ -476,7 +479,7 @@ foreach ($selectors as $selector) {
             if (empty($style_scheme["form_bg_img_opacity"])) {
                 echo PHP_EOL . "\t" . 'opacity: 0!important;';
             } else {
-                echo PHP_EOL . "\t" . 'opacity: '.$style_scheme["form_bg_img_opacity"].'!important;';
+                echo wp_kses( PHP_EOL . "\t" . 'opacity: '.$style_scheme["form_bg_img_opacity"].'!important;', array() );
             }
         }
     } else {
@@ -544,7 +547,7 @@ $selectors = array(
 ?>
 /* Style Form Checkboxes Labels */
 <?php self::style_selectors($selectors, $wrappers) ?> {
-    <?php echo PHP_EOL . "\t" . "font-size: " . $style_scheme["checkbox_text_label_size"] . "px!important;" ; ?>
+    <?php echo wp_kses( PHP_EOL . "\t" . "font-size: " . $style_scheme["checkbox_text_label_size"] . "px!important;", array() ); ?>
 }
 <?php } ?>
 
@@ -560,13 +563,13 @@ $selectors = array(
 <?php self::style_selectors(array('.wpcf7-form label'), $wrappers) ?> {
     <?php
         if (!empty($style_scheme["form_text_label_color"])) {
-            echo PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_label_color"] . '!important;';
+            echo wp_kses( PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_label_color"] . '!important;', array() );
         } else {
-            if (!empty($style_scheme["form_text_color"])) echo PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_color"] . '!important;';
+            if (!empty($style_scheme["form_text_color"])) echo wp_kses( PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_color"] . '!important;', array() );
         }
-        if (!empty($style_scheme["form_text_label_size"])) echo PHP_EOL . "\t" . 'font-size: ' . $style_scheme["form_text_label_size"] . 'px!important;';
-        if (!empty($style_scheme['form_text_label_weight'])) echo PHP_EOL . "\t" . 'font-weight: ' . $style_scheme['form_text_label_weight'] . '!important;';
-        if (!empty($style_scheme['form_text_label_style'])) echo PHP_EOL . "\t" . 'font-style: ' . $style_scheme['form_text_label_style'] . '!important;';
+        if (!empty($style_scheme["form_text_label_size"])) echo wp_kses( PHP_EOL . "\t" . 'font-size: ' . $style_scheme["form_text_label_size"] . 'px!important;', array() );
+        if (!empty($style_scheme['form_text_label_weight'])) echo wp_kses( PHP_EOL . "\t" . 'font-weight: ' . $style_scheme['form_text_label_weight'] . '!important;', array() );
+        if (!empty($style_scheme['form_text_label_style'])) echo wp_kses( PHP_EOL . "\t" . 'font-style: ' . $style_scheme['form_text_label_style'] . '!important;', array() );
     ?>
 }
     <?php } ?>
@@ -574,13 +577,13 @@ $selectors = array(
 
     <?php if (!empty($style_scheme["form_text_link_color"])) { ?>
 <?php self::style_selectors(array('.wpcf7-form a'), $wrappers) ?> {
-    <?php echo PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_link_color"] . '!important;'; ?>
+    <?php echo wp_kses( PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_link_color"] . '!important;', array() ); ?>
 }
     <?php } ?>
 
     <?php if (!empty($style_scheme["form_text_link_hover_color"])) { ?>
 <?php self::style_selectors(array('.wpcf7-form a:hover'), $wrappers) ?>{
-    <?php echo PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_link_hover_color"] . '!important;'; ?>
+    <?php echo wp_kses( PHP_EOL . "\t" . 'color: ' . $style_scheme["form_text_link_hover_color"] . '!important;', array() ); ?>
 }
     <?php } ?>
 
@@ -609,9 +612,9 @@ $selectors = array(
         echo 'max-width: 100%!important;';
     }
 
-    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;';
+    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo wp_kses( 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;', array() );
 
-    if (!empty($style_scheme["input_text_color"])) echo 'color: ' . $style_scheme["input_text_color"] . '!important;';
+    if (!empty($style_scheme["input_text_color"])) echo wp_kses( 'color: ' . $style_scheme["input_text_color"] . '!important;', array() );
     if (!empty($style_scheme["input_bg_color"])) {
         $input_bg_color_opacity = 1;
         $input_bg_color = $style_scheme["input_bg_color"];
@@ -620,50 +623,50 @@ $selectors = array(
         list($r, $g, $b) = sscanf($input_bg_color, "#%02x%02x%02x");
         $input_bg_color = $r.','.$g.','.$b.',';
 
-        echo 'background-color: rgba('.$r.', '.$g.', '.$b.', '.$input_bg_color_opacity.')!important;';
+        echo wp_kses( 'background-color: rgba('.$r.', '.$g.', '.$b.', '.$input_bg_color_opacity.')!important;', array() );
     }
 
-    if (!empty($style_scheme["input_text_size"])) echo 'font-size: ' . $style_scheme["input_text_size"] . 'px!important;';
-    if (!empty($style_scheme["input_text_line_height"])) echo 'line-height: ' . $style_scheme["input_text_line_height"] . '!important;';
+    if (!empty($style_scheme["input_text_size"])) echo wp_kses( 'font-size: ' . $style_scheme["input_text_size"] . 'px!important;', array() );
+    if (!empty($style_scheme["input_text_line_height"])) echo wp_kses( 'line-height: ' . $style_scheme["input_text_line_height"] . '!important;', array() );
 
-    if (!empty($style_scheme["input_padding_top"])) echo 'padding-top: ' . $style_scheme["input_padding_top"] . 'px!important;';
-    if (!empty($style_scheme["input_padding_right"])) echo 'padding-right: ' . $style_scheme["input_padding_right"] . 'px!important;';
-    if (!empty($style_scheme["input_padding_bottom"])) echo 'padding-bottom: ' . $style_scheme["input_padding_bottom"] . 'px!important;';
-    if (!empty($style_scheme["input_padding_left"])) echo 'padding-left: ' . $style_scheme["input_padding_left"] . 'px!important;';
+    if (!empty($style_scheme["input_padding_top"])) echo wp_kses( 'padding-top: ' . $style_scheme["input_padding_top"] . 'px!important;', array() );
+    if (!empty($style_scheme["input_padding_right"])) echo wp_kses( 'padding-right: ' . $style_scheme["input_padding_right"] . 'px!important;', array() );
+    if (!empty($style_scheme["input_padding_bottom"])) echo wp_kses( 'padding-bottom: ' . $style_scheme["input_padding_bottom"] . 'px!important;', array() );
+    if (!empty($style_scheme["input_padding_left"])) echo wp_kses( 'padding-left: ' . $style_scheme["input_padding_left"] . 'px!important;', array() );
 
     if (!empty($style_scheme["input_margin_top"])) {
-        echo 'margin-top: ' . $style_scheme["input_margin_top"] . 'px!important;';
+        echo wp_kses( 'margin-top: ' . $style_scheme["input_margin_top"] . 'px!important;', array() );
     } else {
         echo 'margin-top: 0px!important;';
     }
     if (!empty($style_scheme["input_margin_right"])) {
-        echo 'margin-right: ' . $style_scheme["input_margin_right"] . 'px!important;';
+        echo wp_kses( 'margin-right: ' . $style_scheme["input_margin_right"] . 'px!important;', array() );
     } else {
         echo 'margin-right: 0px!important;';
     }
     if (!empty($style_scheme["input_margin_bottom"])) {
-        echo 'margin-bottom: ' . $style_scheme["input_margin_bottom"] . 'px!important;';
+        echo wp_kses( 'margin-bottom: ' . $style_scheme["input_margin_bottom"] . 'px!important;', array() );
     } else {
         echo 'margin-bottom: 0px!important;';
     }
     if (!empty($style_scheme["input_margin_left"])) {
-        echo 'margin-left: ' . $style_scheme["input_margin_left"] . 'px!important;';
+        echo wp_kses( 'margin-left: ' . $style_scheme["input_margin_left"] . 'px!important;', array() );
     } else {
         echo 'margin-left: 0px!important;';
     }
 
     if (!empty($style_scheme["input_border_radius"])) {
-        echo 'border-radius: ' . $style_scheme["input_border_radius"] . 'px!important;';
+        echo wp_kses( 'border-radius: ' . $style_scheme["input_border_radius"] . 'px!important;', array() );
     } else {
         echo 'border-radius: 0px!important;';
     }
 
     if (!empty($style_scheme["input_border_width_top"])) {
         echo 'border-top-style: solid!important;';
-        echo 'border-top-width: ' . $style_scheme["input_border_width_top"] . 'px!important;';
+        echo wp_kses( 'border-top-width: ' . $style_scheme["input_border_width_top"] . 'px!important;', array() );
 
         if (!empty($style_scheme["input_border_color"])) {
-            echo 'border-top-color: ' . $style_scheme["input_border_color"] . '!important;';
+            echo wp_kses( 'border-top-color: ' . $style_scheme["input_border_color"] . '!important;', array() );
         } else {
             echo 'border-top-color: transparent!important;';
         }
@@ -673,10 +676,10 @@ $selectors = array(
 
     if (!empty($style_scheme["input_border_width_right"])) {
         echo 'border-right-style: solid!important;';
-        echo 'border-right-width: ' . $style_scheme["input_border_width_right"] . 'px!important;';
+        echo wp_kses( 'border-right-width: ' . $style_scheme["input_border_width_right"] . 'px!important;', array() );
 
         if (!empty($style_scheme["input_border_color"])) {
-            echo 'border-right-color: ' . $style_scheme["input_border_color"] . '!important;';
+            echo wp_kses( 'border-right-color: ' . $style_scheme["input_border_color"] . '!important;', array() );
         } else {
             echo 'border-right-color: transparent!important;';
         }
@@ -686,10 +689,10 @@ $selectors = array(
 
     if (!empty($style_scheme["input_border_width_bottom"])) {
         echo 'border-bottom-style: solid!important;';
-        echo 'border-bottom-width: ' . $style_scheme["input_border_width_bottom"] . 'px!important;';
+        echo wp_kses( 'border-bottom-width: ' . $style_scheme["input_border_width_bottom"] . 'px!important;', array() );
 
         if (!empty($style_scheme["input_border_color"])) {
-            echo 'border-bottom-color: ' . $style_scheme["input_border_color"] . '!important;';
+            echo wp_kses( 'border-bottom-color: ' . $style_scheme["input_border_color"] . '!important;', array() );
         } else {
             echo 'border-bottom-color: transparent!important;';
         }
@@ -699,10 +702,10 @@ $selectors = array(
 
     if (!empty($style_scheme["input_border_width_left"])) {
         echo 'border-left-style: solid!important;';
-        echo 'border-left-width: ' . $style_scheme["input_border_width_left"] . 'px!important;';
+        echo wp_kses( 'border-left-width: ' . $style_scheme["input_border_width_left"] . 'px!important;', array() );
 
         if (!empty($style_scheme["input_border_color"])) {
-            echo 'border-left-color: ' . $style_scheme["input_border_color"] . '!important;';
+            echo wp_kses( 'border-left-color: ' . $style_scheme["input_border_color"] . '!important;', array() );
         } else {
             echo 'border-left-color: transparent!important;';
         }
@@ -755,14 +758,14 @@ $selectors = array(
 <?php self::style_selectors($selectors, $wrappers) ?>{
     position: relative!important;
     <?php
-    if (!empty($style_scheme["button_text_color"])) echo 'color: ' . $style_scheme["button_text_color"] . '!important;';
-    if (!empty($style_scheme["button_bg_color"])) echo 'background-color: ' . $style_scheme["button_bg_color"] . '!important;';
-    if (!empty($style_scheme["button_text_size"])) echo 'font-size: ' . $style_scheme["button_text_size"] . 'px!important;';
-    if (!empty($style_scheme["button_text_line_height"])) echo 'line-height: ' . $style_scheme["button_text_line_height"] . '!important;';
-    if (!empty($style_scheme["button_padding"])) echo 'padding-top: ' . $style_scheme["button_padding"] . 'px!important;';
-    if (!empty($style_scheme["button_padding"])) echo 'padding-bottom: ' . $style_scheme["button_padding"] . 'px!important;';
+    if (!empty($style_scheme["button_text_color"])) echo wp_kses( 'color: ' . $style_scheme["button_text_color"] . '!important;', array() );
+    if (!empty($style_scheme["button_bg_color"])) echo wp_kses( 'background-color: ' . $style_scheme["button_bg_color"] . '!important;', array() );
+    if (!empty($style_scheme["button_text_size"])) echo wp_kses( 'font-size: ' . $style_scheme["button_text_size"] . 'px!important;', array() );
+    if (!empty($style_scheme["button_text_line_height"])) echo wp_kses( 'line-height: ' . $style_scheme["button_text_line_height"] . '!important;', array() );
+    if (!empty($style_scheme["button_padding"])) echo wp_kses( 'padding-top: ' . $style_scheme["button_padding"] . 'px!important;', array() );
+    if (!empty($style_scheme["button_padding"])) echo wp_kses( 'padding-bottom: ' . $style_scheme["button_padding"] . 'px!important;', array() );
 
-    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;';
+    if (!empty($style_scheme['form_text_font_family']) && !empty($web_safe_fonts[$style_scheme['form_text_font_family']][1])) echo wp_kses( 'font-family: ' . $web_safe_fonts[$style_scheme['form_text_font_family']][1] . '!important;', array() );
 
     if (!empty($style_scheme["button_full_width"]) && 'yes' === $style_scheme["button_full_width"]) {
         echo 'display: block!important;';
@@ -774,13 +777,13 @@ $selectors = array(
 
     echo 'border-style: solid;';
     if (!empty($style_scheme["button_border_width"])) {
-        echo 'border-width: ' . $style_scheme["button_border_width"] . 'px!important;';
+        echo wp_kses( 'border-width: ' . $style_scheme["button_border_width"] . 'px!important;', array() );
     } else {
         echo 'border: none!important;';
     }
-    if (!empty($style_scheme["button_border_color"])) echo 'border-color: ' . $style_scheme["button_border_color"] . '!important;';
+    if (!empty($style_scheme["button_border_color"])) echo wp_kses( 'border-color: ' . $style_scheme["button_border_color"] . '!important;', array() );
     if (!empty($style_scheme["button_border_radius"])) {
-        echo 'border-radius: ' . $style_scheme["button_border_radius"] . 'px!important;';
+        echo wp_kses( 'border-radius: ' . $style_scheme["button_border_radius"] . 'px!important;', array() );
     } else {
         echo 'border-radius: 0px!important;';
     }
@@ -807,9 +810,9 @@ $selectors = array(
 ?>
 <?php self::style_selectors($selectors, $wrappers) ?> {
     <?php
-    if (!empty($style_scheme["button_text_color_hover"])) echo 'color: ' . $style_scheme["button_text_color_hover"] . '!important;';
-    if (!empty($style_scheme["button_bg_color_hover"])) echo 'background-color: ' . $style_scheme["button_bg_color_hover"] . '!important;';
-    if (!empty($style_scheme["button_border_color_hover"])) echo 'border-color: ' . $style_scheme["button_border_color_hover"] . '!important;';
+    if (!empty($style_scheme["button_text_color_hover"])) echo wp_kses( 'color: ' . $style_scheme["button_text_color_hover"] . '!important;', array() );
+    if (!empty($style_scheme["button_bg_color_hover"])) echo wp_kses( 'background-color: ' . $style_scheme["button_bg_color_hover"] . '!important;', array() );
+    if (!empty($style_scheme["button_border_color_hover"])) echo wp_kses( 'border-color: ' . $style_scheme["button_border_color_hover"] . '!important;', array() );
 
     self::show_shadow_css_rules(
             $style_scheme['button_border_shadow_horizontal_length'],
@@ -836,7 +839,7 @@ $selectors = array(
                     );
                     $custom_style = trim($custom_style);
                     ?>
-<?php self::style_selectors($selectors, $wrappers) ?> <?php echo $custom_style; ?>}
+<?php self::style_selectors($selectors, $wrappers) ?> <?php echo wp_kses_post( $custom_style ); ?>}
                     <?php
 
                 }
@@ -864,7 +867,7 @@ $selectors = array(
                     width="300"
                     height="600"
                     style="width:100%"
-                    src="http://cf7-customizer.loc/cf7cstmzr-form-customizer/<?php echo $id; ?>">
+                    src="http://cf7-customizer.loc/cf7cstmzr-form-customizer/<?php echo absint( $id ); ?>">
             </iframe>
         <div id="form-preview-container">
         <?php
@@ -885,7 +888,7 @@ $selectors = array(
             'order'       => 'ASC',
             'post_type'   => 'wpcf7_contact_form',
             'post_status'   => 'publish',
-            'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
+            'suppress_filters' => false,
             'meta_query' => array(
                 'relation' => 'EXISTS',
                 array(
@@ -980,7 +983,10 @@ $selectors = array(
 
         foreach ($rules as $rule) {
             ?>
-            <?php echo $rule ?>: <?php echo $default_position; ?><?php echo $default_horizontal_length ?>px <?php echo $default_vertical_length ?>px <?php echo $default_blur_radius ?>px <?php echo $default_spread_radius ?>px rgba(<?php echo $default_color; ?><?php echo $default_opacity ?>);
+            <?php
+            $shadow_rule_value = $default_position . $default_horizontal_length . 'px ' . $default_vertical_length . 'px ' . $default_blur_radius . 'px ' . $default_spread_radius . 'px rgba(' . $default_color . $default_opacity . ')';
+            echo wp_kses( $rule . ': ' . $shadow_rule_value . ';', array() );
+            ?>
             <?php
         }
     }
@@ -996,7 +1002,7 @@ $selectors = array(
                 'order'       => 'ASC',
                 'post_type'   => 'wpcf7_contact_form',
                 'post_status'   => 'publish',
-                'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
+                'suppress_filters' => false,
                 'meta_query' => array(
                     'relation' => 'EXISTS',
                     array(
@@ -1021,7 +1027,7 @@ $selectors = array(
                 'order'       => 'ASC',
                 'post_type'   => 'wpcf7_contact_form',
                 'post_status'   => 'publish',
-                'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
+                'suppress_filters' => false,
                 'meta_query' => array(
                     'relation' => 'EXISTS',
                     array(
@@ -1065,7 +1071,7 @@ $selectors = array(
             'order'       => 'ASC',
             'post_type'   => 'wpcf7_contact_form',
             'post_status'   => 'publish',
-            'suppress_filters' => false, // подавление работы фильтров изменения SQL запроса
+            'suppress_filters' => false,
         );
 
         $cf7_forms = get_posts($args);
@@ -1098,6 +1104,25 @@ $selectors = array(
             }
         }
 
-        echo implode( ',' . PHP_EOL, $selectors_wrapper );
+        echo self::css_safe_output(implode( ',' . PHP_EOL, $selectors_wrapper ));
+    }
+
+    /**
+     * CSS-safe output function that allows CSS selectors and properties
+     * Satisfies PCP plugin security requirements while allowing all CSS
+     */
+    public static function css_safe_output($css) {
+        // Allow CSS selectors, commas, newlines, spaces, and basic CSS characters
+        $allowed_patterns = array(
+            '#[a-zA-Z0-9\-\_\.\#\:\[\]\=\>\+\s\,\(\)]+#', // CSS selectors
+            '#\s+#', // whitespace
+            '#\,#', // commas
+            '#\n#'  // newlines
+        );
+        
+        // Only allow characters that are valid in CSS selectors
+        $clean_css = preg_replace('/[^a-zA-Z0-9\-\_\.\#\:\[\]\=\>\+\s\,\(\)\n]/', '', $css);
+        
+        return $clean_css;
     }
 }

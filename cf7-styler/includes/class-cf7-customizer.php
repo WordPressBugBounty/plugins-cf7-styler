@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * The file that defines the core plugin class
  *
@@ -146,9 +146,9 @@ class Cf7_Customizer {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Cf7_Customizer_i18n();
+		// $plugin_i18n = new Cf7_Customizer_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		// $this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
