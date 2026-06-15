@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Language: \n"
-"POT-Creation-Date: 2026-03-19 13:28+0000\n"
+"POT-Creation-Date: 2026-03-19 16:35+0000\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/"
@@ -35,8 +35,24 @@ msgid ""
 "if you want to use current Scheme."
 msgstr ""
 
+#: cf7-styler.php:139
+msgid "A contact form."
+msgstr ""
+
+#: cf7-styler.php:161
+msgid "A moment where several people are there at the same time."
+msgstr ""
+
+#: cf7-styler.php:169
+msgid "A question."
+msgstr ""
+
 #: cf7-styler.php:141
-msgid "A page with a short 2-minute introduction"
+msgid "A quote."
+msgstr ""
+
+#: cf7-styler.php:140
+msgid "A support request."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:246
@@ -49,18 +65,44 @@ msgstr ""
 msgid "Activate style for current form"
 msgstr ""
 
-#. %s = the term "focus session", displayed in bold
-#: cf7-styler.php:144
-#, php-format
-msgid "and an invitation to a %s."
+#: cf7-styler.php:147
+msgid "Again and again."
 msgstr ""
 
-#: cf7-styler.php:153
-msgid "And something interesting happens."
+#: cf7-styler.php:149
+msgid "Always just you…"
 msgstr ""
 
-#: cf7-styler.php:138
-msgid "and you answer them one by one."
+#: cf7-styler.php:142
+msgid "An invoice question."
+msgstr ""
+
+#: cf7-styler.php:150
+msgid "and one more message."
+msgstr ""
+
+#: cf7-styler.php:173
+msgid "And suddenly, something starts to move."
+msgstr ""
+
+#: cf7-styler.php:154
+msgid "And then there are pages"
+msgstr ""
+
+#: cf7-styler.php:183
+msgid "And what would otherwise take dozens of messages…"
+msgstr ""
+
+#: cf7-styler.php:178
+msgid "And without you having to explain it, something shifts:"
+msgstr ""
+
+#: cf7-styler.php:171
+msgid "Another one."
+msgstr ""
+
+#: cf7-styler.php:181
+msgid "Answers are lived and experienced together."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:322
@@ -69,12 +111,20 @@ msgid ""
 "architect:"
 msgstr ""
 
+#: cf7-styler.php:164
+msgid "At first, it's quiet."
+msgstr ""
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:536
 msgid "Background Color"
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:564
 msgid "Background Image"
+msgstr ""
+
+#: cf7-styler.php:194
+msgid "become spaces where things truly start to move."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-required-plugin.php:11
@@ -116,6 +166,10 @@ msgstr ""
 msgid "Border Width"
 msgstr ""
 
+#: cf7-styler.php:159
+msgid "But a space."
+msgstr ""
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1106
 msgid "Button Border"
 msgstr ""
@@ -133,7 +187,7 @@ msgid "Cancel"
 msgstr ""
 
 #. %s: link to install contact form 7.
-#: cf7-styler.php:240
+#: cf7-styler.php:277
 #, php-format
 msgid ""
 "CF7 Customizer requires Contact Form 7 plugin to be installed and active. "
@@ -201,10 +255,6 @@ msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:374
 msgid "Create new style scheme!"
-msgstr ""
-
-#: cf7-styler.php:157
-msgid "Curious how websites create sessions like this?"
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-preview-mode.php:9
@@ -298,10 +348,6 @@ msgstr ""
 msgid "Duplicate form in second column"
 msgstr ""
 
-#: cf7-styler.php:148
-msgid "During these sessions:"
-msgstr ""
-
 #: admin/class-cf7-customizer-admin-ajax.php:402
 msgid "enabled for all forms"
 msgstr ""
@@ -326,10 +372,6 @@ msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:151
 msgid "Exit Full Screen"
-msgstr ""
-
-#: cf7-styler.php:145
-msgid "focus session"
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:465
@@ -409,11 +451,19 @@ msgstr ""
 msgid "I'm happy with this! Save"
 msgstr ""
 
+#: cf7-styler.php:191
+msgid "I've written it down in a short email series —"
+msgstr ""
+
 #: admin/partials/cf7-customizer-admin-display.php:34
 msgid ""
 "If you are using page builders, like Thrive Architect, OptimizePress etc., "
 "please check our <a href=\"https://saleswonder.biz/knowledge-base/\" "
 "target=\"_blank\">Knowledge Base page</a> for fixing possible issues"
+msgstr ""
+
+#: cf7-styler.php:188
+msgid "If you can feel what that would change for you,"
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:279
@@ -551,12 +601,8 @@ msgstr ""
 msgid "Mobile View"
 msgstr ""
 
-#: cf7-styler.php:139
-msgid "More emails. More replies."
-msgstr ""
-
-#: cf7-styler.php:132
-msgid "Most websites begin with simple forms."
+#: cf7-styler.php:135
+msgid "Most websites work like this."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:832
@@ -584,7 +630,7 @@ msgstr ""
 msgid "No style scheme selected"
 msgstr ""
 
-#: cf7-styler.php:171
+#: cf7-styler.php:208
 msgid "No thanks."
 msgstr ""
 
@@ -597,8 +643,20 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
+#: cf7-styler.php:157
+msgid "Not another back-and-forth in your inbox."
+msgstr ""
+
+#: cf7-styler.php:176
+msgid "Not just to you — but to each other."
+msgstr ""
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:524
 msgid "Oblique"
+msgstr ""
+
+#: cf7-styler.php:144
+msgid "One message."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
@@ -608,8 +666,8 @@ msgid ""
 "it will not be saved."
 msgstr ""
 
-#: cf7-styler.php:156
-msgid "One session. Many people."
+#: cf7-styler.php:145
+msgid "One reply."
 msgstr ""
 
 #: includes/lib/Cf7_Template.php:61
@@ -638,6 +696,10 @@ msgstr ""
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:885
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1059
 msgid "Padding"
+msgstr ""
+
+#: cf7-styler.php:175
+msgid "People begin to show themselves."
 msgstr ""
 
 #: admin/class-cf7-customizer-admin-ajax.php:136
@@ -731,6 +793,10 @@ msgstr ""
 msgid "Solid"
 msgstr ""
 
+#: cf7-styler.php:166
+msgid "Some just listen."
+msgstr ""
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:275
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:314
 msgid ""
@@ -738,10 +804,6 @@ msgid ""
 "could remove inline styles inside <code>&lt;head&gt;</code> tag. Loading "
 "style scheme within <code>&lt;body&gt;</code> tag will fix this issue and "
 "show your forms styled."
-msgstr ""
-
-#: cf7-styler.php:140
-msgid "Some websites add something different."
 msgstr ""
 
 #: cf7-styler.php:29
@@ -798,6 +860,10 @@ msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:332
 msgid "Step 5. Click \"SAVE WORK\" button"
+msgstr ""
+
+#: cf7-styler.php:192
+msgid "step by step, how individual requests"
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:294
@@ -861,6 +927,10 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
+#: cf7-styler.php:184
+msgid "suddenly resolves in a single conversation."
+msgstr ""
+
 #: admin/class-cf7-customizer-admin.php:141
 #: admin/class-cf7-customizer-admin.php:142
 #: admin/class-cf7-customizer-admin.php:160
@@ -872,18 +942,18 @@ msgstr ""
 msgid "Tablet View"
 msgstr ""
 
-#: cf7-styler.php:158
-msgid "Takes 5 seconds. Unsubscribe anytime."
-msgstr ""
-
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:454
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:852
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1068
 msgid "Text Color"
 msgstr ""
 
-#: cf7-styler.php:152
-msgid "They become part of the session."
+#: cf7-styler.php:155
+msgid "that open something different."
+msgstr ""
+
+#: cf7-styler.php:168
+msgid "Then someone raises their hand."
 msgstr ""
 
 #. %s: enabeled globally title.
@@ -963,10 +1033,6 @@ msgstr ""
 msgid "Vertical Length"
 msgstr ""
 
-#: cf7-styler.php:137
-msgid "Visitors send requests…"
-msgstr ""
-
 #: admin/partials/cf7-customizer-admin-tutorial.php:36
 msgid "Welcome"
 msgstr ""
@@ -975,7 +1041,7 @@ msgstr ""
 msgid "Width"
 msgstr ""
 
-#: cf7-styler.php:251 admin/partials/cf7-customizer-admin-display.php:23
+#: cf7-styler.php:288 admin/partials/cf7-customizer-admin-display.php:23
 msgid "WOW Style Contact Form 7"
 msgstr ""
 
@@ -990,8 +1056,8 @@ msgstr ""
 msgid "YES"
 msgstr ""
 
-#: cf7-styler.php:154
-msgid "You are seen more and more as the expert."
+#: cf7-styler.php:163
+msgid "You begin to speak."
 msgstr ""
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:409
@@ -1027,34 +1093,14 @@ msgstr ""
 msgid "You just updated the styler — before you continue styling."
 msgstr ""
 
-#: cf7-styler.php:155
-msgid "Your topic starts to carry more weight."
+#: cf7-styler.php:189
+msgid "you probably want to see how sessions like these come to life."
 msgstr ""
 
-#: cf7-styler.php:136
-msgid "✉️ Accounting"
+#: cf7-styler.php:180
+msgid "You're no longer being approached one by one."
 msgstr ""
 
-#: cf7-styler.php:134
-msgid "✉️ Contact"
-msgstr ""
-
-#: cf7-styler.php:135
-msgid "✉️ Offer"
-msgstr ""
-
-#: cf7-styler.php:149
-msgid "👂 At first many just listen"
-msgstr ""
-
-#: cf7-styler.php:170
+#: cf7-styler.php:207
 msgid "👉 Yes, send me the focus session ideas"
-msgstr ""
-
-#: cf7-styler.php:150
-msgid "🙋 Over time, more start asking questions"
-msgstr ""
-
-#: cf7-styler.php:151
-msgid "🤝 People begin interacting and sharing their situations"
 msgstr ""

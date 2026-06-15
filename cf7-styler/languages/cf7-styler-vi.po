@@ -3,7 +3,7 @@ msgstr ""
 "Language: vi\n"
 "POT-Creation-Date: 2020-02-06 11:35+0000\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2026-03-19 13:45+0000\n"
+"PO-Revision-Date: 2026-03-19 16:42+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Project-Id-Version: WOW Style Contact Form 7\n"
 "Report-Msgid-Bugs-To: \n"
@@ -44,9 +44,25 @@ msgstr ""
 "<strong>%s</strong> được sử dụng cho tất cả các mẫu toàn cầu, nhấp vào \"Sử "
 "dụng cho tất cả các mẫu\" nếu muốn sử dụng kiểu hiện tại."
 
+#: cf7-styler.php:139
+msgid "A contact form."
+msgstr "Một biểu mẫu liên hệ."
+
+#: cf7-styler.php:161
+msgid "A moment where several people are there at the same time."
+msgstr "Một khoảnh khắc mà nhiều người có mặt cùng lúc."
+
+#: cf7-styler.php:169
+msgid "A question."
+msgstr "Một câu hỏi."
+
 #: cf7-styler.php:141
-msgid "A page with a short 2-minute introduction"
-msgstr "Một trang với phần giới thiệu ngắn 2 phút"
+msgid "A quote."
+msgstr "Một trích dẫn."
+
+#: cf7-styler.php:140
+msgid "A support request."
+msgstr "Một yêu cầu hỗ trợ."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:246
 msgid "Activate style for all forms*"
@@ -58,25 +74,55 @@ msgstr "Kích hoạt kiểu cho tất cả các mẫu*"
 msgid "Activate style for current form"
 msgstr "Kích hoạt kiểu cho mẫu hiện tại"
 
-#. %s = the term "focus session", displayed in bold
-#: cf7-styler.php:144
-#, php-format
-msgid "and an invitation to a %s."
-msgstr "và một lời mời đến %s."
+#: cf7-styler.php:147
+msgid "Again and again."
+msgstr "Lặp đi lặp lại."
 
-#: cf7-styler.php:153
-msgid "And something interesting happens."
-msgstr "Và điều gì đó thú vị xảy ra."
+#: cf7-styler.php:149
+msgid "Always just you…"
+msgstr "Chỉ có một mình…"
 
-#: cf7-styler.php:138
-msgid "and you answer them one by one."
-msgstr "và bạn trả lời chúng từng cái một."
+#: cf7-styler.php:142
+msgid "An invoice question."
+msgstr "Một câu hỏi về hóa đơn."
+
+#: cf7-styler.php:150
+msgid "and one more message."
+msgstr "và một tin nhắn nữa."
+
+#: cf7-styler.php:173
+msgid "And suddenly, something starts to move."
+msgstr "Và đột nhiên, có điều gì đó bắt đầu chuyển động."
+
+#: cf7-styler.php:154
+msgid "And then there are pages"
+msgstr "Và sau đó có những trang"
+
+#: cf7-styler.php:183
+msgid "And what would otherwise take dozens of messages…"
+msgstr "Và điều mà nếu không sẽ mất hàng chục tin nhắn…"
+
+#: cf7-styler.php:178
+msgid "And without you having to explain it, something shifts:"
+msgstr "Và không cần phải giải thích, điều gì đó thay đổi:"
+
+#: cf7-styler.php:171
+msgid "Another one."
+msgstr "Một cái khác."
+
+#: cf7-styler.php:181
+msgid "Answers are lived and experienced together."
+msgstr "Các câu trả lời được sống và trải nghiệm cùng nhau."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:322
 msgid ""
 "As an alternative you can disable clean out the styles like on Thrive "
 "architect:"
 msgstr "Như một lựa chọn, có thể tắt sạch các kiểu như trên Thrive architect:"
+
+#: cf7-styler.php:164
+msgid "At first, it's quiet."
+msgstr "Ban đầu, mọi thứ yên tĩnh."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:536
 msgid "Background Color"
@@ -85,6 +131,10 @@ msgstr "Màu nền"
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:564
 msgid "Background Image"
 msgstr "Hình ảnh nền"
+
+#: cf7-styler.php:194
+msgid "become spaces where things truly start to move."
+msgstr "trở thành không gian nơi mọi thứ thực sự bắt đầu chuyển động."
 
 #: admin/partials/cf7-customizer-admin-tab-required-plugin.php:11
 msgid ""
@@ -127,6 +177,10 @@ msgstr "Loại đường viền"
 msgid "Border Width"
 msgstr "Độ rộng đường viền"
 
+#: cf7-styler.php:159
+msgid "But a space."
+msgstr "Nhưng là một không gian."
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1106
 msgid "Button Border"
 msgstr "Đường viền nút"
@@ -144,7 +198,7 @@ msgid "Cancel"
 msgstr "Hủy"
 
 #. %s: link to install contact form 7.
-#: cf7-styler.php:240
+#: cf7-styler.php:277
 #, php-format
 msgid ""
 "CF7 Customizer requires Contact Form 7 plugin to be installed and active. "
@@ -215,10 +269,6 @@ msgstr "Tạo nhiều kiểu mẫu"
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:374
 msgid "Create new style scheme!"
 msgstr "Tạo kiểu mẫu mới!"
-
-#: cf7-styler.php:157
-msgid "Curious how websites create sessions like this?"
-msgstr "Tò mò về cách các trang web tạo phiên như thế này?"
 
 #: admin/partials/cf7-customizer-admin-preview-mode.php:9
 msgid "Current Style"
@@ -323,10 +373,6 @@ msgstr "Đường đôi"
 msgid "Duplicate form in second column"
 msgstr "Nhân bản biểu mẫu trong cột thứ hai"
 
-#: cf7-styler.php:148
-msgid "During these sessions:"
-msgstr "Trong các phiên này:"
-
 #: admin/class-cf7-customizer-admin-ajax.php:402
 msgid "enabled for all forms"
 msgstr "được kích hoạt cho tất cả các biểu mẫu"
@@ -352,10 +398,6 @@ msgstr "Lỗi"
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:151
 msgid "Exit Full Screen"
 msgstr "Thoát chế độ toàn màn hình"
-
-#: cf7-styler.php:145
-msgid "focus session"
-msgstr "phiên tập trung"
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:465
 msgid "Font Family"
@@ -434,6 +476,10 @@ msgstr "https://wordpress.org/plugins/cf7-styler/"
 msgid "I'm happy with this! Save"
 msgstr "Hài lòng với điều này! Lưu lại"
 
+#: cf7-styler.php:191
+msgid "I've written it down in a short email series —"
+msgstr "Đã viết nó trong một chuỗi email ngắn —"
+
 #: admin/partials/cf7-customizer-admin-display.php:34
 msgid ""
 "If you are using page builders, like Thrive Architect, OptimizePress etc., "
@@ -444,6 +490,10 @@ msgstr ""
 "OptimizePress, v.v., vui lòng kiểm tra <a href=\"https://saleswonder."
 "biz/knowledge-base/\" target=\"_blank\">trang Cơ sở Kiến thức</a> của chúng "
 "tôi để khắc phục các vấn đề có thể xảy ra."
+
+#: cf7-styler.php:188
+msgid "If you can feel what that would change for you,"
+msgstr "Nếu có thể cảm nhận điều đó sẽ thay đổi gì cho mình,"
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:279
 msgid ""
@@ -594,13 +644,9 @@ msgstr "Khoảng cách"
 msgid "Mobile View"
 msgstr "Chế độ di động"
 
-#: cf7-styler.php:139
-msgid "More emails. More replies."
-msgstr "Nhiều email. Nhiều phản hồi."
-
-#: cf7-styler.php:132
-msgid "Most websites begin with simple forms."
-msgstr "Hầu hết các trang web bắt đầu với các mẫu đơn đơn giản."
+#: cf7-styler.php:135
+msgid "Most websites work like this."
+msgstr "Hầu hết các trang web hoạt động như thế này."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:832
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1019
@@ -629,7 +675,7 @@ msgstr "Không có plugin nào được chọn để cài đặt"
 msgid "No style scheme selected"
 msgstr "Không có sơ đồ kiểu nào được chọn"
 
-#: cf7-styler.php:171
+#: cf7-styler.php:208
 msgid "No thanks."
 msgstr "Không, cảm ơn."
 
@@ -642,9 +688,21 @@ msgstr "Xác minh nonce không thành công"
 msgid "Normal"
 msgstr "Bình thường"
 
+#: cf7-styler.php:157
+msgid "Not another back-and-forth in your inbox."
+msgstr "Không còn những đi lại qua lại trong hộp thư đến."
+
+#: cf7-styler.php:176
+msgid "Not just to you — but to each other."
+msgstr "Không chỉ đến với một người — mà đến với nhau."
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:524
 msgid "Oblique"
 msgstr "Nghiêng"
+
+#: cf7-styler.php:144
+msgid "One message."
+msgstr "Một tin nhắn."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:999
 msgid ""
@@ -656,9 +714,9 @@ msgstr ""
 "phiên bản Chuyên nghiệp. Có thể thử nghiệm trong chế độ xem trước \"kiểu "
 "hiện tại\", nhưng sẽ không được lưu."
 
-#: cf7-styler.php:156
-msgid "One session. Many people."
-msgstr "Một phiên. Nhiều người."
+#: cf7-styler.php:145
+msgid "One reply."
+msgstr "Một phản hồi."
 
 #: includes/lib/Cf7_Template.php:61
 msgid "Opacity"
@@ -687,6 +745,10 @@ msgstr "Nổi bật"
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1059
 msgid "Padding"
 msgstr "Đệm"
+
+#: cf7-styler.php:175
+msgid "People begin to show themselves."
+msgstr "Mọi người bắt đầu thể hiện bản thân."
 
 #: admin/class-cf7-customizer-admin-ajax.php:136
 msgid "Please input style scheme title"
@@ -779,6 +841,10 @@ msgstr "Vị trí bóng"
 msgid "Solid"
 msgstr "Đặc"
 
+#: cf7-styler.php:166
+msgid "Some just listen."
+msgstr "Một số chỉ lắng nghe."
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:275
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:314
 msgid ""
@@ -791,10 +857,6 @@ msgstr ""
 "OptimizePress, v.v.) có thể xóa các kiểu nội tuyến trong thẻ <code>&lt;"
 "head&gt;</code>. Tải sơ đồ kiểu trong thẻ <code>&lt;body&gt;</code> sẽ khắc "
 "phục vấn đề này và hiển thị các mẫu của bạn đã được định dạng."
-
-#: cf7-styler.php:140
-msgid "Some websites add something different."
-msgstr "Một số trang web thêm điều gì đó khác."
 
 #: cf7-styler.php:29
 msgid "Sorry, you are not allowed to access this page."
@@ -860,6 +922,10 @@ msgstr "Bước 4. Đảm bảo rằng \"Không xóa CSS từ &lt;head&gt;\" đ�
 msgid "Step 5. Click \"SAVE WORK\" button"
 msgstr "Bước 5. Nhấp vào nút \"LƯU CÔNG VIỆC\""
 
+#: cf7-styler.php:192
+msgid "step by step, how individual requests"
+msgstr "từng bước, cách mà các yêu cầu cá nhân"
+
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:294
 msgid "Style all forms in one click globally"
 msgstr "Định dạng tất cả các biểu mẫu chỉ với một cú nhấp chuột toàn cầu"
@@ -921,6 +987,10 @@ msgstr "Kiểu sẽ được tải trong thẻ <head>"
 msgid "Success"
 msgstr "Thành công"
 
+#: cf7-styler.php:184
+msgid "suddenly resolves in a single conversation."
+msgstr "đột nhiên được giải quyết trong một cuộc trò chuyện."
+
 #: admin/class-cf7-customizer-admin.php:141
 #: admin/class-cf7-customizer-admin.php:142
 #: admin/class-cf7-customizer-admin.php:160
@@ -932,19 +1002,19 @@ msgstr "Hỗ trợ & KB"
 msgid "Tablet View"
 msgstr "Chế độ xem máy tính bảng"
 
-#: cf7-styler.php:158
-msgid "Takes 5 seconds. Unsubscribe anytime."
-msgstr "Mất 5 giây. Hủy đăng ký bất cứ lúc nào."
-
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:454
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:852
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1068
 msgid "Text Color"
 msgstr "Màu văn bản"
 
-#: cf7-styler.php:152
-msgid "They become part of the session."
-msgstr "Chúng trở thành một phần của phiên."
+#: cf7-styler.php:155
+msgid "that open something different."
+msgstr "mở ra điều gì đó khác."
+
+#: cf7-styler.php:168
+msgid "Then someone raises their hand."
+msgstr "Sau đó ai đó giơ tay."
 
 #. %s: enabeled globally title.
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:1329
@@ -1038,10 +1108,6 @@ msgstr "Tải lên hình ảnh"
 msgid "Vertical Length"
 msgstr "Chiều dài dọc"
 
-#: cf7-styler.php:137
-msgid "Visitors send requests…"
-msgstr "Khách truy cập gửi yêu cầu…"
-
 #: admin/partials/cf7-customizer-admin-tutorial.php:36
 msgid "Welcome"
 msgstr "Chào mừng"
@@ -1050,7 +1116,7 @@ msgstr "Chào mừng"
 msgid "Width"
 msgstr "Chiều rộng"
 
-#: cf7-styler.php:251 admin/partials/cf7-customizer-admin-display.php:23
+#: cf7-styler.php:288 admin/partials/cf7-customizer-admin-display.php:23
 msgid "WOW Style Contact Form 7"
 msgstr "WOW Style Contact Form 7"
 
@@ -1067,9 +1133,9 @@ msgstr ""
 msgid "YES"
 msgstr "CÓ"
 
-#: cf7-styler.php:154
-msgid "You are seen more and more as the expert."
-msgstr "Được nhìn nhận ngày càng nhiều như một chuyên gia."
+#: cf7-styler.php:163
+msgid "You begin to speak."
+msgstr "Bắt đầu nói."
 
 #: admin/partials/cf7-customizer-admin-tab-form-customize.php:409
 msgid ""
@@ -1108,34 +1174,14 @@ msgstr "Đã kích hoạt trình định dạng — trước khi bắt đầu đ
 msgid "You just updated the styler — before you continue styling."
 msgstr "Đã cập nhật trình tạo kiểu — trước khi tiếp tục tạo kiểu."
 
-#: cf7-styler.php:155
-msgid "Your topic starts to carry more weight."
-msgstr "Chủ đề bắt đầu có trọng lượng hơn."
+#: cf7-styler.php:189
+msgid "you probably want to see how sessions like these come to life."
+msgstr "có lẽ muốn thấy cách mà các phiên như thế này trở nên sống động."
 
-#: cf7-styler.php:136
-msgid "✉️ Accounting"
-msgstr "✉️ Kế toán"
+#: cf7-styler.php:180
+msgid "You're no longer being approached one by one."
+msgstr "Không còn bị tiếp cận từng người một."
 
-#: cf7-styler.php:134
-msgid "✉️ Contact"
-msgstr "✉️ Liên hệ"
-
-#: cf7-styler.php:135
-msgid "✉️ Offer"
-msgstr "✉️ Đề nghị"
-
-#: cf7-styler.php:149
-msgid "👂 At first many just listen"
-msgstr "👂 Ban đầu nhiều người chỉ lắng nghe"
-
-#: cf7-styler.php:170
+#: cf7-styler.php:207
 msgid "👉 Yes, send me the focus session ideas"
 msgstr "👉 Có, gửi cho tôi ý tưởng phiên tập trung"
-
-#: cf7-styler.php:150
-msgid "🙋 Over time, more start asking questions"
-msgstr "🙋 Theo thời gian, nhiều người bắt đầu đặt câu hỏi"
-
-#: cf7-styler.php:151
-msgid "🤝 People begin interacting and sharing their situations"
-msgstr "🤝 Mọi người bắt đầu tương tác và chia sẻ tình huống của họ"

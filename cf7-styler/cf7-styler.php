@@ -111,54 +111,77 @@ if ( 'free' === Cf7_License::get_license_version() ) {
             return $cf7_styler;
         }
         
-        // Init Freemius.
-        cf7_styler();
-        // Customize Freemius opt-in message for WOW Style Contact Form 7
-       cf7_styler()->add_filter( 'connect-header', function ( $header_html ) {
-			return '<strong style="font-size:1.25em; display:block; margin-bottom:12px;">You just activated the styler — before you start styling.</strong>';
-		} );
+// Init Freemius.
+        // ✅ 1. Load text domain
+        add_action( 'init', function() {
+            load_plugin_textdomain(
+                'cf7-styler',
+                false,
+                dirname( plugin_basename( CF7CSTMZR_PLUGIN_FILE ) ) . '/languages'
+            );
+        }, 1 );
 
-		cf7_styler()->add_filter( 'connect-header_on-update', function ( $header_html ) {
-			return '<strong style="font-size:1.25em; display:block; margin-bottom:12px;">You just updated the styler — before you continue styling.</strong>';
-		} );
+        // ✅ 2. Shared bullets & subline
+        function cf7_styler_build_message_body() {
+            return
+                '<span style="display:block; margin-bottom:6px;">'
+                    . esc_html__( "What you'll get:", 'cf7-styler' )
+                . '</span>'
 
-		$cf7_styler_message = '
-		<span style="font-size:1.0em; line-height:1.6; color:#2c3338; display:block;">
-		<strong style="font-size:1.25em; display:block; margin-bottom:12px;">Most websites begin with simple forms.</strong>
-		✉️ Contact<br>✉️ Offer<br>✉️ Accounting<br><br>
-		Visitors send requests…<br>
-		and you answer them one by one.<br><br>
-		More emails. More replies.<br><br>
-		Some websites add something different.<br><br>
-		A page with a short 2-minute introduction<br>
-		and an invitation to a <strong>focus session</strong>.<br><br>
-		During these sessions:<br>
-		👂 At first many just listen<br>
-		🙋 Over time, more start asking questions<br>
-		🤝 People begin interacting and sharing their situations<br><br>
-		They become part of the session.<br><br>
-		And something interesting happens.<br><br>
-		You are seen more and more as the expert.<br>
-		Your topic starts to carry more weight.<br><br>
-		<strong>One session. Many people.</strong><br><br>
-		Curious how websites create sessions like this?<br><br>
-		<em>Takes 5 seconds. Unsubscribe anytime.</em>
-		</span>';
+                . '<span style="display:block; margin-left:4px; line-height:2;">'
+                    . '✓ ' . esc_html__( 'How to make your CF7 form two-column — no plugin needed', 'cf7-styler' ) . '<br>'
+                    . '✓ ' . esc_html__( 'Security & feature updates — before something breaks', 'cf7-styler' ) . '<br>'
+                    . '✓ ' . esc_html__( 'Ideas for turning form submissions into real inquiries', 'cf7-styler' ) . '<br>'
+                    . '✓ ' . esc_html__( 'Occasional offers — only relevant ones', 'cf7-styler' ) . '<br>'
+                . '</span>'
 
-		cf7_styler()->add_filter( 'connect_message', function ( $message, $user_first_name, $plugin_title, $user_login, $site_link, $freemius_link ) use ( $cf7_styler_message ) {
-			return $cf7_styler_message;
-		}, 10, 6 );
+                . '<span style="display:block; margin-top:10px; font-size:0.9em; color:#666;">'
+                    . esc_html__( 'To keep WOW Styler running well on your site, clicking also shares basic WP info. Unsubscribe anytime.', 'cf7-styler' )
+                . '</span>';
+        }
 
-		cf7_styler()->add_filter( 'connect_message_on_update', function ( $message, $user_first_name, $plugin_title, $user_login, $site_link, $freemius_link ) use ( $cf7_styler_message ) {
-			return $cf7_styler_message;
-		}, 10, 6 );
+        // ✅ 3a. Fresh install — different headline
+        function cf7_styler_build_connect_message() {
+            return
+                '<span style="font-size:1.0em; line-height:1.8; color:#2c3338; display:block;">'
+                    . '<strong style="font-size:1.25em; display:block; margin-bottom:10px;">'
+                        . esc_html__( 'WOW Styler was activated.', 'cf7-styler' ) . '<br>'
+                        . esc_html__( "Let's take a quick look at what really matters.", 'cf7-styler' )
+                    . '</strong>'
+                    . cf7_styler_build_message_body()
+                . '</span>';
+        }
 
-		cf7_styler()->override_i18n( array(
-			'opt-in-connect' => __( '👉 Yes, send me the focus session ideas', 'cf7-styler' ),
-			'skip'           => __( 'No thanks.', 'cf7-styler' ),
-		) );
+        // ✅ 3b. Update — different headline
+        function cf7_styler_build_connect_message_on_update() {
+            return
+                '<span style="font-size:1.0em; line-height:1.8; color:#2c3338; display:block;">'
+                    . '<strong style="font-size:1.25em; display:block; margin-bottom:10px;">'
+                        . esc_html__( 'WOW Styler was just updated.', 'cf7-styler' ) . '<br>'
+                        . esc_html__( "Let's take a quick look at what really matters.", 'cf7-styler' )
+                    . '</strong>'
+                    . cf7_styler_build_message_body()
+                . '</span>';
+        }
 
-} // end if !function_exists cf7_styler
+        // ✅ 4. Filters
+        cf7_styler()->add_filter( 'connect_message', function( $message, $user_first_name, $plugin_title, $user_login, $site_link, $freemius_link ) {
+            return cf7_styler_build_connect_message();
+        }, 10, 6 );
+
+        cf7_styler()->add_filter( 'connect_message_on_update', function( $message, $user_first_name, $plugin_title, $user_login, $site_link, $freemius_link ) {
+            return cf7_styler_build_connect_message_on_update();
+        }, 10, 6 );
+
+        // ✅ 5. CTA & Skip
+        add_action( 'init', function() {
+            cf7_styler()->override_i18n( array(
+                'opt-in-connect' => esc_html__( '👉 Send it — I\'m in', 'cf7-styler' ),
+                'skip'           => esc_html__( 'No thanks', 'cf7-styler' ),
+            ) );
+        }, 2 );
+
+    } // end if !function_exists cf7_styler
         // Signal that SDK was initiated.
         do_action( 'cf7_styler_loaded' );
 		add_action( 'admin_head', function() {
